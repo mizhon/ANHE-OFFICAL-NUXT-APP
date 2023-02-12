@@ -33,24 +33,38 @@
       </div>
       <!-- 信息动态 -->
       <div class="news-section">
-        <p>信息动态</p>
-        123
+        <p>{{ headInfoTitle }}</p>
+        <div class="news-info-container">
+          <div class="main-info">
+            <InfoCard :info="newsInfo" />
+          </div>
+          <div class="sub-info">
+            <InfoCard :info="productInfo" :img-position="productInfo.position" />
+            <InfoCard :info="searchInfo" :img-position="searchInfo.position" />
+          </div>
+        </div>
       </div>
       <!-- 产品展示 -->
       <div class="product-section">
-        <p>产品展示</p>
-        456
+        <p>{{ headProductTitle }}</p>
+        <div class="product-info-container">
+          <ProductCarousel />
+        </div>
       </div>
     </section>
     <CommonFooter />
   </div>
 </template>
 <script>
+import InfoCard from '@/components/index/InfoCard.vue'
+import ProductCarousel from '@/components/index/ProductCarousel.vue'
 import CommonFooter from '@/components/CommonFooter.vue'
 
 export default {
   name: 'IndexPage',
   components: {
+    InfoCard,
+    ProductCarousel,
     CommonFooter
   },
   layout: 'default',
@@ -69,6 +83,27 @@ export default {
         btnIcon: `/icons/pulldown.svg`,
         actionText: `向下滑动`
       },
+      headInfoTitle: '信息动态',
+      newsInfo: {
+        title: '新闻动态',
+        subTitle: '新闻动态最新信息标题文字占位长度',
+        summary: '新闻内容详情正文文字占位新闻内容详情正文文字 占位新闻内容详情正文文字',
+        img: '/imgs/index/news-img.png'
+      },
+      headProductTitle: '产品展示',
+      productInfo: {
+        title: '产品动态',
+        subTitle: '产品动态最新信息标题文字占位长度',
+        summary: '产品内容详情正文文字占位产品内容详情正文文字 占位产品内容详情正文文字',
+        img: '/imgs/index/product-img.png',
+        position: 'left' // 需要修改图片位置时设置
+      },
+      searchInfo: {
+        title: '研究动态',
+        summary: '研究内容详情正文文字占位研究内容详情正文文字 占位研究内容详情正文文字',
+        img: '/imgs/index/product-img.png',
+        position: 'right' // 需要修改图片位置时设置
+      }
     }
   },
   methods: {
@@ -131,16 +166,15 @@ export default {
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: -50px;
+        bottom: -70px;
         color: $white;
         font-weight: 300;
         cursor: pointer;
         img {
-          width: 32px;
-          height: 32px;
+          width: 48px;
+          height: 48px;
         }
         p {
-          padding-top: 15px;
           font-size: 16px;
         }
       }
@@ -156,12 +190,21 @@ export default {
     p {
       font-size: 38px;
       color: #333;
-      padding: 40px 20px 20px 20px;
+      padding: 65px 20px 15px 20px;
     }
   }
 
-  // .product-section {
+  .news-info-container {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    .main-info, .sub-info {
+      padding: 0 5px;
+    }
+  }
 
-  // }
+  .product-section .product-info-container {
+    width: 70%;
+  }
 }
 </style>

@@ -82,7 +82,7 @@ export default {
     align-items: center;
     margin-left: 80px;
     .menu-item {
-      padding: 20px;
+      padding: 20px 10px;
       color: $white;
       cursor: pointer;
 
@@ -92,6 +92,12 @@ export default {
         a {
           color: $topMenuActiveText;
         }
+      }
+
+      a {
+        padding: 20px;
+        text-decoration: none;
+        color: $white;
       }
     }
     .active {
