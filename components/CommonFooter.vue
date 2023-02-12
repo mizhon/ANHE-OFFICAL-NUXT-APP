@@ -2,6 +2,7 @@
   <section class="bottom-container">
     <div class="main-content">
       <TrademarkLogo :path="logoPath" :width="100" :height="60" class="logo" />
+      <div class="vertical-line"></div>
       <!-- 联系信息 -->
       <div class="contact-info">
         <div class="title">{{ contactInfo.title }}</div>
@@ -11,10 +12,11 @@
           <p>地址：{{ contactInfo.address }}</p>
         </div>
       </div>
+      <div class="vertical-line"></div>
       <!-- 微信公众号信息 -->
       <div class="wechat-offical-info">
         <TrademarkLogo :path="wechatPath" :width="40" :height="40" class="logo" />
-        <p>{{ wechatOfficalText }}</p>
+        <p class="desc">{{ wechatOfficalText }}</p>
       </div>
     </div>
     <div class="sub-content">
@@ -53,22 +55,38 @@ export default {
     align-items: center;
     padding: 20px 0;
 
+    .vertical-line {
+      border: .5px solid $footDividingLineColor;
+      height: 120px;
+      margin: 5px 70px;
+    }
+
     .contact-info {
-      color: $white;
       .title {
-        font-size: 14px;
+        font-size: 18px;
         margin-bottom: 10px;
+        color: $footMainTextColor;
       }
 
       .info-details {
         font-size: 12px;
+        color: $footSubTextColor;
       }
     }
 
     .wechat-offical-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       .logo {
         background: gray;
         border-radius: 6px;
+      }
+
+      .desc {
+        color: $footMainTextColor;
+        font-size: 14px;
       }
     }
   }
@@ -78,7 +96,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 1px;
     color: #909399;
     padding: 20px;
   }
