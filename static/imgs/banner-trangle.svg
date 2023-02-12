@@ -1,0 +1,25 @@
+<svg id="_-h-logo_彩色" data-name="-h-logo 彩色" xmlns="http://www.w3.org/2000/svg" width="51" height="43" viewBox="0 0 51 43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3869fc;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #57fff1;
+      }
+
+      .cls-2 {
+        opacity: 0.87;
+      }
+    </style>
+  </defs>
+  <path id="形状_3" data-name="形状 3" class="cls-1" d="M894.385,417.439L897,421.348H877.385l-2.616-3.909h19.616Z" transform="translate(-846 -379)"/>
+  <path id="形状_3_拷贝_2" data-name="形状 3 拷贝 2" class="cls-1" d="M886.538,405.061l2.616,3.909H869.538l-2.615-3.909h19.615Z" transform="translate(-846 -379)"/>
+  <path id="形状_4" data-name="形状 4" class="cls-2" d="M870.846,379l9.808,16.288L864.962,422,846,421.348Z" transform="translate(-846 -379)"/>
+  <path id="形状_3_拷贝" data-name="形状 3 拷贝" class="cls-3" d="M890.462,411.576l2.615,3.909H873.461l-2.615-3.909h19.616Z" transform="translate(-846 -379)"/>
+</svg>
