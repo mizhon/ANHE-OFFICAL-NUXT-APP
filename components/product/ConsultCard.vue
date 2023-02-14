@@ -29,7 +29,7 @@ export default {
 .consult-card-container {
   width: 450px;
   max-height: 240px;
-  margin: 80px 0 20px 10px;
+  margin: 75px 0 20px 10px;
   background-color: $navbarBackgroundColor;
   .title {
     padding: 30px 20px 10px 20px;
