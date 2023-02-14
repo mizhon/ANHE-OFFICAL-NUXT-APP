@@ -1,7 +1,7 @@
 import CommonNavTab from '@/components/CommonNavTab.vue';
 <template>
   <div class="page-content-wrapper">
-    <CommonNavTab :tabs="tabs" :active-tab="activeTabIndex" @get-tab-index="getCurrentTab" />
+    <CommonNavTab :tabs="tabs" :active-tab="activeTabIndex" @get-tab-index="getActiveTabIndex" />
   </div>
 </template>
 <script>
@@ -23,9 +23,10 @@ export default {
     }
   },
   methods: {
-    getCurrentTab(index) {
+    getActiveTabIndex(index) {
+      this.activeTabIndex = index;
       // eslint-disable-next-line no-console
-      console.log(index);
+      console.log('[🚀] get active tab index: --->', this.activeTabIndex);
     }
   }
 }
