@@ -47,6 +47,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .bottom-container {
+  position: relative;
   width: 100%;
   background: $black;
   .main-content {

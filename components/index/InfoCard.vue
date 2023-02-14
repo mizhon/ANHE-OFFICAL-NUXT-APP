@@ -75,6 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .info-card-container {
+  margin-bottom: 5px;
   .card-desc {
     .info-container {
       width: 380px;
@@ -103,7 +104,7 @@ export default {
         button {
           padding: 12px 42px;
           border: none;
-          color: $topMenuActiveText;
+          color: $menuActiveText;
           background-color: $btnBackgroundColor;
           font-size: 16px;
           font-weight: 400;

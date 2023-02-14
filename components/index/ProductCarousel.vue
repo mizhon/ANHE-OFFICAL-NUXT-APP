@@ -12,11 +12,11 @@
     <!-- 右侧产品列表展示区 -->
     <div class="product-list-container">
       <!-- TODO -->
-      <!-- <div v-for="card in cards" :key="card.id">
+      <div v-for="card in cards" :key="card.id">
         <div class="product-card">
           {{ card.name }}
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -36,14 +36,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .product-carousel-wrapper {
-  // display: flex;
-  // justify-content: column;
-  // align-content: space-between;
   .carousel-container {
     
   }
   .product-list-container {
-
+    
   }
 }
 

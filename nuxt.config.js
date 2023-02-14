@@ -49,7 +49,7 @@ export default {
   ],
   // i18n settings
   i18n: {
-    locales: ['en', 'zh-cn'],
+    locales: ['en', 'zh'],
     defaultLocale: 'en',
     vueI18n: {
 

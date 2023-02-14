@@ -90,7 +90,7 @@ export default {
         background: $white;
         font-weight: 800;
         a {
-          color: $topMenuActiveText;
+          color: $menuActiveText;
         }
       }
 
@@ -102,7 +102,7 @@ export default {
     }
     .active {
       background: $white;
-      color: $topMenuActiveText;
+      color: $menuActiveText;
       font-weight: 800;
     }
   }

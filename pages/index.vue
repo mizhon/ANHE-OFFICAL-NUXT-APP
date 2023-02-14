@@ -3,7 +3,7 @@
     <section class="index-page">
       <!-- Banner 部分 -->
       <div class="main-banner">
-        <!-- 主图 -->
+        <!-- 主图（走马灯效果） -->
         <div class="banner-image">
           <img :src="banner.imagePath" alt="" height="100%" width="100%"/>
         </div>
