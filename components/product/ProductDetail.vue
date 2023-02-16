@@ -88,7 +88,8 @@ export default {
     padding: 25px 0 5px 15px;
 
     .info-details {
-      max-width: 500px;
+      // max-width: 550px;
+      flex-grow: 1;
       font-size: 14px;
       .title {
         padding: 20px 10px 0 10px;

@@ -36,8 +36,6 @@ export default {
   },
   methods: {
     handleTab(index) {
-      // eslint-disable-next-line no-console
-      console.log('[🐷] set active tab index --->', index);
       this.activeTabIndex = index;
       this.$emit('get-tab-index', index);
     }

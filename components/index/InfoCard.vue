@@ -54,8 +54,6 @@ export default {
     imgPosition: {
       immediate: true,
       handler(newVal, oldVal) {
-        // eslint-disable-next-line no-console
-        console.log('Prop changed: ', newVal, ' | was: ', oldVal)
         if (newVal === 'left') {
           this.cardLayout = 'img-left';
         }
@@ -67,8 +65,6 @@ export default {
   },
   methods: {
     handleBtnClick() {
-      // eslint-disable-next-line no-console
-      console.log('button click');
     }
   }
 }

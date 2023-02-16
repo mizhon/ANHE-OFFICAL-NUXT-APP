@@ -27,7 +27,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .consult-card-container {
-  width: 450px;
+  max-width: 450px;
   max-height: 240px;
   margin: 75px 0 20px 10px;
   background-color: $navbarBackgroundColor;

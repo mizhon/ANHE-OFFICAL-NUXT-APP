@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      activeTabIndex: 0,
+      activeTabIndex: 0, // 默认激活的tab标签为0
       tabs: [
         { id: 0, label: '学术研讨' },
         { id: 1, label: '产品笔记' },
@@ -25,8 +25,7 @@ export default {
   methods: {
     getActiveTabIndex(index) {
       this.activeTabIndex = index;
-      // eslint-disable-next-line no-console
-      console.log('[🚀] get active tab index: --->', this.activeTabIndex);
+
     }
   }
 }

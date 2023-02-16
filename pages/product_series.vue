@@ -93,8 +93,6 @@ export default {
   },
   methods: {
     handleTabClick(index) {
-      // eslint-disable-next-line no-console
-      console.log('current tab index: --->', index);
       this.activeTabIndex = index;
       this.productInfo = this.products[index];
     }

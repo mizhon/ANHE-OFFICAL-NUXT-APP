@@ -39,18 +39,13 @@ export default {
   },
   methods: {
     handleSelectedItem(menu, idx) {
-      // eslint-disable-next-line no-console
-      console.log(menu.route, idx, this.$route.path);
       if (this.$route.path === menu.route) {
         // todo
       } else {
         // todo
       }
     },
-    switchLanguage() {
-      // eslint-disable-next-line no-console
-      console.log('change language: --->', this.currentLangText, this.$i18n.locales, this.$i18n);
-    }
+    switchLanguage() {}
   }
 }
 </script>
