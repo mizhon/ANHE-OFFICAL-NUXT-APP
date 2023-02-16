@@ -198,6 +198,7 @@ export default {
           .desc {
             display: flex;
             flex-direction: column;
+            padding: 10px 30px 20px 30px;
             font-size: 16px;
             font-weight: 400;
             span {
