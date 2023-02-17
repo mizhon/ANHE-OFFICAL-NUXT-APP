@@ -67,7 +67,11 @@ export default {
     ProductCarousel,
     CommonFooter
   },
-  layout: 'default',
+  layout: (ctx) => {
+    // eslint-disable-next-line no-console
+    console.log('$device ---===>>>', ctx.$device)
+    return 'default'
+  },
   data() {
     return {
       banner: {
