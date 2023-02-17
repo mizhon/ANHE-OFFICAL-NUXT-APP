@@ -5,7 +5,7 @@
       <div class="main-banner">
         <!-- 主图（走马灯效果） -->
         <div class="banner-image">
-          <img :src="banner.imagePath" alt="" height="100%" width="100%"/>
+          <img :src="banner.imagePath" alt="" width="100%" />
         </div>
         <!-- 文字部分 -->
         <div class="banner-info">
@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       banner: {
-        imagePath: `/imgs/slide.jpeg`,
+        imagePath: `/imgs/index/banner_img.png`,
         tranglePath: `/imgs/banner-trangle.svg`,
         mainText: `安禾`,
         decoratorImagePath: ``,
@@ -129,7 +129,7 @@ export default {
       position: absolute;
       left: 0;
       // top: 0;
-      top: -120px;
+      top: -80px;
 
       .desc {
         color: $white;
@@ -166,7 +166,7 @@ export default {
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: -70px;
+        bottom: -40px;
         color: $white;
         font-weight: 300;
         cursor: pointer;

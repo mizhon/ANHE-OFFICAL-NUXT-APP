@@ -1,8 +1,8 @@
 <template>
   <div class="page-content-wrapper">
     <section class="product-series-container">
+       <!-- TODO: 优化为通用组件 CommonNavTab.vue -->
       <div class="nav-tabs">
-        <!-- TODO: 优化为通用组件 CommonNavTab.vue -->
         <div class="tab-container">
           <div v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="[activeTabIndex === index ? 'active-tab' : '']" @click="handleTabClick(index)">
             <div class="tab-label">{{ tab.label }}</div>

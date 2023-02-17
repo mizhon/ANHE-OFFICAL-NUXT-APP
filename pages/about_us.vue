@@ -1,6 +1,6 @@
 <template>
   <div class="page-content-wrapper">
-    <div class="banner-container" :style="{backgroundImage: `url(${bannerBgImg});`, backgroundRepeat: `no-repeat;`, backgroundPosition: 'center;', backgroundSize: 'cover;'}">
+    <div :style="bannerStyle" class="banner-container">
       <!-- <img :src="bannerImg" alt="" width="100%" /> -->
       <div class="about-title">
         <div class="main-desc">
@@ -22,7 +22,7 @@
             {{ intro.title }}
           </div>
           <div class="summary">
-            <img :src="intro.img" alt="" width="51%" height="50%" />
+            <img :src="intro.img" alt="" width="55%" height="50%" />
             <section class="desc-container">
               <div class="heading">{{ intro.heading }}</div>
               <div class="desc">
@@ -51,12 +51,14 @@
                 <span class="icon"><i class="el-icon-right" /></span>
                 <span style="font-size: 38px;">1</span>
                 <span class="icon"><i class="el-icon-right" /></span>
-                <img :src="vision.endlessImg" alt="" width="80px" />
+                <img :src="vision.endlessImg" alt="" width="70px" />
               </div>
             </section>
-            <img :src="vision.img" alt="" width="56%" height="50%" />
+            <img :src="vision.img" alt="" width="53%" height="50%" />
           </div>
         </div>
+        <!-- 背景块 -->
+        <div class="background-color"></div>
       </div>
       <div class="contact-us-container">
         <div class="title" :style="{backgroundImage: `url(${contactInfo.titleBgImg});`, backgroundRepeat: `no-repeat;`, backgroundPosition: `center;` }">
@@ -89,6 +91,7 @@ export default {
   data() {
     return {
       bannerBgImg: require(`~/static/imgs/about/about_banner.png`),
+      bannerStyle: '',
       mainDesc: `选择安禾`,
       infoList: [
         { id: 0, desc: '卓越的科学家团队' },
@@ -135,7 +138,10 @@ export default {
         ],
       }
     }
-  }
+  },
+  created() {
+    this.bannerStyle = `background-image: url(${this.bannerBgImg}); background-repeat: no-repeat; background-position: center; background-size: center;`
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -184,6 +190,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 55%;
+    position: relative;
     .introduce, .vision {
       .summary {
         display: flex;
@@ -198,7 +205,7 @@ export default {
           .desc {
             display: flex;
             flex-direction: column;
-            padding: 10px 30px 20px 30px;
+            padding: 10px 10px 20px 30px;
             font-size: 16px;
             font-weight: 400;
             span {
