@@ -14,10 +14,11 @@ export default {
 <style lang="scss" scoped>
 .app-footer {
   position: fixed;
+  width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20px;
   background: orange;
+  z-index: 1000;
 }
 </style>

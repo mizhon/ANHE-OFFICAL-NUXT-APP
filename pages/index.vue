@@ -52,26 +52,27 @@
         </div>
       </div>
     </section>
-    <CommonFooter />
+    <!-- <CommonFooter /> -->
   </div>
 </template>
 <script>
 import InfoCard from '@/components/index/InfoCard.vue'
 import ProductCarousel from '@/components/index/ProductCarousel.vue'
-import CommonFooter from '@/components/CommonFooter.vue'
+// import CommonFooter from '@/components/CommonFooter.vue'
 
 export default {
   name: 'IndexPage',
   components: {
     InfoCard,
     ProductCarousel,
-    CommonFooter
+    // CommonFooter
   },
-  layout: (ctx) => {
-    // eslint-disable-next-line no-console
-    console.log('$device ---===>>>', ctx.$device)
-    return 'default'
-  },
+  layout: 'normal',
+  // layout: (ctx) => {
+  //   // eslint-disable-next-line no-console
+  //   console.log('$device ---===>>>', ctx.$device)
+  //   return 'default'
+  // },
   data() {
     return {
       banner: {

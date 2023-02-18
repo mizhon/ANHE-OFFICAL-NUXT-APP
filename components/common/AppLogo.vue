@@ -1,6 +1,8 @@
 
 <template>
-  <img :src="path" :width="`${width}px`" :height="`${height}px`" />
+  <div class="app-logo">
+    <img :src="path" :width="`${width}px`" />
+  </div>
 </template>
 <script>
 export default {
@@ -12,3 +14,13 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.app-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 50px;
+  height: 100%;
+}
+</style>
