@@ -4,12 +4,11 @@
       <!-- Banner 部分 -->
       <div class="main-banner">
         <!-- 主图（走马灯效果） -->
-        <div class="banner-image">
+        <!-- <div class="banner-image">
           <img :src="banner.imagePath" alt="" width="100%" />
-        </div>
+        </div> -->
         <!-- 文字部分 -->
-        <div class="banner-info">
-          <!-- <div class="desc">{{ banner.descText }}</div> -->
+        <!-- <div class="banner-info">
           <div class="desc">
             <span>{{ banner.desc1 }}</span>
             <span>{{ banner.desc2 }}</span>
@@ -22,14 +21,13 @@
             </div>
             <div class="sub">{{ banner.subText }}</div>
           </div>
-          <!-- 下拉按钮 -->
           <div class="pull-down" @click="scrollDown">
             <div>
               <img :src="banner.btnIcon" alt="" />
             </div>
             <p>{{ banner.actionText }}</p>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- 信息动态 -->
       <div class="news-section">

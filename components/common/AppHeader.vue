@@ -9,6 +9,10 @@
           <span></span>
         </div>
       </div>
+      <!-- 在大尺寸屏幕上不显示 -->
+      <div class="toggle-button" @click="handleToggle">
+        <img :src="toggleIcon" alt="" width="24" height="24" />
+      </div>
     </header>
   </div>
 </template>
@@ -32,12 +36,17 @@ export default {
         { idx: 4, name: '新闻动态', route: '/media_news' },
         { idx: 5, name: '关于我们', route: '/about_us' },
       ],
+      toggleIcon: '/icons/m_toggle.svg'
     }
   },
   methods: {
     handleSelectedMenu(menu) {
       // todo
       this.activeMenuIndex = menu.idx;
+    },
+    handleToggle() {
+      // eslint-disable-next-line no-console
+      console.log('testing ...')
     }
   }
 }
@@ -51,56 +60,85 @@ export default {
   z-index: 1000;
   box-shadow: 4px 2px 9px -3px rgba(0, 0, 0, 0.2);
   background: $black;
-  .header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    .menu-list {
+}
+
+// PC端样式
+@media screen and (min-width: 769px) {
+  .app-header {
+    .header-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      .menu-item {
+      height: 100%;
+      .menu-list {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: $white;
-        cursor: pointer;
-        white-space: nowrap;
-        &:hover {
-          background: #eee;
+        .menu-item {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: $white;
+          cursor: pointer;
+          white-space: nowrap;
+          &:hover {
+            background: #eee;
+            font-weight: 800;
+            span {
+              position: relative;
+              width: 48%;
+              top: -10px;
+              border: 1px solid transparent;
+            }
+            a {
+              color: $menuActiveText;
+            }
+          }
+
+          a {
+            padding: 20px;
+            text-decoration: none;
+            color: $white;
+          }
+        }
+        .active {
+          background: $white;
+          color: $menuActiveText;
           font-weight: 800;
           span {
             position: relative;
-            width: 48%;
+            width: 50%;
             top: -10px;
-            border: 1px solid transparent;
+            border: 1px solid $menuActiveText;
           }
           a {
             color: $menuActiveText;
-          }
-        }
-
-        a {
-          padding: 20px;
-          text-decoration: none;
-          color: $white;
+          } 
         }
       }
-      .active {
-        background: $white;
-        color: $menuActiveText;
-        font-weight: 800;
-        span {
-          position: relative;
-          width: 50%;
-          top: -10px;
-          border: 1px solid $menuActiveText;
-        }
-        a {
-          color: $menuActiveText;
-        } 
+
+      .toggle-button {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// 移动端样式
+@media only screen and (max-width: 768px) {
+  .app-header {
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .menu-list {
+        display: none !important;
+      }
+      .toggle-button {
+        cursor: pointer;
+        margin: 0 40px;
       }
     }
   }
