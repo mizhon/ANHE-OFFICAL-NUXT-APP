@@ -57,7 +57,7 @@ export default {
   right: 0;
   bottom: 0;
   background: $black;
-  z-index: 1000;
+  z-index: 999;
   .main-content {
     display: flex;
     justify-content: center;

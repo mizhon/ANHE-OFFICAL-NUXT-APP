@@ -8,6 +8,14 @@
           <!-- 下滑线标记 -->
           <span></span>
         </div>
+        <div class="lang-switcher">
+          <el-button
+            type="text"
+            style="font-size: 16px; color: #fff;"
+            @click="switchLanguage">
+            {{ currentLangText }}
+          </el-button>
+        </div>
       </div>
       <!-- 在大尺寸屏幕上不显示 -->
       <div class="toggle-button" @click="handleToggle">
@@ -41,6 +49,7 @@ export default {
         { idx: 4, name: '新闻动态', route: '/media_news' },
         { idx: 5, name: '关于我们', route: '/about_us' },
       ],
+      currentLangText: 'English',
       isOpen: false, // 默认小尺寸菜单收起
     }
   },
@@ -69,6 +78,15 @@ export default {
   z-index: 1000;
   box-shadow: 4px 2px 9px -3px rgba(0, 0, 0, 0.2);
   background: $black;
+  .header-container {
+    .menu-list {
+      .lang-switcher{
+        display: flex;
+        justify-content: center;
+        width: 100px;
+      }
+    }
+  }
 }
 
 // PC端样式
