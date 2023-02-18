@@ -4,66 +4,25 @@
       <!-- Banner 部分 -->
       <div class="main-banner">
         <!-- 主图（走马灯效果） -->
-        <!-- <div class="banner-image">
-          <img :src="banner.imagePath" alt="" width="100%" />
-        </div> -->
-        <!-- 文字部分 -->
-        <!-- <div class="banner-info">
-          <div class="desc">
-            <span>{{ banner.desc1 }}</span>
-            <span>{{ banner.desc2 }}</span>
-            <span>{{ banner.desc3 }}</span>
-          </div>
-          <div class="title">
-            <div class="main">{{ banner.mainText }}</div>
-            <div class="decorator">
-              <img :src="banner.tranglePath" alt="" />
-            </div>
-            <div class="sub">{{ banner.subText }}</div>
-          </div>
-          <div class="pull-down" @click="scrollDown">
-            <div>
-              <img :src="banner.btnIcon" alt="" />
-            </div>
-            <p>{{ banner.actionText }}</p>
-          </div>
-        </div> -->
+        
       </div>
       <!-- 信息动态 -->
-      <!-- <div class="news-section">
-        <p>{{ headInfoTitle }}</p>
-        <div class="news-info-container">
-          <div class="main-info">
-            <InfoCard :info="newsInfo" />
-          </div>
-          <div class="sub-info">
-            <InfoCard :info="productInfo" :img-position="productInfo.position" />
-            <InfoCard :info="searchInfo" :img-position="searchInfo.position" />
-          </div>
-        </div>
-      </div> -->
+      
       <!-- 产品展示 -->
-      <!-- <div class="product-section">
-        <p>{{ headProductTitle }}</p>
-        <div class="product-info-container">
-          <ProductCarousel />
-        </div>
-      </div> -->
+      
     </section>
-    <!-- <CommonFooter /> -->
+    <AppFooter />
   </div>
 </template>
 <script>
-// import InfoCard from '@/components/index/InfoCard.vue'
-// import ProductCarousel from '@/components/index/ProductCarousel.vue'
-// import CommonFooter from '@/components/CommonFooter.vue'
+import AppFooter from '@/components/common/AppFooter.vue'
 
 export default {
   name: 'IndexPage',
   components: {
     // InfoCard,
     // ProductCarousel,
-    // CommonFooter
+    AppFooter
   },
   layout: 'normal',
   // layout: (ctx) => {

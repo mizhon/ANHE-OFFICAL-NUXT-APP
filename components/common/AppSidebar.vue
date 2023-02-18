@@ -78,7 +78,7 @@ export default {
         justify-content: flex-end;
         align-items: center;
         height: 60px;
-        margin: 0 40px;
+        margin: 0 30px;
       }
 
       .menu-list {

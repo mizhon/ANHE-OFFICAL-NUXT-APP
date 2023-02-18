@@ -14,6 +14,7 @@
         <img :src="toggleIcon" alt="" width="24" height="24" />
       </div>
     </header>
+    <!-- 在大尺寸屏幕上不显示 -->
     <AppSidebar :menus="menus" :is-open="isOpen" @toggle="getToggleStatus" />
   </div>
 </template>
@@ -146,7 +147,7 @@ export default {
       }
       .toggle-button {
         cursor: pointer;
-        margin: 0 40px;
+        margin: 0 30px;
       }
     }
   }

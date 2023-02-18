@@ -80,6 +80,7 @@ export default {
       padding: 20px 10px;
       color: $white;
       cursor: pointer;
+      white-space: nowrap;
 
       &:hover {
         background: $white;
