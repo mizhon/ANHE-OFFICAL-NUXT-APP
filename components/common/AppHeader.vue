@@ -14,19 +14,23 @@
         <img :src="toggleIcon" alt="" width="24" height="24" />
       </div>
     </header>
+    <AppSidebar :menus="menus" :is-open="isOpen" @toggle="getToggleStatus" />
   </div>
 </template>
 <script>
 import AppLogo from '~/components/common/AppLogo.vue'
+import AppSidebar from '~/components/common/AppSidebar.vue'
 
 export default {
   name: 'AppHeader',
   components: {
-    AppLogo
+    AppLogo,
+    AppSidebar
   },
   data() {
     return {
       logoPath: '/logos/anhe-topbar-logo.svg',
+      toggleIcon: '/icons/m_toggle.svg',
       activeMenuIndex: 0, // 默认首页激活
       menus: [
         { idx: 0, name: '首页', route: '/' },
@@ -36,7 +40,7 @@ export default {
         { idx: 4, name: '新闻动态', route: '/media_news' },
         { idx: 5, name: '关于我们', route: '/about_us' },
       ],
-      toggleIcon: '/icons/m_toggle.svg'
+      isOpen: false, // 默认小尺寸菜单收起
     }
   },
   methods: {
@@ -45,10 +49,14 @@ export default {
       this.activeMenuIndex = menu.idx;
     },
     handleToggle() {
+      this.isOpen = true;
       // eslint-disable-next-line no-console
-      console.log('testing ...')
+      console.log('Open status: ', this.isOpen)
+    },
+    getToggleStatus(status) {
+      this.isOpen = status;
     }
-  }
+  } 
 }
 </script>
 <style lang="scss" scoped>

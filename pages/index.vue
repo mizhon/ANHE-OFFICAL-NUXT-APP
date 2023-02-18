@@ -30,7 +30,7 @@
         </div> -->
       </div>
       <!-- 信息动态 -->
-      <div class="news-section">
+      <!-- <div class="news-section">
         <p>{{ headInfoTitle }}</p>
         <div class="news-info-container">
           <div class="main-info">
@@ -41,28 +41,28 @@
             <InfoCard :info="searchInfo" :img-position="searchInfo.position" />
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 产品展示 -->
-      <div class="product-section">
+      <!-- <div class="product-section">
         <p>{{ headProductTitle }}</p>
         <div class="product-info-container">
           <ProductCarousel />
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- <CommonFooter /> -->
   </div>
 </template>
 <script>
-import InfoCard from '@/components/index/InfoCard.vue'
-import ProductCarousel from '@/components/index/ProductCarousel.vue'
+// import InfoCard from '@/components/index/InfoCard.vue'
+// import ProductCarousel from '@/components/index/ProductCarousel.vue'
 // import CommonFooter from '@/components/CommonFooter.vue'
 
 export default {
   name: 'IndexPage',
   components: {
-    InfoCard,
-    ProductCarousel,
+    // InfoCard,
+    // ProductCarousel,
     // CommonFooter
   },
   layout: 'normal',
