@@ -131,6 +131,7 @@ export default {
 // 移动端样式
 @media only screen and (max-width: 768px) {
   .app-footer {
+    position: relative;
     .main-content {
       flex-direction: column;
       padding: 30px 20px 10px 20px;

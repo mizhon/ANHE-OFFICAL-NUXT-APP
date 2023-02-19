@@ -22,7 +22,6 @@ export default {
       '~assets/const/_vars.scss',
       '~assets/styles/common.scss',
       '~assets/styles/layout.scss',
-      '~assets/styles/media-query.scss',
     ]
   },
 

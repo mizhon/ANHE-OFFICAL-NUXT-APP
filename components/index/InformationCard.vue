@@ -1,29 +1,23 @@
 <template>
   <div class="info-card-container">
-    <section class="card-desc" :class="cardLayout">
-      <div class="info-container">
-        <div class="title">
-          {{ info.title }}
-        </div>
-        <div class="subtitle">
-          {{ info.subTitle }}
-        </div>
-        <div class="summary">
-          {{ info.summary }}
-        </div>
+    <div class="card" :class="cardLayout">
+      <div class="card__image">
+        <img :src="info.img" alt="" />
+      </div>
+      <div class="card__info">
+        <div class="title">{{ info.title }}</div>
+        <div class="sub-title">{{ info.subTitle }}</div>
+        <div class="summary">{{ info.summary }}</div>
         <div class="detail-btn">
           <button @click="handleBtnClick">{{ infoButtonText }}</button>
         </div>
       </div>
-      <div class="news-img">
-        <img :src="info.img" alt="" />
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'InfoCard',
+  name: 'InformationCard',
   props: {
     info: {
       type: Object,
@@ -33,19 +27,19 @@ export default {
           subTitle: '',
           summary: '',
           img: '',
-          position: 'bottom'
+          position: 'top',
+          path: '', // 详情页路径信息
         }
       }
     },
     imgPosition: {
       type: String,
-      default: 'bottom', // left | right | bottom | top
-    },
+      default: 'top', // top | bottom
+    }
   },
   data() {
     return {
-      newsImg: '',
-      position: 'bottom', // 默认图片位置为card下方
+      position: 'top', // 默认图片位置为card上方
       infoButtonText: '查看详情',
       cardLayout: '', // 卡片布局样式
     }
@@ -54,35 +48,43 @@ export default {
     imgPosition: {
       immediate: true,
       handler(newVal, oldVal) {
-        if (newVal === 'left') {
-          this.cardLayout = 'img-left';
+        if (newVal === 'top') {
+          this.cardLayout = 'img-top';
         }
-        if (newVal === 'right') {
-          this.cardLayout = 'img-right';
+        if (newVal === 'bottom') {
+          this.cardLayout = 'img-bottom';
         }
       }
     }
   },
   methods: {
     handleBtnClick() {
+      this.$emit('goto', this.info.path)
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .info-card-container {
-  margin-bottom: 5px;
-  .card-desc {
-    .info-container {
-      width: 380px;
-      background-color: #f5f7ff;
-      color: $primaryText;
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 10px;
+    background: $white;
+    &__image {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__info {
       .title {
         padding: 30px 20px 15px 20px;
         font-size: 22px;
         font-weight: 500;
       }
-      .subtitle {
+      .sub-title {
         padding: 10px 20px;
         font-size: 18px;
         font-weight: 400;
@@ -94,7 +96,6 @@ export default {
         line-height: 20px;
         color: $secondaryText;
       }
-
       .detail-btn {
         padding: 10px 20px 25px 20px;
         button {
@@ -109,23 +110,17 @@ export default {
           }
         }
       }
-
-      .news-img {
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
     }
   }
+}
 
-  .img-left {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+// PC端样式
+@media only screen and (min-width: 769px) {
 
-  .img-right {
-    display: flex;
-  }
+}
+
+// 移动端样式
+@media only screen and (max-width: 768px) {
+
 }
 </style>

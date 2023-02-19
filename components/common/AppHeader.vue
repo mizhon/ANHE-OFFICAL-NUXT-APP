@@ -65,6 +65,9 @@ export default {
     },
     getToggleStatus(status) {
       this.isOpen = status;
+    },
+    switchLanguage() {
+      // todo
     }
   } 
 }
