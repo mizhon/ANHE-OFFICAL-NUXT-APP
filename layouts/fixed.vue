@@ -3,7 +3,7 @@
   <div class="app-wrapper">
     <AppHeader />
     <Nuxt :next-child-key="key" />
-    <AppFooter />
+    <AppFooter :position="fixed" />
   </div>
 </template>
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-footer">
+  <div class="app-footer" :style="{position: `${position}`}">
     <div class="main-content">
       <AppLogo :path="footerLogo" :width="100" :height="60" />
       <div class="dividing-line"></div>
@@ -32,8 +32,15 @@ export default {
   components: {
     AppLogo
   },
+  props: {
+    position: {
+      type: String,
+      default: 'relative' // fixed | relative
+    }
+  },
   data() {
     return {
+      layout: 'relative',
       footerLogo: '/logos/anhe-footer-logo.svg',
       wechatLogo: '/logos/wechat-logo.svg',
       contactInfo: {
@@ -45,6 +52,19 @@ export default {
       wechatOfficalText: '安和公众号',
       footerDesc: `网站所有数据及文档均受《著作权法》及相关法律法规保护，任何组织及个人不得侵权，违者本公司将依法追究侵权责任，特此申明。优设网法律顾问：XX律师`,
       copyright: `Copyright©️ 2023 XX XX - 安禾官方微信号: XXXXXX - 鄂ICP备1XXXXX号-1 鄂公安备案 XXXXXX号`,     
+    }
+  },
+  watch: {
+    position: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        if(newVal === 'fixed') {
+          this.layout = 'fixed'
+        }
+        if(newVal === 'relative') {
+          this.layout = 'relative'
+        }
+      }
     }
   }
 }
@@ -102,7 +122,7 @@ export default {
     align-items: center;
     font-size: 12px;
     color: $info;
-    margin: 20px;
+    padding: 20px;
     span {
       display: block;
       text-align: center;

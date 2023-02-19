@@ -3,7 +3,7 @@
     <section class="index-page">
       <!-- Banner 部分 -->
       <div class="main-banner">
-        <!-- 主图（走马灯效果） -->
+        <!-- Banner主图（走马灯效果） -->
         <el-carousel height="400px" direction="horizontal" :autoplay="true" arrow="never">
           <el-carousel-item v-for="img in banner.imgs" :key="img.id">
             <img :src="img.src" alt="" width="100%" height="100%" />
@@ -33,30 +33,54 @@
       <!-- 信息动态 -->
       <div class="news-section">
         <span>{{ headInfoTitle }}</span>
-        <div v-for="(info, index) in newsList" :key="index" class="news-card-item">
-          <InformationCard :info="info" @goto="handleRedirect" />
+        <!-- PC端展示 -->
+        <div class="pc-card-container">
+          <div class="news-info-container">
+            <div v-for="(newsCard, idx) in newsList" :key="idx" class="card-item">
+              <div :class="[idx%2 === 0 ? 'card' : 'card reverse']">
+                <div class="info-content">
+                  <div class="title">{{ newsCard.title }}</div>
+                  <div class="subtitle">{{ newsCard.subTitle }}</div>
+                  <div class="summary">{{ newsCard.summary }}</div>
+                  <div class="detail-btn">
+                    <button @click="checkDetails(newsCard)">{{ infoBtnText }}</button>
+                  </div>
+                </div>
+                <img :src="newsCard.img" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- mobile端展示 -->
+        <div v-for="(cardInfo, index) in newsList" :key="index" class="news-card-item">
+          <InformationCard :info="cardInfo" @goto="checkDetails(cardInfo)" />
         </div>
       </div>
       <!-- 产品展示 -->
       <div class="product-section">
         <span>{{ headProductTitle }}</span>
+        <!-- PC端展示 -->
+        <div class="pc-card-container">
+          2
+        </div>
+        <!-- mobile端展示 -->
         <div v-for="(product, index) in productsList" :key="index" class="product-card-item">
           <ProductCard :product="product" />
         </div>
       </div>
     </section>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
 <script>
-// import AppFooter from '@/components/common/AppFooter.vue'
+import AppFooter from '@/components/common/AppFooter.vue'
 import InformationCard from '~/components/index/InformationCard.vue';
 import ProductCard from '~/components/index/ProductCard.vue';
 
 export default {
   name: 'IndexPage',
   components: {
-    // AppFooter,
+    AppFooter,
     InformationCard,
     ProductCard
   },
@@ -85,21 +109,25 @@ export default {
           title: '新闻动态',
           subTitle: '新闻动态最新信息标题文字占位长度',
           summary: '新闻内容详情正文文字占位新闻内容详情正文文字 占位新闻内容详情正文文字',
-          img: '/imgs/index/news-img.png'
+          img: '/imgs/index/news-img.png',
+          path: '',
         },
         {
           title: '产品动态',
           subTitle: '产品动态最新信息标题文字占位长度',
           summary: '产品内容详情正文文字占位新闻内容详情正文文字 占位产品内容详情正文文字',
-          img: '/imgs/index/news-img.png'
+          img: '/imgs/index/news-img.png',
+          path: '',
         },
         {
           title: '研究动态',
           subTitle: '研究动态最新信息标题文字占位长度',
           summary: '研究内容详情正文文字占位研究内容详情正文文字 占位研究内容详情正文文字',
-          img: '/imgs/index/news-img.png'
+          img: '/imgs/index/news-img.png',
+          path: '',
         }
       ],
+      infoBtnText: '查看详情',
       headProductTitle: '产品展示',
       productsList: [
         {
@@ -123,10 +151,10 @@ export default {
       // eslint-disable-next-line no-console
       console.log('pull down testing ...')
     },
-    handleRedirect() {
+    checkDetails(card) {
       // todo
       // eslint-disable-next-line no-console
-      console.log('handle detail path redirect ...')
+      console.log('handle detail path redirect ...', card)
     }
   }
 }
@@ -210,7 +238,7 @@ export default {
     }
   }
 
-  .news-section {
+  .news-section, .product-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -254,14 +282,83 @@ export default {
       span {
         padding-bottom: 30px;
       }
+      .pc-card-container {
+        .news-info-container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-bottom: 80px;
+          .card-item {
+            max-width: 400px;
+            min-width: 200px;
+            .card {
+              display: flex;
+              flex-direction: column;
+              padding: 10px 5px;
 
-      .news-card-container {
-        
+              .info-content {
+                background-color: #f6f8fe;
+                .title {
+                  padding: 30px 20px 15px 20px;
+                  font-size: 22px;
+                  font-weight: 500;
+                }
+                .subtitle {
+                  padding: 10px 20px;
+                  font-size: 18px;
+                  font-weight: 400;
+                }
+                .summary {
+                  padding: 5px 20px;
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 20px;
+                  color: $secondaryText;
+                }
+                .detail-btn {
+                  padding: 10px 20px 25px 20px;
+                  button {
+                    padding: 12px 42px;
+                    border: none;
+                    color: $menuActiveText;
+                    background-color: $btnBackgroundColor;
+                    font-size: 16px;
+                    font-weight: 400;
+                    &:hover {
+                      cursor: pointer;
+                    }
+                  }
+                }
+
+              }
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .reverse {
+              display: flex;
+              flex-direction: column-reverse;
+              padding: 10px 5px;
+            }
+          }
+        }
+      }
+
+      .news-card-item {
+        display: none !important;
       }
     }
 
     .product-section {
-      
+      span {
+        padding-bottom: 30px;
+      }
+
+      .product-card-item {
+        display: none !important;
+      }
     }
   }
 }
@@ -269,6 +366,7 @@ export default {
 @media only screen and (max-width: 768px) {
   .index-page {
     background: #eee;
+
     .main-banner {
       .banner-info-container {
         font-size: 36px;
@@ -293,6 +391,11 @@ export default {
         span {
           font-size: 12px;
         }
+      }
+    }
+    .news-section, .product-section {
+      .pc-card-container {
+        display: none !important;
       }
     }
 
