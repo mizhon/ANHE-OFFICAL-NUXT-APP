@@ -32,8 +32,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
-
+// 只在 <= 768px尺寸的(移动端)小型设备上展示
 // 移动端样式
 @media only screen and (max-width: 768px) {
   .product-card-container {

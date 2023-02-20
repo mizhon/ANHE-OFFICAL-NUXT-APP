@@ -34,7 +34,7 @@
       <div class="news-section">
         <span>{{ headInfoTitle }}</span>
         <!-- PC端展示 -->
-        <div class="pc-card-container">
+        <div ref="newsRef" class="pc-card-container">
           <div class="news-info-container">
             <div v-for="(newsCard, idx) in newsList" :key="idx" class="card-item">
               <div :class="[idx%2 === 0 ? 'card' : 'card reverse']">
@@ -60,8 +60,8 @@
       <div class="product-section">
         <span>{{ headProductTitle }}</span>
         <!-- PC端展示 -->
-        <div class="pc-card-container">
-          2
+        <div ref="productRef" class="pc-card-container">
+          <ProductSlide :list="productsList" />
         </div>
         <!-- mobile端展示 -->
         <div v-for="(product, index) in productsList" :key="index" class="product-card-item">
@@ -76,13 +76,15 @@
 import AppFooter from '@/components/common/AppFooter.vue'
 import InformationCard from '~/components/index/InformationCard.vue';
 import ProductCard from '~/components/index/ProductCard.vue';
+import ProductSlide from '~/components/index/ProductSlide.vue';
 
 export default {
   name: 'IndexPage',
   components: {
     AppFooter,
     InformationCard,
-    ProductCard
+    ProductCard,
+    ProductSlide
   },
   layout: 'normal',
   data() {
@@ -145,7 +147,26 @@ export default {
       ],
     }
   },
+  computed: {
+    currentPageWidth() {
+      return window.innerWidth;
+    }
+  },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log('--->', this.currentPageWidth);
+    // eslint-disable-next-line no-console
+    console.log('--->', this.$refs.newsRef.clientWidth);
+    
+    
+  },
+  destroyed() {
+    window.onresize = null;
+  },
   methods: {
+    init() {
+
+    },
     pullDown() {
       // todo
       // eslint-disable-next-line no-console
@@ -249,27 +270,6 @@ export default {
       font-size: 38px;
       color: $primaryText;
     }
-
-    .news-card-container {
-      .card {
-        &__info {
-          .detail-btn {
-            padding: 10px 20px 25px 20px;
-            button {
-              padding: 12px 42px;
-              border: none;
-              color: $menuActiveText;
-              background-color: $btnBackgroundColor;
-              font-size: 16px;
-              font-weight: 400;
-              &:hover {
-                cursor: pointer;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }
 
@@ -319,7 +319,7 @@ export default {
                   padding: 10px 20px 25px 20px;
                   button {
                     padding: 12px 42px;
-                    border: none;
+                    border: 1px solid transparent;
                     color: $menuActiveText;
                     background-color: $btnBackgroundColor;
                     font-size: 16px;
@@ -329,13 +329,40 @@ export default {
                     }
                   }
                 }
-
+              }
+              .info-content:hover {
+                background-color: $black;
+                .title, .subtitle, .summary {
+                  color: $white;
+                }
+                .detail-btn {
+                  button {
+                    color: $white;
+                    background-color: $black;
+                    border: 1px solid $white;
+                  }
+                }
               }
 
               img {
                 width: 100%;
                 height: 100%;
               }
+
+              // &:hover {
+              //   .info-content {
+              //     background: $black;
+              //     color: $white;
+              //   }
+
+              //   .detail-btn {
+              //     button {
+              //       color: $white;
+              //       background-color: $black;
+              //       border: 1px solid $white;
+              //     }
+              //   }
+              // }
             }
             .reverse {
               display: flex;
