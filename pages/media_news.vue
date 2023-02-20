@@ -15,22 +15,22 @@
         </div>
       </section>
     </div>
-    <CommonFooter />
+    <!-- <CommonFooter /> -->
   </div>
 </template>
 <script>
 import CommonNavTab from '@/components/CommonNavTab.vue'
-import CommonFooter from '@/components/CommonFooter.vue'
+// import CommonFooter from '@/components/CommonFooter.vue'
 import NewsCard from '@/components/news/NewsCard.vue'
 
 export default {
   name: 'MediaNewsPage',
   components: {
     CommonNavTab,
-    CommonFooter,
+    // CommonFooter,
     NewsCard
   },
-  layout: 'default',
+  layout: 'normal',
   data() {
     return {
       activeNewsTabIndex: 0, // 默认激活的tab标签为0
@@ -77,10 +77,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 60px;
   .tab-section {
     height: 100vh;
   }
-
   .news-section {
     width: 50%;
     height: 100vh;

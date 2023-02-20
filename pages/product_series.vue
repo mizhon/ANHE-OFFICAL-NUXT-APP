@@ -16,21 +16,21 @@
         <ProductDetail :info="productInfo" />
       </div>
     </section>
-    <CommonFooter />
+    <!-- <CommonFooter /> -->
   </div>
 </template>
 <script>
-import CommonFooter from '@/components/CommonFooter.vue'
+// import CommonFooter from '@/components/CommonFooter.vue'
 import ProductDetail from '@/components/product/ProductDetail.vue'
 
 export default {
   name: 'ProductSeriesPage',
   components: {
-    CommonFooter,
+    // CommonFooter,
     // CommonNavTab,
     ProductDetail,
   },
-  layout: 'default',
+  layout: 'normal',
   data() {
     return {
       activeTabIndex: 0, // 默认激活的Tab索引
@@ -104,10 +104,11 @@ export default {
   display: flex;
   justify-content: center;
   margin: 0 340px;
+  padding-top: 60px;
   .nav-tabs {
     flex-grow: 0;
     width: 250px;
-    min-width: 180px;
+    min-width: 250px;
     .tab-container {
       padding-top: 20px;
       height: 100%;

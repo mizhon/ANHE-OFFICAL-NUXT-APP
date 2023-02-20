@@ -87,7 +87,7 @@ export default {
   components: {
     CommonFooter
   },
-  layout: 'default',
+  layout: 'normal',
   data() {
     return {
       bannerBgImg: require(`~/static/imgs/about/about_banner.png`),

@@ -1,4 +1,3 @@
-import CommonNavTab from '@/components/CommonNavTab.vue';
 <template>
   <div class="page-content-wrapper">
     <CommonNavTab :tabs="tabs" :active-tab="activeTabIndex" @get-tab-index="getActiveTabIndex" />
@@ -12,6 +11,7 @@ export default {
   components: {
     CommonNavTab
   },
+  layout: 'normal',
   data() {
     return {
       activeTabIndex: 0, // 默认激活的tab标签为0
