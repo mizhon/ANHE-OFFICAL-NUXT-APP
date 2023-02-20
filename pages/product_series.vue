@@ -1,7 +1,6 @@
 <template>
   <div class="page-content-wrapper">
     <section class="product-series-container">
-       <!-- TODO: 优化为通用组件 CommonNavTab.vue -->
       <div class="nav-tabs">
         <div class="tab-container">
           <div v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="[activeTabIndex === index ? 'active-tab' : '']" @click="handleTabClick(index)">
@@ -16,19 +15,18 @@
         <ProductDetail :info="productInfo" />
       </div>
     </section>
-    <!-- <CommonFooter /> -->
+    <AppFooter />
   </div>
 </template>
 <script>
-// import CommonFooter from '@/components/CommonFooter.vue'
 import ProductDetail from '@/components/product/ProductDetail.vue'
+import AppFooter from '@/components/common/AppFooter.vue'
 
 export default {
   name: 'ProductSeriesPage',
   components: {
-    // CommonFooter,
-    // CommonNavTab,
     ProductDetail,
+    AppFooter
   },
   layout: 'normal',
   data() {

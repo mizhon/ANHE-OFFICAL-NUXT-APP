@@ -54,6 +54,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .product-slide-container {
   display: flex;
   justify-content: space-between;
@@ -65,7 +69,7 @@ export default {
     flex-grow: 1;
     margin-right: 10px;
     height: 498px;
-    width: 100%;
+    // width: 100%;
     .mask {
       position: absolute;
       width: 100%;
