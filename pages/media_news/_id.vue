@@ -21,10 +21,10 @@
         <div class="article-text-container">
           <div class="article-content">
             <div class="text-container">
-              <div class="content">123123123</div>
+              <div class="content">{{ article.content }}</div>
               <div class="footer">
-                <div class="read-next">阅读下一篇</div>
-                <div class="next-article-title">文字标题</div>
+                <div class="read-next">{{  article.footer.next }}</div>
+                <div class="next-article-title">{{ article.footer.nextArticleTitle }}</div>
               </div>
             </div>
             <div class="navigation-bar">
@@ -39,7 +39,16 @@
           </div>
         </div>
       </div>
-      <div class="mobile-only"></div>
+      <div class="mobile-only">
+        <div class="m-article-container">
+          <div class="m-article-header">
+            <div class="title">{{ article.title }}</div>
+            <div class="timestamp">{{ article.timestamp }}</div>
+          </div>
+          <div class="m-article-content">{{ article.content }}</div>
+        </div>
+
+      </div>
     </div>
     <AppFooter />
   </div>
@@ -61,10 +70,19 @@ export default {
     return {
       article: {
         bgImg: require(`~/static/imgs/news/detail_banner_bg_pc.png`),
-        title: '标题文字站位符',
+        title: '标题文字占位区域标题文字占位区域标题文字占位区域标题文',
         uploadTimeText: '上传时间：',
         timestamp: '2023-02-21',
+        content: `article 123123132 内容文字占位区域内容文字占位区域内容文字占位区域内
+          容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占
+          位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内
+          容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域`,
+        footer: {
+          next: '阅读下一篇',
+          nextArticleTitle: '快使用双节棍，嚯嚯哈嘿'
+        }
       },
+
       list: [
         { id: 0, title: '标题文字占位区域标题文字占位0', timestamp: '2023-07-21' },
         { id: 1, title: '标题文字占位区域', timestamp: '2023-04-09' },
@@ -189,8 +207,6 @@ export default {
         .footer-content {
           display: flex;
           width: 55%;
-          .read-next {}
-          .next-article-title {}
         }
       }
     }
@@ -202,6 +218,35 @@ export default {
     display: none !important;
   }
 
+  .news-detail-page {
+    .mobile-only {
+      .m-article-container {
+        .m-article-header {
+          .title {
+            padding: 60px 40px 20px 40px;
+            font-size: 40px;
+            font-weight: 500;
+            color: #333333;
+            line-height: 60px;
+          }
+          .timestamp {
+            padding-bottom: 60px;
+            margin: 20px 40px;
+            font-size: 28px;
+            color: #999999;
+            border-bottom: 1px solid #e4e4e4;
+          }
+        }
 
+        .m-article-content {
+          padding: 40px;
+          font-size: 32px;
+          color: #333333;
+          font-weight: 400;
+          line-height: 48px;
+        }
+      }
+    }
+  }
 }
 </style>

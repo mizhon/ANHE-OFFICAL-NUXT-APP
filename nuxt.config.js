@@ -45,7 +45,11 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt',
+    // With options
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
   ],
   // i18n settings
   i18n: {
@@ -72,4 +76,8 @@ export default {
   build: {
     transpile: [/^element-ui/],
   },
+
+  //  To make it work for SSR, remember to set `ssr: true` and `target: 'server'`
+  ssr: true,
+  target: 'server',
 }

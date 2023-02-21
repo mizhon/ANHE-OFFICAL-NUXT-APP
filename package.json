@@ -17,6 +17,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/i18n": "^7.3.1",
     "@nuxtjs/pwa": "^3.3.5",
+    "cookie-universal-nuxt": "^2.2.2",
     "core-js": "^3.25.3",
     "element-ui": "^2.15.10",
     "normalize.css": "^8.0.1",

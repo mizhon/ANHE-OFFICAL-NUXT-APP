@@ -20,7 +20,7 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin: 0 30px;
+  margin: 0 40px;
   height: 100%;
 }
 </style>
