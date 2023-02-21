@@ -1,7 +1,7 @@
 <template>
   <div class="news-card-container">
     <img :src="info.img" alt="" width="100%" />
-    <div class="news-content">
+    <div class="news-content" @click="onItemClick">
       <div class="title">
         {{ info.title }}
       </div>
@@ -28,6 +28,11 @@ export default {
   },
   data() {
     return {}
+  },
+  methods: {
+    onItemClick() {
+      this.$emit('click')
+    }
   }
 }
 </script>
@@ -40,7 +45,7 @@ export default {
   border: 1px solid #eee;
 
   .news-content {
-
+    cursor: pointer;
     .title {
       padding: 23px 10px 19px 10px;
       color: $primaryText;

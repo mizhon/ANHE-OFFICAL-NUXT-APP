@@ -1,15 +1,18 @@
 <template>
   <div class="page-content-wrapper">
-    <CommonNavTab :tabs="tabs" :active-tab="activeTabIndex" @get-tab-index="getActiveTabIndex" />
+    <div class="knowledge-center-page">
+      <!-- PC端显示 -->
+      <div class="pc-only"></div>
+    </div>
   </div>
 </template>
 <script>
-import CommonNavTab from '@/components/CommonNavTab.vue'
+// import CommonNavTab from '@/components/CommonNavTab.vue'
 
 export default {
   name: 'KnowledgeCenterPage',
   components: {
-    CommonNavTab
+    // CommonNavTab
   },
   layout: 'normal',
   data() {

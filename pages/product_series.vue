@@ -1,20 +1,22 @@
 <template>
   <div class="page-content-wrapper">
-    <section class="product-series-container">
-      <div class="nav-tabs">
-        <div class="tab-container">
-          <div v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="[activeTabIndex === index ? 'active-tab' : '']" @click="handleTabClick(index)">
-            <div class="tab-label">{{ tab.label }}</div>
-            <div class="tab-pointer">
-              <div class="trangle"></div>
+    <div class="product-series-page">
+      <section class="product-series-container">
+        <div class="nav-tabs">
+          <div class="tab-container">
+            <div v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="[activeTabIndex === index ? 'active-tab' : '']" @click="handleTabClick(index)">
+              <div class="tab-label">{{ tab.label }}</div>
+              <div class="tab-pointer">
+                <div class="trangle"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="info-container">
-        <ProductDetail :info="productInfo" />
-      </div>
-    </section>
+        <div class="info-container">
+          <ProductDetail :info="productInfo" />
+        </div>
+      </section>
+    </div>
     <AppFooter />
   </div>
 </template>
@@ -98,69 +100,71 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.product-series-container {
-  display: flex;
-  justify-content: center;
-  margin: 0 340px;
-  padding-top: 60px;
-  .nav-tabs {
-    flex-grow: 0;
-    width: 250px;
-    min-width: 250px;
-    .tab-container {
-      padding-top: 20px;
-      height: 100%;
-      background-color: $navbarBackgroundColor;
+.product-series-page {
+  .product-series-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 340px;
+    padding-top: 60px;
+    .nav-tabs {
+      flex-grow: 0;
+      width: 250px;
+      min-width: 250px;
+      .tab-container {
+        padding-top: 20px;
+        height: 100%;
+        background-color: $navbarBackgroundColor;
 
-      .tab-item {
-        display: flex;
-        align-items: center;
-        justify-content : space-between;
-        cursor: pointer;
-        color: $navTabText;
-        height: 50px;
-
-        .tab-label {
-          padding-left: 40px;
-        }
-
-        .tab-pointer {
+        .tab-item {
+          display: flex;
+          align-items: center;
+          justify-content : space-between;
+          cursor: pointer;
+          color: $navTabText;
           height: 50px;
+
+          .tab-label {
+            padding-left: 40px;
+          }
+
+          .tab-pointer {
+            height: 50px;
+          }
+
+          &:hover {
+            color: $menuActiveText;
+            font-weight: 500;
+          }
         }
 
-        &:hover {
+        .active-tab {
           color: $menuActiveText;
+          background-color: $white;
           font-weight: 500;
-        }
-      }
-
-      .active-tab {
-        color: $menuActiveText;
-        background-color: $white;
-        font-weight: 500;
-        .tab-pointer {
-          width: 6px;
-          background-color: $menuActiveText;
-          .trangle {
-            position: relative;
-            width: 0;
-            height: 0;
-            top: 14px;
-            border: 10px solid transparent;
-            border-left: 10px solid $menuActiveText;
+          .tab-pointer {
+            width: 6px;
+            background-color: $menuActiveText;
+            .trangle {
+              position: relative;
+              width: 0;
+              height: 0;
+              top: 14px;
+              border: 10px solid transparent;
+              border-left: 10px solid $menuActiveText;
+            }
           }
         }
       }
     }
-  }
-  .info-container {
-    display: flex;
-    justify-content: center;
+    .info-container {
+      display: flex;
+      justify-content: center;
 
-    margin-left: 5px;
-    width: auto;
-    min-width: 400px;
-    flex-grow: 1;
+      margin-left: 5px;
+      width: auto;
+      min-width: 400px;
+      flex-grow: 1;
+    }
   }
 }
 </style>

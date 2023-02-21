@@ -3,6 +3,7 @@
     <div class="about-us-page">
       <!-- PC端显示 -->
       <div class="pc-only">
+        <!-- banner头图 -->
         <section class="about-banner-container" :style="banner.style">
           <div class="about-title">
             <div class="main-desc">
@@ -10,15 +11,74 @@
               <span class="symbol">。</span>
             </div>
             <div class="sub-desc">
-              <div v-for="(info, id) in banner.infoList" :key="id">
-                {{ info.desc }}
+              <div v-for="(i, id) in banner.infoList" :key="id">
+                {{ i.desc }}
               </div>
             </div>
           </div>
         </section>
-        <section class="about-content-container">2</section>
+        <section class="about-content-container">
+          <div class="pc-info-content" :style="{backgroundImage: `url(${intro.bgImg})`, backgroundRepeat: `no-repeat`, backgroundPosition: `right`, backgroundSize: `60% 100%` }">
+            <!-- 介绍 -->
+            <div class="introduce">
+              <div class="title" :style="{backgroundImage: `url(${intro.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPositionY: `center` }">
+                {{ intro.title }}
+              </div>
+              <div class="summary">
+                <img :src="intro.img" alt="" width="55%" height="50%" />
+                <section class="desc-container">
+                  <div class="heading">{{ intro.heading }}</div>
+                  <div class="desc">
+                    <span v-for="(t, id) in intro.texts" :key="id">
+                      {{ t.text }}
+                    </span>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <!-- 愿景 -->
+            <div class="vision">
+              <div class="title" :style="{backgroundImage: `url(${vision.titleBgImg});`, backgroundRepeat: `no-repeat;`, backgroundPositionY: `center;` }">
+                {{ vision.title }}
+              </div>
+              <div class="summary">
+                <section class="desc-container">
+                  <!-- <div class="heading">{{ vision.heading }}</div> -->
+                  <div class="desc">
+                    <span>
+                      {{ vision.desc }}
+                    </span>
+                  </div>
+                  <div class="illustration">
+                    <span>0</span>
+                    <span class="icon"><i class="el-icon-right" /></span>
+                    <span style="font-size: 38px;">1</span>
+                    <span class="icon"><i class="el-icon-right" /></span>
+                    <img :src="vision.endlessImg" alt="" width="70px" />
+                  </div>
+                </section>
+                <img :src="vision.img" alt="" width="53%" height="50%" />
+              </div>
+            </div>
+          </div>
+          <div class="contact-us-container">
+            <div class="title" :style="{backgroundImage: `url(${contact.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPosition: `center` }">
+              {{ contact.title }}
+            </div>
+            <div class="card-list">
+              <div v-for="(card, id) in contact.cards" :key="id" class="card">
+                <div class="head">{{ card.location }}</div>
+                <div class="info">
+                  <span>{{ card.address }}</span>
+                  <span>{{ card.phone }}</span>
+                  <span>{{ card.mail }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <!-- 移动端显示 -->
+      <!-- NOTE: 移动端显示 -->
       <div class="mobile-only">
         <section class="about-banner-container">
           <img :src="banner.img" alt="" />
@@ -33,25 +93,28 @@
           </div>
         </section>
         <section class="about-content-container">
-          <!-- 介绍 -->
-          <div class="introduce">
-            <div class="title">{{ intro.title }}</div>
-            <div class="summary">
-              <span v-for="(t, id) in intro.texts" :key="id">
-                {{ t.text }}
-              </span>
+          <div class="info-content">
+            <!-- 介绍 -->
+            <div class="introduce">
+              <div class="title">{{ intro.title }}</div>
+              <div class="summary">
+                <span v-for="(t, id) in intro.texts" :key="id">
+                  {{ t.text }}
+                </span>
+              </div>
+            </div>
+            <!-- 愿景 -->
+            <div class="vision">
+              <div class="title">{{ vision.title }}</div>
+              <div class="desc">
+                {{  vision.desc }}
+              </div>
+              <div class="img-container">
+                <img :src="vision.img" alt="" />
+              </div>
             </div>
           </div>
-          <!-- 愿景 -->
-          <div class="vision">
-            <div class="title">{{ vision.title }}</div>
-            <div class="desc">
-              {{  vision.desc }}
-            </div>
-            <div class="img-container">
-              <img :src="vision.img" alt="" />
-            </div>
-          </div>
+
           <!-- 联系我们 -->
           <div class="contact-us">
             <div class="title">
@@ -86,7 +149,7 @@ export default {
   data() {
     return {
       banner: {
-        bgImg: require(`~/static/imgs/about/about_banner.png`),
+        bgImg: require(`~/static/imgs/about/about_banner.png`), // 支持后端动态传图
         mainText: '选择安禾',
         infoList: [
           { id: 0, desc: '卓越的科学家团队' },
@@ -97,7 +160,12 @@ export default {
         img: '/imgs/about/about_banner_m.png', // 限移动端显示图片
       },
       intro: {
+        bgImg: require(`~/static/imgs/about/intro_bg_pc.png`), // PC端安禾介绍背景图
+
         title: '安禾介绍',
+        titleBgImg: require(`~/static/imgs/about/bg_introduce.png`),
+        img: `/imgs/about/ah_intro_1.png`,
+        heading: '安禾是谁？',
         texts: [
           {id: 0, text: `一个立志用硬科技改变世界的科学家团队` },
           {id: 1, text: `一个对科学研究有狂热追求的团队` },
@@ -109,10 +177,12 @@ export default {
         title: '发展愿景',
         titleBgImg: require(`~/static/imgs/about/bg_development.png`), // for PC
         img: `/imgs/about/ah_intro_2.png`,
+        endlessImg: `/imgs/about/endless.png`,
         desc: `安禾致力于尖端科学仪器研发和生产的高科技平台公司，助力硬科技从实验室到工业领域0到1的转化，以及实现从1到无穷大的商业应用，让前沿基础科学成果真正成为科学生产的巨大推动力。`
       },
       contact: {
         title: '联系我们',
+        titleBgImg: require(`~/static/imgs/about/bg_contact_us.png`),
         cards: [
           {
             id: 0,
@@ -179,6 +249,128 @@ export default {
           font-size: 28px;
           line-height: 48px;
           font-weight: 300;
+        }
+      }
+    }
+
+    .about-content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 0 50px 0;
+      .pc-info-content {
+        // 这里放置背景块
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        position: relative;
+        // 验证css
+        // background: yellow;
+        height: 100%;
+        .introduce, .vision {
+          .title {
+            margin: 60px 20px 40px 20px;
+            color: $primaryText;
+            font-size: 38px;
+            font-weight: 500;
+          }
+          .summary {
+            display: flex;
+            .desc-container {
+              // padding: 10px 30px 10px 20px;
+              text-align: justify;
+              color: $primaryText;
+              .heading {
+                padding: 20px 0;
+                font-size: 24px;
+                font-weight: 500;
+              }
+              .desc {
+                display: flex;
+                flex-direction: column;
+                // padding: 10px 10px 20px 30px;
+                font-size: 16px;
+                font-weight: 400;
+                span {
+                  line-height: 30px;
+                }
+              }
+              .illustration {
+                display: flex;
+                align-items: center;
+                margin: 30px 10px 10px 0;
+                font-size: 26px;
+                font-weight: 500;
+
+                .icon {
+                  margin: 0 25px;
+                }
+              }
+            }
+          }
+        }
+
+        .introduce .desc-container {
+          padding: 10px 40px;
+        }
+
+        .vision .desc-container {
+          padding: 10px 80px 10px 20px;
+        }
+      }
+
+      .contact-us-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 55%;
+
+        .title {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          margin: 80px 0 30px 0;
+          font-size: 24px;
+          font-weight: 500;
+          color: #1d1d1d;
+        }
+
+        .card-list {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .card {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 30px 20px;
+            color: #1d1d1d;
+            border: 1px solid;
+            border-image: linear-gradient(90deg, #E1EAFA, #FFFFFF) 10 10;
+            background: linear-gradient(90deg, #fff, #E1EAFA);
+            .head {
+              font-size: 20px;
+              margin: 10px 20px 20px 20px;
+            }
+            .info {
+              display: flex;
+              flex-direction: column;
+              font-size: 14px;
+              margin: 10px 20px;
+              span {
+                line-height: 40px;
+              }
+            }
+          }
+          .card:nth-child(odd) {
+            margin-right: 8px;
+          }
+          .card:nth-child(even) {
+            margin-left: 8px;
+          }
         }
       }
     }

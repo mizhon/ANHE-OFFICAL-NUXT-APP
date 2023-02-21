@@ -1,6 +1,6 @@
 <template>
   <div class="page-content-wrapper">
-    <div class="media-news-container">
+    <div class="media-news-page">
       <!-- PC端 -->
       <div class="pc-only">
         <section class="tab-section">
@@ -9,7 +9,7 @@
         <section class="news-section">
           <div class="news-list">
             <div v-for="(newsItem, idx) in newsList" :key="idx" class="card-wrapper">
-              <NewsCard :info="newsItem" />
+              <NewsCard :info="newsItem" @click="checkDetailInfo(newsItem)" />
             </div>
           </div>
           <div class="check-details">
@@ -85,16 +85,24 @@ export default {
     handleTabClick(tab) {
       // eslint-disable-next-line no-console
       console.log('click tab: --->', tab)
+    },
+    checkDetailInfo(item) {
+      // eslint-disable-next-line no-console
+      console.log('点击查看新闻详情: --->', item )
+      this.$router.push({
+        path: `/media_news/${item.id}`,
+      });
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 // PC端样式
-// @media only screen and ()
-
 @media only screen and (min-width: 769px) {
-  .media-news-container {
+  .mobile-only {
+    display: none !important;
+  }
+  .media-news-page {
     .pc-only {
       display: flex;
       justify-content: center;
