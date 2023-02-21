@@ -4,7 +4,7 @@
       <!-- PC端 -->
       <div class="pc-only">
         <section class="tab-section">
-          <CommonNavTab :tabs="tabs" :active-tab="activeNewsTabIndex" @get-tab-index="getActiveNewsTabIndex"  />
+          <CommonNavTab :tabs="tabs" :active-tab="newsActiveTabIndex" @get-tab-index="getActiveNewsTabIndex"  />
         </section>
         <section class="news-section">
           <div class="news-list">
@@ -26,7 +26,31 @@
       </div>
       <!-- 移动端 -->
       <div class="mobile-only">
-        <!-- TODO: 添加代码 -->
+        <div class="m-news-banner-container">
+          <img :src="newsBanner.img" alt="" />
+          <div class="banner-container">
+            <div class="title">{{ newsBanner.title }}</div>
+            <div class="sub-title">{{ newsBanner.subTitle }}</div>
+          </div>
+        </div>
+        <div class="m-news-tabs-container">
+          <el-tabs v-model="mobileNewsActiveTabIndex" @tab-click="handleTabClick">
+            <el-tab-pane v-for="(tab, id) in tabs" :key="id" :label="tab.label" :name="tab.name">
+              <!-- {{ tab.label }} -->
+              <div class="tab-content-list">
+                <div v-for="(item, idx) in tab.list" :key="idx" class="tab-item">
+                  <div class="picture">
+                    <img :src="item.img" alt="" />
+                  </div>
+                  <div class="title">
+                    {{ item.title }}
+                  </div>
+                </div>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+
+        </div>
       </div>
     </div>
     <AppFooter :position="position" />
@@ -47,11 +71,59 @@ export default {
   layout: 'normal',
   data() {
     return {
-      activeNewsTabIndex: 0, // 默认激活的tab标签为0
+      newsBanner: {
+        img: `/imgs/news/m_news_banner_img.png`,
+        title: '新闻动态',
+        subTitle: '最新咨询动态展示'
+      },
+      newsActiveTabIndex: 0, // 默认激活的tab标签为0
+      mobileNewsActiveTabIndex: '0', // 移动端默认激活的tab页面
       tabs: [
-        { id: 0, label: '公司新闻' },
-        { id: 1, label: '媒体报道' },
-        { id: 2, label: '学术动态' }
+        {
+          id: 0,
+          label: '公司新闻',
+          name: '0',
+          list: [
+            {
+              img: `/imgs/news/m_img_01.png`,
+              title: '公司新闻标题文字占位区域标题文字占位区域1111'
+            },
+            {
+              img: `/imgs/news/m_img_02.png`,
+              title: '公司新闻222'
+            },
+            {
+              img: `/imgs/news/m_img_03.png`,
+              title: '公司新闻标题文字占位区域标题文字占位区域...'
+            },
+          ]
+        },
+        {
+          id: 1,
+          label: '媒体报道',
+          name: '1',
+          list: [
+            {
+              img: `/imgs/news/m_img_02.png`,
+              title: '公司新闻标题文字占位区域标题文字占位区域...'
+            },
+            {
+              img: `/imgs/news/m_img_01.png`,
+              title: '公司新闻标题文字占位区域标题文字占位区域...'
+            },
+          ]
+        },
+        {
+          id: 2,
+          label: '学术动态',
+          name: '2',
+          list: [
+            {
+              img: `/imgs/news/m_img_02.png`,
+              title: '公司新闻标题文字占位区域标题文字占位区域...'
+            }
+          ]
+        }
       ],
       newsList: [
         {
@@ -74,13 +146,13 @@ export default {
         }
       ],
       checkDetailsText: '查看详情',
-      position: 'fixed',
-      activeTab: 'first'
+      position: 'relative', // 'fixed'
     }
   },
   methods: {
     getActiveNewsTabIndex(index) {
-      this.activeNewsTabIndex = index;
+      this.newsActiveTabIndex = index;
+      this.mobileNewsActiveTabIndex = String(index);
     },
     handleTabClick(tab) {
       // eslint-disable-next-line no-console
@@ -97,6 +169,33 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.media-news-page {
+  padding-top: 60px;
+  ::v-deep .el-tabs__item {
+    height: 48px;
+    font-size: 18px;
+  }
+  ::v-deep .el-tabs__item.is-active {
+    color: #0053A1;
+  }
+  ::v-deep .el-tabs__active-bar {
+    background-color: #0053A1;
+    width: 68px;
+    transform: translateX(216px);
+  }
+  ::v-deep .el-tabs__nav-scroll {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    margin-left: 20px;
+  }
+}
+
 // PC端样式
 @media only screen and (min-width: 769px) {
   .mobile-only {
@@ -141,6 +240,65 @@ export default {
 @media only screen and (max-width: 768px) {
   .pc-only {
     display: none !important;
+  }
+
+  .media-news-page {
+    .mobile-only {
+      // height: 100vh;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .m-news-banner-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        .banner-container {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: #333333;
+          padding: 10px;
+          width: 80%;
+          .title {
+            font-size: 48px;
+            font-weight: 500;
+          }
+          .sub-title {
+            font-size: 24px;
+            font-weight: 400;
+            padding: 20px 0;
+          }
+        }
+      }
+
+      .m-news-tabs-container {
+        .tab-content-list {
+          .tab-item {
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            margin: 5px 20px 20px 20px;
+            border-bottom: 1px solid #eee;
+            .picture {
+              margin: 5px 0;
+              width: 35%;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .title {
+              width: 65%;
+              padding: 10px 5px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
