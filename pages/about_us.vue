@@ -38,24 +38,23 @@
             </div>
             <!-- 愿景 -->
             <div class="vision">
-              <div class="title" :style="{backgroundImage: `url(${vision.titleBgImg});`, backgroundRepeat: `no-repeat;`, backgroundPositionY: `center;` }">
+              <div class="title" :style="{backgroundImage: `url(${vision.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPositionY: `center` }">
                 {{ vision.title }}
               </div>
               <div class="summary">
                 <section class="desc-container">
-                  <!-- <div class="heading">{{ vision.heading }}</div> -->
                   <div class="desc">
                     <span>
                       {{ vision.desc }}
                     </span>
                   </div>
-                  <div class="illustration">
+                  <!-- <div class="illustration">
                     <span>0</span>
                     <span class="icon"><i class="el-icon-right" /></span>
                     <span style="font-size: 38px;">1</span>
                     <span class="icon"><i class="el-icon-right" /></span>
                     <img :src="vision.endlessImg" alt="" width="70px" />
-                  </div>
+                  </div> -->
                 </section>
                 <img :src="vision.img" alt="" width="53%" height="50%" />
               </div>
