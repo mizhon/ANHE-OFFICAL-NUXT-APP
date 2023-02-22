@@ -271,7 +271,6 @@ export default {
 
   .media-news-page {
     .mobile-only {
-      // height: 100vh;
       img {
         max-width: 100%;
         max-height: 100%;
