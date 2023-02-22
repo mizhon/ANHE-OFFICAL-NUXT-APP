@@ -11,6 +11,12 @@
         </div>
       </div>
     </div>
+    <div class="pagination">
+      <el-pagination
+        layout="prev, pager, next"
+        :total="50">
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
@@ -61,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 .component-container {
   .product-data-list {
-    padding: 20px 0 60px 0;
+    padding: 20px 0 40px 0;
     background: #f3f5f7;
     .product {
       display: flex;
@@ -99,6 +105,13 @@ export default {
       //   }
       // }
     }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 0 0 0;
   }
 }
 </style>

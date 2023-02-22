@@ -62,7 +62,7 @@ export default {
       .knowledge-center-section {
         width: 50%;
         height: 100vh;
-        padding: 20px;
+        padding: 20px 20px 0 20px;
       }
     }
   }

@@ -37,9 +37,12 @@ export default {
   .tech-support__header {
     position: relative;
     text-align: center;
-    // .header-img {
-
-    // }
+    .header-img {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
     .header-desc {
       position: absolute;
       top: 50%;

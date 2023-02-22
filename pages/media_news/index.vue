@@ -242,7 +242,7 @@ export default {
         padding: 0 20px 20px 20px;
         .news-list {
           display: flex;
-          margin: 0 10px 10px 10px;
+          // margin: 0 10px 10px 10px;
         }
         .check-details {
           display: flex;

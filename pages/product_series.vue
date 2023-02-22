@@ -6,7 +6,48 @@
           <CommonNavTab :tabs="tabs" :active-tab="productSeriesTabIndex" @get-tab-index="getActiveProductSeriesTabIndex" />
         </section>
         <section class="product-series-section">
-          <!-- <ProductDetail :info="productInfo" /> -->
+          <div class="img-banner">
+            <img :src="productInfo.bannerImg" alt="">
+          </div>
+          <!-- 概况 -->
+          <div class="overview-container">
+            <div class="info-details">
+              <div class="title">
+                {{ overviewTitle }}
+              </div>
+              <div class="desc">
+                {{ productInfo.intro }}
+              </div>
+              <div class="hightlight-desc">
+                {{ productInfo.highLightIntro }}
+              </div>
+            </div>
+            <ConsultCard />
+          </div>
+          <!-- 技术参数 -->
+          <div class="overview-container">
+            <div class="info-details">
+              <div class="title">{{ paramTitle }}</div>
+              <div class="desc">
+                {{ productInfo.paramDesc }}
+              </div>
+            </div>
+          </div>
+          <!-- 部件选配 -->
+          <div class="overview-container">
+            <div class="info-details">
+              <div class="title">{{ componentTitle }}</div>
+              <div class="desc">
+                {{ productInfo.componentDesc }}
+              </div>
+            </div>
+          </div>
+          <!-- 底部图片 -->
+          <div class="img-footer">
+            <div v-for="(imgItem, id) in productInfo.footerImgs" :key="id" class="imgs-container">
+              <img :src="imgItem.path" alt="" width="100%" />
+            </div>
+          </div>
         </section>
       </div>
       <div class="mobile-only">
@@ -17,20 +58,23 @@
   </div>
 </template>
 <script>
-// import ProductDetail from '@/components/product/ProductDetail.vue'
-import AppFooter from '@/components/common/AppFooter.vue'
+import AppFooter from '@/components/common/AppFooter.vue';
+import ConsultCard from '@/components/product/ConsultCard.vue';
 
 export default {
   name: 'ProductSeriesPage',
   components: {
-    // ProductDetail,
-    AppFooter
+    AppFooter,
+    ConsultCard
   },
   layout: 'normal',
   data() {
     return {
       activeTabIndex: 0, // 默认激活的Tab索引
       productSeriesTabIndex: 0,
+      overviewTitle: '概况介绍',
+      paramTitle: '技术参数',
+      componentTitle: '部件选配',
       tabs: [
         { id: 0, label: '稀释制冷机' },
         { id: 1, label: '原子粒显微镜' },
@@ -101,6 +145,10 @@ export default {
 <style lang="scss" scoped>
 .product-series-page {
   padding-top: 60px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -119,7 +167,48 @@ export default {
       .product-series-section {
         width: 50%;
         height: 100vh;
-        padding: 20px;
+        padding: 20px 20px 0 20px;
+        overflow-y: auto;
+        .img-banner {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .overview-container {
+          display: flex;
+          padding: 25px 0 5px 15px;
+          .info-details {
+            flex-grow: 1;
+            font-size: 14px;
+            .title {
+              padding: 20px 10px 0 10px;
+              font-size: 24px;
+              font-weight: 500;
+              color: $primaryText;
+            }
+            .desc, .hightlight-desc {
+              padding: 0 10px;
+              line-height: 24px;
+              text-align: justify; // 文字两端对齐
+              color: $primaryText;
+              white-space: pre-line;
+            }
+            .hightlight-desc {
+              color: $menuActiveText;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .img-footer {
+        display: flex;
+        padding: 15px 0 30px 0;
+        .imgs-container {
+          padding: 5px;
+        }
       }
     }
   }
