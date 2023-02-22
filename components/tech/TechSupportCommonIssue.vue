@@ -2,7 +2,7 @@
   <div class="component-container">
     <div class="issue-list">
       <div v-for="(s, id) in issues" :key="id" class="issue">
-        <div class="title">{{ s.title }}</div>
+        <span class="title">{{ s.title }}</span>
         <!-- <div class="download-btn" @click="handleDownload(software)">
           <span class="on-show">
             <i class="el-icon-download"></i>
@@ -15,6 +15,9 @@
         layout="prev, pager, next"
         :total="50">
       </el-pagination>
+    </div>
+    <div class="show-more">
+      <span>{{ checkMore }}</span>
     </div>
   </div>
 </template>
@@ -55,7 +58,8 @@ export default {
           title: '文件标题文字占位区域文件标题文字占位区域文件标题文字占位区域文件标题文',
           downloadUrl: '',
         },
-      ]
+      ],
+      checkMore: '点击查看更多'
     }
   },
   methods: {
@@ -81,35 +85,71 @@ export default {
         color: #333333;
         // margin: 0 0 0 10px;
       }
-      // .download-btn {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   width: 130px;
-      //   height: 40px;
-      //   border: 1px solid transparent;
-      //   background-color: #dee5f3;
-      //   cursor: pointer;
-      //   span {
-      //     color: #0053a1;
-      //   }
-      // }
-      // .download-btn:hover {
-      //   background-color: #0053a1;
-      //   .on-show {
-      //     display: none;
-      //   }
-      //   .on-hover-show {
-      //     color: #fff;
-      //   }
-      // }
+    }
+  }
+}
+
+// PC端样式
+@media only screen and (min-width: 769px) {
+  .component-container {
+    .issue-list {
+      .issue {
+        .title {
+          font-size: 16px;
+          line-height: 42px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+    .show-more {
+      display: none;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 30px 0 0 0;
+    }
+  }
+}
+
+// 移动端样式
+@media only screen and (max-width: 768px) {
+  .component-container {
+    .issue-list {
+      padding: 0 0 40px 0;
+      background: #fff;
+      .issue {
+        .title {
+          font-size: 18px;
+          padding: 0 20px 0 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
     }
   }
   .pagination {
+    display: none;
+  }
+
+  .show-more {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    padding: 30px 0 0 0;
+    padding: 30px 0 60px 0;
+    font-size: 22px;
+    font-weight: 400;
+    color: #666666;
+    cursor: pointer;
   }
 }
 </style>

@@ -11,7 +11,32 @@
           </TechSupportCard>
         </section>
       </div>
-      <div class="mobile-only"></div>
+      <div class="mobile-only">
+        <div class="m-tech-support-container">
+          <img :src="mHeaderImg" alt="">
+          <div class="banner-container">
+            <div class="title">{{ mHeaderTitle }}</div>
+            <div class="sub-title">{{ mHeaderSubTitle }}</div>
+          </div>
+        </div>
+        <div class="m-tech-support-tab-container">
+          <el-tabs v-model="mobileTechSupportActiveTabIndex" @tab-click="handleTabClick">
+            <el-tab-pane v-for="(tab, id) in tabs" :key="id" :label="tab.label" :name="tab.name">
+              <!-- <div class="tab-content-list">
+                <div v-for="(item, idx) in tab.list" :key="idx" class="tab-item">
+                  <div class="title">{{ item.title }}</div>
+                  <div class="download-btn">
+                    <span class="on-show">
+                      <i class="el-icon-download"></i>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+              <component :is="comp" />
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+      </div>
     </div>
     <AppFooter />
   </div>
@@ -36,6 +61,7 @@ export default {
   data() {
     return {
       techSupportActiveTabIndex: 0,
+      mobileTechSupportActiveTabIndex: '0',
       headerBgImg: require(`~/static/imgs/tech/tech_header_bg_img.png`),
       btnText: '查看详情',
       headerText: '产品资料展示', // 默认显示第一个tab
@@ -49,6 +75,7 @@ export default {
         {
           id: 0,
           label: '产品资料',
+          name: '0',
           headerText: '产品资料展示',
           list: [
             {
@@ -77,6 +104,7 @@ export default {
         {
           id: 1,
           label: '软件下载',
+          name: '1',
           list: [
             {
               id: '1-1',
@@ -104,6 +132,7 @@ export default {
         {
           id: 2,
           label: '常见问题',
+          name: '2',
           list: [
             {
               id: '2-1',
@@ -129,6 +158,10 @@ export default {
           ]
         }
       ],
+      // 移动端信息
+      mHeaderImg: `/imgs/tech/m_tech_support_header_img.png`,
+      mHeaderTitle: '技术支持',
+      mHeaderSubTitle: '安禾资源下载'
     }
   },
   created() {
@@ -137,7 +170,7 @@ export default {
   methods: {
     getActiveTechSupportTabIndex(idx) {
       // eslint-disable-next-line no-console
-      console.log('当前tab：', idx)
+      console.log('当前tab：', typeof idx, idx)
       this.headerText = this.tabHeadersText[idx];
 
       switch(idx) {
@@ -153,6 +186,11 @@ export default {
         default:
           break;
       }
+    },
+    handleTabClick(tab) {
+      // eslint-disable-next-line no-console
+      console.log('[tech support] click tab: --->', tab.index);
+      this.getActiveTechSupportTabIndex(parseInt(tab.index, 10));
     }
   }
 }
@@ -160,10 +198,27 @@ export default {
 <style lang="scss" scoped>
 .tech-support-page {
   padding-top: 60px;
-
   img {
     max-width: 100%;
     max-height: 100%;
+  }
+  ::v-deep .el-tabs__item {
+    height: 48px;
+    font-size: 18px;
+  }
+  ::v-deep .el-tabs__item.is-active {
+    color: #0053A1;
+  }
+  ::v-deep .el-tabs__active-bar {
+    background-color: #0053A1;
+    width: 68px;
+    transform: translateX(216px);
+  }
+  ::v-deep .el-tabs__nav-scroll {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    margin-left: 20px;
   }
 }
 
@@ -197,7 +252,31 @@ export default {
 
   .tech-support-page {
     .mobile-only {
-
+      .m-tech-support-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+      }
+      .banner-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #333333;
+        padding: 10px;
+        width: 80%;
+        .title {
+          font-size: 48px;
+          font-weight: 500;
+        }
+        .sub-title {
+          font-size: 24px;
+          font-weight: 400;
+          padding: 20px 0;
+        }
+      }
     }
   }
 }

@@ -125,14 +125,17 @@ export default {
       tabs: [
         {
           id: 0,
+          name: '0',
           label: '稀释制冷机'
         },
         {
           id: 1,
+          name: '1',
           label: '原子粒显微镜'
         },
         {
           id: 2,
+          name: '2',
           label: '综合实验平台'
         }
       ],
