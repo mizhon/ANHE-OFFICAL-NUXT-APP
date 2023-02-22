@@ -239,9 +239,10 @@ export default {
       .news-section {
         width: 50%;
         height: 100vh;
+        padding: 0 20px 20px 20px;
         .news-list {
           display: flex;
-          margin: 0 30px 30px 30px;
+          margin: 0 10px 10px 10px;
         }
         .check-details {
           display: flex;

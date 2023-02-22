@@ -1,45 +1,36 @@
 <template>
   <div class="page-content-wrapper">
     <div class="product-series-page">
-      <!-- <div class="pc-only">
-
+      <div class="pc-only">
+        <section class="tab-section">
+          <CommonNavTab :tabs="tabs" :active-tab="productSeriesTabIndex" @get-tab-index="getActiveProductSeriesTabIndex" />
+        </section>
+        <section class="product-series-section">
+          <!-- <ProductDetail :info="productInfo" /> -->
+        </section>
       </div>
       <div class="mobile-only">
 
-      </div> -->
-      <section class="product-series-container">
-        <div class="nav-tabs">
-          <div class="tab-container">
-            <div v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="[activeTabIndex === index ? 'active-tab' : '']" @click="handleTabClick(index)">
-              <div class="tab-label">{{ tab.label }}</div>
-              <div class="tab-pointer">
-                <div class="trangle"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="info-container">
-          <ProductDetail :info="productInfo" />
-        </div>
-      </section>
+      </div>
+      <AppFooter />
     </div>
-    <AppFooter />
   </div>
 </template>
 <script>
-import ProductDetail from '@/components/product/ProductDetail.vue'
+// import ProductDetail from '@/components/product/ProductDetail.vue'
 import AppFooter from '@/components/common/AppFooter.vue'
 
 export default {
   name: 'ProductSeriesPage',
   components: {
-    ProductDetail,
+    // ProductDetail,
     AppFooter
   },
   layout: 'normal',
   data() {
     return {
       activeTabIndex: 0, // 默认激活的Tab索引
+      productSeriesTabIndex: 0,
       tabs: [
         { id: 0, label: '稀释制冷机' },
         { id: 1, label: '原子粒显微镜' },
@@ -101,76 +92,43 @@ export default {
     handleTabClick(index) {
       this.activeTabIndex = index;
       this.productInfo = this.products[index];
+    },
+    getActiveProductSeriesTabIndex(index) {
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .product-series-page {
-  .product-series-container {
-    display: flex;
-    justify-content: center;
-    margin: 0 340px;
-    padding-top: 60px;
-    .nav-tabs {
-      flex-grow: 0;
-      width: 250px;
-      min-width: 250px;
-      .tab-container {
-        padding-top: 20px;
-        height: 100%;
-        background-color: $navbarBackgroundColor;
+  padding-top: 60px;
+}
 
-        .tab-item {
-          display: flex;
-          align-items: center;
-          justify-content : space-between;
-          cursor: pointer;
-          color: $navTabText;
-          height: 50px;
+@media only screen and (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
 
-          .tab-label {
-            padding-left: 40px;
-          }
-
-          .tab-pointer {
-            height: 50px;
-          }
-
-          &:hover {
-            color: $menuActiveText;
-            font-weight: 500;
-          }
-        }
-
-        .active-tab {
-          color: $menuActiveText;
-          background-color: $white;
-          font-weight: 500;
-          .tab-pointer {
-            width: 6px;
-            background-color: $menuActiveText;
-            .trangle {
-              position: relative;
-              width: 0;
-              height: 0;
-              top: 14px;
-              border: 10px solid transparent;
-              border-left: 10px solid $menuActiveText;
-            }
-          }
-        }
-      }
-    }
-    .info-container {
+  .product-series-page {
+    .pc-only {
       display: flex;
       justify-content: center;
-
-      margin-left: 5px;
-      width: auto;
-      min-width: 400px;
-      flex-grow: 1;
+      align-items: flex-start;
+      .tab-section {
+        height: 100vh;
+      }
+      .product-series-section {
+        width: 50%;
+        height: 100vh;
+        padding: 20px;
+      }
     }
+  }
+}
+
+// 移动端样式
+@media only screen and (max-width: 768px) {
+  .pc-only {
+    display: none !important;
   }
 }
 </style>
