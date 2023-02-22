@@ -36,9 +36,8 @@
         <div class="m-news-tabs-container">
           <el-tabs v-model="mobileNewsActiveTabIndex" @tab-click="handleTabClick">
             <el-tab-pane v-for="(tab, id) in tabs" :key="id" :label="tab.label" :name="tab.name">
-              <!-- {{ tab.label }} -->
               <div class="tab-content-list">
-                <div v-for="(item, idx) in tab.list" :key="idx" class="tab-item">
+                <div v-for="(item, idx) in tab.list" :key="idx" class="tab-item" @click="checkDetailInfo(item)">
                   <div class="picture">
                     <img :src="item.img" alt="" />
                   </div>
@@ -47,6 +46,7 @@
                   </div>
                 </div>
               </div>
+              <!-- tab.list > 3 显示 -->
             </el-tab-pane>
           </el-tabs>
 
@@ -57,16 +57,16 @@
   </div>
 </template>
 <script>
-import CommonNavTab from '@/components/CommonNavTab.vue'
-import AppFooter from '@/components/common/AppFooter.vue'
-import NewsCard from '@/components/news/NewsCard.vue'
+import CommonNavTab from '@/components/CommonNavTab.vue';
+import NewsCard from '@/components/news/NewsCard.vue';
+import AppFooter from '@/components/common/AppFooter.vue';
 
 export default {
   name: 'MediaNewsPage',
   components: {
     CommonNavTab,
+    NewsCard,
     AppFooter,
-    NewsCard
   },
   layout: 'normal',
   data() {
@@ -85,14 +85,37 @@ export default {
           name: '0',
           list: [
             {
+              id: 0,
               img: `/imgs/news/m_img_01.png`,
-              title: '公司新闻标题文字占位区域标题文字占位区域1111'
+              title: '公司新闻标题文字占位区域标题文字占位区域1111',
+              uploadTimeText: '上传时间：',
+              timestamp: '2023-02-21',
+              content: `article 123123132 内容文字占位区域内容文字占位区域内容文字占位区域内
+                容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占
+                位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内
+                容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域`,
+              footer: {
+                next: '阅读下一篇',
+                nextArticleTitle: '快使用双节棍，嚯嚯哈嘿'
+              }
             },
             {
+              id: 1,
               img: `/imgs/news/m_img_02.png`,
-              title: '公司新闻222'
+              title: '公司新闻222',
+              uploadTimeText: '上传时间：',
+              timestamp: '2023-02-21',
+              content: `article 123123132 内容文字占位区域内容文字占位区域内容文字占位区域内
+                容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占
+                位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内
+                容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域`,
+              footer: {
+                next: '阅读下一篇',
+                nextArticleTitle: '热成像仪在XX领域的使用'
+              }
             },
             {
+              id: 2,
               img: `/imgs/news/m_img_03.png`,
               title: '公司新闻标题文字占位区域标题文字占位区域...'
             },
@@ -104,10 +127,12 @@ export default {
           name: '1',
           list: [
             {
+              id: 3,
               img: `/imgs/news/m_img_02.png`,
               title: '公司新闻标题文字占位区域标题文字占位区域...'
             },
             {
+              id: 4,
               img: `/imgs/news/m_img_01.png`,
               title: '公司新闻标题文字占位区域标题文字占位区域...'
             },
@@ -119,6 +144,7 @@ export default {
           name: '2',
           list: [
             {
+              id: 5,
               img: `/imgs/news/m_img_02.png`,
               title: '公司新闻标题文字占位区域标题文字占位区域...'
             }
@@ -146,7 +172,7 @@ export default {
         }
       ],
       checkDetailsText: '查看详情',
-      position: 'relative', // 'fixed'
+      position: 'relative', // 'fixed' // 监听页面尺寸以改变position设置
     }
   },
   methods: {
@@ -160,11 +186,12 @@ export default {
     },
     checkDetailInfo(item) {
       // eslint-disable-next-line no-console
-      console.log('点击查看新闻详情: --->', item )
+      console.log('点击查看新闻详情: --->', item)
       this.$router.push({
         path: `/media_news/${item.id}`,
+        params: item
       });
-    }
+    },
   }
 }
 </script>
@@ -206,7 +233,6 @@ export default {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 60px;
       .tab-section {
         height: 100vh;
       }
@@ -285,15 +311,15 @@ export default {
             border-bottom: 1px solid #eee;
             .picture {
               margin: 5px 0;
-              width: 35%;
+              width: 40%;
               img {
                 width: 100%;
                 height: 100%;
               }
             }
             .title {
-              width: 65%;
-              padding: 10px 5px;
+              width: 60%;
+              padding: 10px 10px 10px 20px;
             }
           }
         }

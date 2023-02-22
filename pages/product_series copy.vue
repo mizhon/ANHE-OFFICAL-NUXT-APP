@@ -1,12 +1,6 @@
 <template>
   <div class="page-content-wrapper">
     <div class="product-series-page">
-      <!-- <div class="pc-only">
-
-      </div>
-      <div class="mobile-only">
-
-      </div> -->
       <section class="product-series-container">
         <div class="nav-tabs">
           <div class="tab-container">

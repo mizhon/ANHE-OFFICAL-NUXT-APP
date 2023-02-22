@@ -1,11 +1,11 @@
 export const state = () => ({
-  activeTabIndex: 0
+  activeMenuIndex: 0
 })
 
 export const mutations = {
-  SET_ACTIVE_TAB_INDEX(state, activeTabIndex) {
+  SET_ACTIVE_MENU_INDEX(state, activeMenuIndex) {
     // eslint-disable-next-line no-console
-    console.log('active tab: --->', activeTabIndex)
-    state.activeTabIndex = activeTabIndex;
+    console.log('[$store] active menu: --->', activeMenuIndex)
+    state.activeMenuIndex = activeMenuIndex;
   }
 }

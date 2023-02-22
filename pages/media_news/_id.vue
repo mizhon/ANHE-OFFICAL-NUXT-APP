@@ -23,8 +23,8 @@
             <div class="text-container">
               <div class="content">{{ article.content }}</div>
               <div class="footer">
-                <div class="read-next">{{  article.footer.next }}</div>
-                <div class="next-article-title">{{ article.footer.nextArticleTitle }}</div>
+                <div class="read-next">{{ nextDesc }}</div>
+                <div class="next-article-title">{{ article.nextArticle.title }}</div>
               </div>
             </div>
             <div class="navigation-bar">
@@ -68,6 +68,8 @@ export default {
   },
   data() {
     return {
+      // 默认值，仅用于显示
+      nextDesc: '阅读下一篇',
       article: {
         bgImg: require(`~/static/imgs/news/detail_banner_bg_pc.png`),
         title: '标题文字占位区域标题文字占位区域标题文字占位区域标题文',
@@ -77,12 +79,11 @@ export default {
           容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占
           位区域内容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域内
           容文字占位区域内容文字占位区域内容文字占位区域内容文字占位区域`,
-        footer: {
-          next: '阅读下一篇',
-          nextArticleTitle: '快使用双节棍，嚯嚯哈嘿'
+        nextArticle: {
+          id: 1,
+          title: '热成像仪在XX领域的使用'
         }
       },
-
       list: [
         { id: 0, title: '标题文字占位区域标题文字占位0', timestamp: '2023-07-21' },
         { id: 1, title: '标题文字占位区域', timestamp: '2023-04-09' },
@@ -94,6 +95,10 @@ export default {
       }
     }
   },
+  created() {
+    // eslint-disable-next-line no-console
+    console.log('新闻动态详情页: --->', this.$route.params);
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -150,7 +155,7 @@ export default {
             flex-direction: column;
             justify-content: space-between;
             flex-grow: 1;
-            // background: yellow;
+            padding: 20px 20px 20px 0;
             .content {
               font-size: 14px;
               font-weight: 400;
@@ -173,18 +178,19 @@ export default {
           }
           .navigation-bar {
             flex-grow: 0;
+            min-width: 180px;
             .tab-name {
               font-size: 18px;
               font-weight: 500;
               color: #333333;
-              padding: 20px 0 20px 40px;
+              padding: 20px 0 20px 20px;
             }
             .article-list {
               .article {
                 display: flex;
                 flex-direction: column;
-                padding: 10px 20px 10px 0;
-                margin: 10px 0 10px 40px;
+                padding: 10px 0;
+                margin: 10px 0 10px 20px;
                 border-bottom: 1px solid #eee;
                 .title {
                   cursor: pointer;
