@@ -37,7 +37,34 @@
           </div>
         </section>
       </div>
-      <div class="mobile-only"></div>
+      <div class="mobile-only">
+        <div class="m-tech-support-detail-container">
+          <img :src="mHeaderImg" alt="">
+        </div>
+        <div class="m-tech-support-detail-content">
+          <div class="header">
+            <div class="title">
+              {{ issue.title }}
+            </div>
+            <div class="breadcrumb">
+              <el-breadcrumb separator="-">
+                  <el-breadcrumb-item v-for="(b, i) in breadcrumbs" :key="i">
+                    {{ b.label }}
+                  </el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
+          </div>
+          <div class="content">
+            <div class="detail-text">
+              <span>{{ issue.text1 }}</span>
+              <div class="detail-img">
+                <img :src="issue.image" alt="">
+              </div>
+              <span>{{ issue.text2 }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <AppFooter />
   </div>
@@ -154,24 +181,28 @@ export default {
         image: '/imgs/tech/img-01.png',
         text2: '问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域'
       },
+      // 移动端信息
+      mHeaderImg: `/imgs/tech/m_tech_support_detail_header_img.png`,
     }
   },
   methods: {
     getActiveTechSupportTabIndex(idx) {
-      this.headerText = this.tabHeadersText[idx];
-      switch(idx) {
-        case 0:
-          this.comp = 'TechSupportProductData';
-          break;
-        case 1:
-          this.comp = 'TechSupportSoftware';
-          break;
-        case 2:
-          this.comp = 'TechSupportCommonIssue';
-          break;
-        default:
-          break;
-      }
+      // eslint-disable-next-line no-console
+      console.log('[tech support detail page]: --->', idx)
+      // this.headerText = this.tabHeadersText[idx];
+      // switch(idx) {
+      //   case 0:
+      //     this.comp = 'TechSupportProductData';
+      //     break;
+      //   case 1:
+      //     this.comp = 'TechSupportSoftware';
+      //     break;
+      //   case 2:
+      //     this.comp = 'TechSupportCommonIssue';
+      //     break;
+      //   default:
+      //     break;
+      // }
     },
     goBack() {
       this.$router.push({
@@ -271,6 +302,37 @@ export default {
 @media only screen and (max-width: 768px) {
   .pc-only {
     display: none !important;
+  }
+
+  .tech-support-detail-page {
+    .mobile-only {
+      .m-tech-support-detail-container {
+
+      }
+      .m-tech-support-detail-content {
+        .header {
+          margin-bottom: 20px;
+          border-bottom: 1px solid #d6d6d6;
+          .title {
+            padding: 40px 20px 30px 20px;
+            text-align: justify;
+            color: #333;
+          }
+
+          .breadcrumb {
+            padding: 0 20px 30px 20px;
+          }
+        }
+        .content {
+          .detail-text {
+            padding: 0 20px 60px 20px;
+            font-size: 16px;
+            line-height: 24px;
+            color: #666;
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -36,6 +36,11 @@ export default {
   },
   methods: {
     handleTab(index) {
+      // eslint-disable-next-line no-console
+      console.log('[back to main page]');
+      this.$router.push({
+        path: '/tech_support'
+      })
       this.activeTabIndex = index;
       this.$emit('get-tab-index', index);
     }
