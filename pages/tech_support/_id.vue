@@ -317,6 +317,7 @@ export default {
             padding: 40px 20px 30px 20px;
             text-align: justify;
             color: #333;
+            font-weight: 500;
           }
 
           .breadcrumb {

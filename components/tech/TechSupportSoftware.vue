@@ -151,7 +151,7 @@ export default {
 @media only screen and (max-width: 768px) {
   .component-container {
     .software-list {
-      padding: 20px 0 40px 0;
+      padding: 0 0 40px 0;
       background: #fff;
       .software {
         .title {

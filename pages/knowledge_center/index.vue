@@ -183,6 +183,7 @@ export default {
   }
 
   .knowledge-center-page {
+    background: #fafafa;
     .mobile-only {
       .m-knowledge-center-container {
         display: flex;

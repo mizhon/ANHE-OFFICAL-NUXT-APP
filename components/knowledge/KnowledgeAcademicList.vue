@@ -31,7 +31,25 @@
       </div>
     </div>
     <div class="mobile-only">
-
+      <div class="m-knowledge-academic-list">
+        <div v-for="(academic, idx) in academicList" :key="idx" class="academic-card">
+          <div class="video-container">
+            <div class="cover" @click="clickToDetail(academic)">
+              <img class="base-img" :src="academic.coverImg" alt="" width="100%" height="100%" />
+              <img class="icon-img" :src="playIcon" alt="" width="10%" height="10%" />
+            </div>
+          </div>
+          <div class="info-container">
+            <div class="title">{{ academic.title }}</div>
+            <!-- 后续用时间戳替换 -->
+            <div class="timestamp">{{ academic.year }}年{{ academic.date }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- 点击查看更多 -->
+      <div class="show-more">
+        <span>{{ mShowMoreText }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -88,6 +106,7 @@ export default {
           coverImg: `/imgs/knowledge/knowledge-video-img-cover-03.png`
         },
       ],
+      mShowMoreText: '点击查看更多'
     }
   },
   created() {
@@ -98,10 +117,9 @@ export default {
     clickToDetail(academic) {
       // eslint-disable-next-line no-console
       console.log('[knowledge academic] --->', academic)
-      // this.$router.push({
-      //   name: '',
-
-      // })
+      this.$router.push({
+        path: `/knowledge_center/academic/${academic.id}`,
+      })
     }
   }
 }
@@ -227,6 +245,61 @@ export default {
 @media only screen and (max-width: 768px) {
   .pc-only {
     display: none !important;
+  }
+
+  .knowledge-academic-card-container {
+    .mobile-only {
+      .m-knowledge-academic-list {
+        .academic-card {
+          margin: 20px 20px 40px 20px;
+          .video-container {
+            width: 100%;
+            .cover {
+              position: relative;
+              top: 0;
+              left: 0;
+              .base-img {
+                position: relative;
+              }
+              .icon-img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 40px;
+                height: 40px;
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+          .info-container {
+            padding: 10px 20px 20px 20px;
+            background: #fff;
+            .title {
+              font-size: 22px;
+              font-weight: 400;
+              color: #333333;
+              line-height: 40px;
+            }
+            .timestamp {
+              font-size: 16px;
+              font-weight: 400;
+              color: #999999;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+
+      .show-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 400;
+        color: #666666;
+        padding: 30px 0 60px 0
+      }
+    }
   }
 }
 </style>
