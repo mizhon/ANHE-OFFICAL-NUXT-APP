@@ -98,7 +98,10 @@ export default {
     clickToDetail(academic) {
       // eslint-disable-next-line no-console
       console.log('[knowledge academic] --->', academic)
-      // this.$router.push('')
+      // this.$router.push({
+      //   name: '',
+
+      // })
     }
   }
 }

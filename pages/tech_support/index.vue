@@ -157,8 +157,6 @@ export default {
   },
   methods: {
     getActiveTechSupportTabIndex(idx) {
-      // eslint-disable-next-line no-console
-      console.log('当前tab：', typeof idx, idx)
       this.headerText = this.tabHeadersText[idx];
 
       switch(idx) {
