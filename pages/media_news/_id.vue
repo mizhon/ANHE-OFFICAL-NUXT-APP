@@ -63,7 +63,7 @@ export default {
   layout: 'normal',
   validate({params}) {
     // eslint-disable-next-line no-console
-    console.log('获取参数: --->', params)
+    console.log('新闻动态 = 获取参数: --->', params)
     return /^\d+$/.test(params.id)
   },
   data() {

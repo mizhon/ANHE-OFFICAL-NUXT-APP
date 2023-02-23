@@ -11,6 +11,7 @@
           </TechSupportCard>
         </section>
       </div>
+      <!-- 移动端显示 -->
       <div class="mobile-only">
         <div class="m-tech-support-container">
           <img :src="mHeaderImg" alt="">
@@ -22,16 +23,6 @@
         <div class="m-tech-support-tab-container">
           <el-tabs v-model="mobileTechSupportActiveTabIndex" @tab-click="handleTabClick">
             <el-tab-pane v-for="(tab, id) in tabs" :key="id" :label="tab.label" :name="tab.name">
-              <!-- <div class="tab-content-list">
-                <div v-for="(item, idx) in tab.list" :key="idx" class="tab-item">
-                  <div class="title">{{ item.title }}</div>
-                  <div class="download-btn">
-                    <span class="on-show">
-                      <i class="el-icon-download"></i>
-                    </span>
-                  </div>
-                </div>
-              </div> -->
               <component :is="comp" />
             </el-tab-pane>
           </el-tabs>
@@ -163,9 +154,6 @@ export default {
       mHeaderTitle: '技术支持',
       mHeaderSubTitle: '安禾资源下载'
     }
-  },
-  created() {
-
   },
   methods: {
     getActiveTechSupportTabIndex(idx) {
