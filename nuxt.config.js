@@ -15,6 +15,8 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'normalize.css/normalize.css',
+    // https://github.com/im-fahad/nuxt-video-player
+    'nuxt-video-player/src/assets/css/main.css'
   ],
 
   styleResources: {

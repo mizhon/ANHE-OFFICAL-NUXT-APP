@@ -10,12 +10,15 @@
         <div class="academic-container">
           <div class="header">
             <div class="title-section">
-              <span class="back-icon">
+              <span class="back-icon" @click="goback">
                 <i class="el-icon-arrow-left"></i>
               </span>
               <span class="title">{{ academic.title }}</span>
             </div>
             <div class="timestamp">{{ academic.year }}年{{ academic.date }}</div>
+          </div>
+          <div class="video-container">
+            <VideoPlayer :src="academic.videoPath" />
           </div>
         </div>
       </div>
@@ -23,7 +26,13 @@
   </div>
 </template>
 <script>
+import VideoPlayer from 'nuxt-video-player';
+
 export default {
+  name: 'Academic',
+  components: {
+    VideoPlayer
+  },
   layout: 'normal',
   validate({params}) {
     return /^\d+$/.test(params.id)
@@ -37,10 +46,16 @@ export default {
         year: '2023', // 后续直接用时间戳转换
         date: '2月4日', // 后续直接用时间戳转换
         summary: '此处添加视频说明性文字此处添加视频说明性文字此处添加视频说明性文字此处添加视频说明性文字',
-        coverImg: `/imgs/knowledge/knowledge-video-img-cover-02.png`
-      }
+        coverImg: `/imgs/knowledge/knowledge-video-img-cover-02.png`,
+        videoPath: `/videos/windmill.mp4`
+      },
     }
   },
+  methods: {
+    goback() {
+      this.$router.go(-1);
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -95,6 +110,10 @@ export default {
               padding: 0 40px;
             }
           }
+        }
+
+        .video-container {
+          padding: 100px 20px 50px 20px;
         }
       }
     }
