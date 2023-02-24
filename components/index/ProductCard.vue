@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    
+
   }
 }
 </script>
@@ -37,9 +37,9 @@ export default {
 @media only screen and (max-width: 768px) {
   .product-card-container {
     position: relative;
-    padding: 20px;
-    margin-bottom: 10px;
-    background: $white;
+    padding: 30px;
+    // margin-bottom: 30px;
+    // background: $white;
     img {
       width: 100%;
       height: 100%;
@@ -51,7 +51,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 16px;
+      font-size: 28px;
       text-align: center;
     }
   }
