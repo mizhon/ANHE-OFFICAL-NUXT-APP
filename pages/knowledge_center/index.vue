@@ -7,7 +7,8 @@
           <CommonNavTab :tabs="tabs" :active-tab="activeKnowledgeTabIndex" @get-tab-index="getActiveKnowledgeTabIndex" />
         </section>
         <section class="knowledge-center-section">
-          <component :is="currentComp" v-bind="currentProps" />
+          <!-- {{ currentProps }} -->
+          <component :is="currentComp" :current-props="currentProps" />
         </section>
       </div>
       <!-- 移动端显示 -->
@@ -35,13 +36,17 @@
 import AppFooter from '~/components/common/AppFooter.vue';
 import CommonNavTab from '@/components/CommonNavTab.vue'
 import KnowledgeAcademicList from '~/components/knowledge/KnowledgeAcademicList.vue';
+import KnowledgeCuttingEdgeTrend from '~/components/knowledge/KnowledgeCuttingEdgeTrend.vue';
+import KnowledgeProductNote from '~/components/knowledge/KnowledgeProductNote.vue'
 
 export default {
   name: 'KnowledgeCenterPage',
   components: {
     AppFooter,
     CommonNavTab,
-    KnowledgeAcademicList
+    KnowledgeAcademicList,
+    KnowledgeCuttingEdgeTrend,
+    KnowledgeProductNote
   },
   layout: 'normal',
   data() {
@@ -49,40 +54,7 @@ export default {
       activeKnowledgeTabIndex: 0, // 默认激活的tab标签为0
       mknowledgeCenterActiveTabIndex: '0',
       currentComp: 'KnowledgeAcademicList',
-      currentProps: [
-          {
-            id: 0,
-            timestamp: '',
-            year: '2023', // 后续直接用时间戳转换
-            date: '2月4日', // 后续直接用时间戳转换
-            title: '视频标题文字',
-            coverImg: `/imgs/knowledge/video-cover-img-01.png`
-          },
-          {
-            id: 1,
-            timestamp: '',
-            year: '2023', // 后续直接用时间戳转换
-            date: '2月3日', // 后续直接用时间戳转换
-            title: '视频标题文字',
-            coverImg: `/imgs/knowledge/video-cover-img-02.png`
-          },
-          {
-            id: 2,
-            timestamp: '',
-            year: '2023', // 后续直接用时间戳转换
-            date: '2月2日', // 后续直接用时间戳转换
-            title: '视频标题文字',
-            coverImg: `/imgs/knowledge/video-cover-img-03.png`
-          },
-          {
-            id: 3,
-            timestamp: '',
-            year: '2023', // 后续直接用时间戳转换
-            date: '2月1日', // 后续直接用时间戳转换
-            title: '视频标题文字',
-            coverImg: `/imgs/knowledge/video-cover-img-04.png`
-          }
-        ],
+      currentProps: [], // 默认为KnowledgeAcademicList组件对应参数
       tabs: [
         { id: 0, label: '学术研讨', name: '0' },
         { id: 1, label: '产品笔记', name: '1' },
@@ -94,7 +66,77 @@ export default {
       mHeaderSubTitle: '最新资讯动态展示',
     }
   },
-  computed: {},
+  watch: {
+    currentComp: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        if (newVal === 'KnowledgeAcademicList') {
+          this.currentProps = [{
+            type: 'academic'
+          }]
+        }
+        if (newVal === 'KnowledgeProductNote') {
+          this.currentProps = [{
+            type: 'note',
+          }]
+        }
+        if (newVal === 'KnowledgeCuttingEdgeTrend') {
+          this.currentProps = [
+            {
+              id: 0,
+              type: 'internal', // 表示国内前沿动态
+              mainHeaderTitle: '国内前沿技术论文研究',
+              trends: [
+                {
+                  id: 0,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_internal_img_01.png`,
+                },
+                {
+                  id: 1,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_internal_img_02.png`,
+                },
+                {
+                  id: 2,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_internal_img_03.png`,
+                }
+              ]
+            },
+            {
+              id: 1,
+              type: 'foreign', // 表示国外前沿动态
+              mainHeaderTitle: '国外前沿技术研究论文',
+              trends: [
+                {
+                  id: 0,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_01.png`,
+                },
+                {
+                  id: 1,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_02.png`,
+                },
+                {
+                  id: 2,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_03.png`,
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
   methods: {
     getActiveKnowledgeTabIndex(index) {
       // eslint-disable-next-line no-console
@@ -106,15 +148,14 @@ export default {
           this.currentComp = 'KnowledgeAcademicList';
           break;
         case 1:
-          this.currentComp = '';
+          this.currentComp = 'KnowledgeProductNote';
           break;
         case 2:
-          this.currentComp = '';
+          this.currentComp = 'KnowledgeCuttingEdgeTrend';
           break;
         default:
           break;
       }
-
     },
     handleTabClick(tab) {
       // eslint-disable-next-line no-console
@@ -125,8 +166,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.knowledge-center-page {
+.page-content-wrapper {
   padding-top: 60px;
+}
+.knowledge-center-page {
+  // padding-top: 60px;
   img {
     max-width: 100%;
     max-height: 100%;

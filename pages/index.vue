@@ -62,6 +62,7 @@
         <!-- PC端展示 -->
         <div ref="productRef" class="pc-card-container">
           <ProductSlide :list="productsList" />
+          <!-- <ProductShow :products="productsList" /> -->
         </div>
         <!-- mobile端展示 -->
         <div v-for="(product, index) in productsList" :key="index" class="product-card-item">
@@ -77,6 +78,7 @@ import AppFooter from '@/components/common/AppFooter.vue'
 import InformationCard from '~/components/index/InformationCard.vue';
 import ProductCard from '~/components/index/ProductCard.vue';
 import ProductSlide from '~/components/index/ProductSlide.vue';
+// import ProductShow from '~/components/index/ProductShow.vue';
 
 export default {
   name: 'IndexPage',
@@ -84,7 +86,8 @@ export default {
     AppFooter,
     InformationCard,
     ProductCard,
-    ProductSlide
+    ProductSlide,
+    // ProductShow,
   },
   layout: 'normal',
   data() {
@@ -103,7 +106,7 @@ export default {
         desc1: `稀释制冷剂`,
         desc2: `扫描探针显微镜`,
         desc3: `多功能物理特性测量系统`,
-        
+
       },
       headInfoTitle: '信息动态',
       newsList: [
@@ -157,8 +160,8 @@ export default {
     console.log('--->', this.currentPageWidth);
     // eslint-disable-next-line no-console
     console.log('--->', this.$refs.newsRef.clientWidth);
-    
-    
+
+
   },
   destroyed() {
     window.onresize = null;
@@ -188,7 +191,7 @@ export default {
     .el-carousel__item:nth-child(2n) {
       background-color: #99a9bf;
     }
-    
+
     .el-carousel__item:nth-child(2n+1) {
       background-color: #d3dce6;
     }
@@ -203,7 +206,7 @@ export default {
       color: $white;
       font-size: 80px;
       z-index: 99;
-      
+
       .banner-title {
         display: flex;
         justify-content: center;
