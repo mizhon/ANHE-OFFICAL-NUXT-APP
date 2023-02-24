@@ -47,7 +47,6 @@
           </div>
           <div class="m-article-content">{{ article.content }}</div>
         </div>
-
       </div>
     </div>
     <AppFooter />
@@ -229,8 +228,8 @@ export default {
       .m-article-container {
         .m-article-header {
           .title {
-            padding: 60px 40px 20px 40px;
-            font-size: 40px;
+            padding: 40px;
+            font-size: 38px;
             font-weight: 500;
             color: #333333;
             line-height: 60px;

@@ -41,7 +41,15 @@
       </div>
     </div>
     <div class="mobile-only">
-      <div class="trend-detail-page"></div>
+      <div class="trend-detail-page">
+        <div class="m-article-container">
+          <div class="m-article-header">
+            <div class="title">{{ article.title }}</div>
+            <div class="timestamp">{{ article.timestamp }}</div>
+          </div>
+          <div class="m-article-content">{{ article.content }}</div>
+        </div>
+      </div>
     </div>
     <AppFooter />
   </div>
@@ -56,7 +64,7 @@ export default {
   },
   layout: 'normal',
   validate({params}) {
-    return /^\d+$/.test(params.id)
+    return /^\d+$/.test(params.id);
   },
   data() {
     return {
@@ -212,6 +220,37 @@ export default {
 @media only screen and (max-width: 768px) {
   .pc-only {
     display: none !important;
+  }
+
+  .page-content-wrapper {
+    .mobile-only {
+      .m-article-container {
+        .m-article-header {
+          .title {
+            padding: 60px 40px 20px 40px;
+            font-size: 40px;
+            font-weight: 500;
+            color: #333333;
+            line-height: 60px;
+          }
+          .timestamp {
+            padding-bottom: 60px;
+            margin: 20px 40px;
+            font-size: 28px;
+            color: #999999;
+            border-bottom: 1px solid #e4e4e4;
+          }
+        }
+
+        .m-article-content {
+          padding: 40px;
+          font-size: 32px;
+          color: #333333;
+          font-weight: 400;
+          line-height: 48px;
+        }
+      }
+    }
   }
 }
 </style>

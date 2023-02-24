@@ -176,7 +176,7 @@ export default {
         { id: 2, label: '01. 问题', path: '' }
       ],
       issue: {
-        title: '01.问题的标题文字占位区域问题的标题文字占位区域问题的标题文字占位区域问题的标题文字占位区域',
+        title: '01.问题的标题文字占位区域问题的标题文字占位区域',
         text1: '问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回',
         image: '/imgs/tech/img-01.png',
         text2: '问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域'
@@ -300,36 +300,47 @@ export default {
 
 // 移动端样式
 @media only screen and (max-width: 768px) {
+
+  .el-breadcrumb {
+    font-size: 24px;
+  }
+
   .pc-only {
     display: none !important;
   }
 
   .tech-support-detail-page {
     .mobile-only {
-      .m-tech-support-detail-container {
-
-      }
+      .m-tech-support-detail-container {}
       .m-tech-support-detail-content {
         .header {
           margin-bottom: 20px;
           border-bottom: 1px solid #d6d6d6;
           .title {
-            padding: 40px 20px 30px 20px;
+            padding: 40px;
             text-align: justify;
             color: #333;
+            font-size: 38px;
             font-weight: 500;
           }
 
           .breadcrumb {
-            padding: 0 20px 30px 20px;
+            padding: 0 40px 40px 40px;
           }
         }
         .content {
           .detail-text {
-            padding: 0 20px 60px 20px;
-            font-size: 16px;
-            line-height: 24px;
+            padding: 40px;
+            font-size: 32px;
+            line-height: 48px;
             color: #666;
+
+            .detail-img {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 40px 0;
+            }
           }
         }
       }

@@ -22,7 +22,7 @@
         <div class="m-knowledge-center-tab-container">
           <el-tabs v-model="mknowledgeCenterActiveTabIndex" @tab-click="handleTabClick">
             <el-tab-pane v-for="(tab, id) in tabs" :key="id" :label="tab.label" :name="tab.name">
-              <component :is="currentComp" v-bind="currentProps" />
+              <component :is="currentComp" :current-props="currentProps" />
             </el-tab-pane>
           </el-tabs>
         </div>
@@ -75,16 +75,87 @@ export default {
           }]
         }
         if (newVal === 'KnowledgeProductNote') {
-          this.currentProps = [{
-            type: 'note',
-          }]
+          this.currentProps = [
+            {
+              id: 0,
+              mainHeaderTitle: '稀释制冷机产品笔记',
+              notes: [
+                {
+                  id: 0,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_01.png`,
+                },
+                {
+                  id: 1,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_02.png`,
+                },
+                {
+                  id: 2,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_03.png`,
+                },
+              ]
+            },
+            {
+              id: 1,
+              mainHeaderTitle: '原子力显微镜产品笔记',
+              notes: [
+              {
+                  id: 0,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_01.png`,
+                },
+                {
+                  id: 1,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_02.png`,
+                },
+                {
+                  id: 2,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/trend_foreign_img_03.png`,
+                },
+              ]
+            },
+            {
+              id: 2,
+              mainHeaderTitle: '综合实验平台产品笔记',
+              notes: [
+              {
+                  id: 0,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_01.png`,
+                },
+                {
+                  id: 1,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_02.png`,
+                },
+                {
+                  id: 2,
+                  title: '标题文字',
+                  summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                  coverImg: `/imgs/knowledge/note_img_03.png`,
+                },
+              ]
+            }
+          ]
         }
         if (newVal === 'KnowledgeCuttingEdgeTrend') {
           this.currentProps = [
             {
               id: 0,
+              mainHeaderTitle: '国内前沿技术研究论文',
               type: 'internal', // 表示国内前沿动态
-              mainHeaderTitle: '国内前沿技术论文研究',
               trends: [
                 {
                   id: 0,
@@ -136,7 +207,7 @@ export default {
                   coverImg: `/imgs/knowledge/trend_foreign_img_03.png`,
                 }
               ]
-            }
+            },
           ]
         }
       }

@@ -2,7 +2,6 @@
   <div class="knowledge-trend-wrapper">
     <div class="pc-only">
       <div class="knowledge-trend-list">
-        <!-- {{ currentProps }} -->
         <div v-for="(item, index) in currentProps" :key="index" class="trend-card-container">
           <div class="trend-card">
             <div class="main-title">{{ item.mainHeaderTitle }}</div>
@@ -30,7 +29,29 @@
       </div>
     </div>
     <div class="mobile-only">
-      <div class="knowledge-trend-container"></div>
+      <div class="knowledge-trend-list">
+        <div v-for="(item, index) in currentProps" :key="index" class="trend-card-container">
+          <div class="trend-card">
+            <div class="header-container">
+              <div class="main-title">{{ item.mainHeaderTitle }}</div>
+              <div class="show-more-icon">
+                <span>{{ showMoreText }}<i class="el-icon-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="paper-list">
+              <div v-for="(trend, idx) in item.trends" :key="idx" class="paper-container" @click="handleClick(trend)">
+                <div class="paper-title">
+                  {{ trend.title }}
+                </div>
+                <div class="cover-img">
+                  <img :src="trend.coverImg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +68,7 @@ export default {
   },
   data() {
     return {
-      showMoreText: '查看更多'
+      showMoreText: '查看更多',
     };
   },
   methods: {
@@ -94,9 +115,10 @@ export default {
               flex-wrap: wrap;
               width: 100%;
               .paper-container {
-                margin: 0 10px 20px 10px;
+                // margin: 0 10px 20px 10px;
+                margin: 0 10px 10px 10px;
                 border: 1px solid #eee;
-                width: 30%;
+                width: 30%; // 33% wiil truncate
                 cursor: pointer;
                 .info {
                   &__title {
@@ -128,12 +150,6 @@ export default {
             }
           }
         }
-        .trend-list {
-
-        }
-        .show-more {
-
-        }
       }
     }
   }
@@ -147,8 +163,49 @@ export default {
     }
 
     .mobile-only {
-      .knowledge-trend-container {
-
+      .knowledge-trend-list {
+        .trend-card-container {
+          background: #fff;
+          .trend-card {
+            margin: 20px;
+            padding: 20px 0;
+            .header-container {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 0 20px 0;
+              .main-title {
+                font-size: 20px;
+                font-weight: 500;
+                color: #333333;
+              }
+              .show-more-icon {
+                font-size: 16px;
+                font-weight: 400;
+                color: #666666;
+              }
+            }
+            .paper-list {
+              .paper-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 0 15px 0;
+                border-bottom: 1px solid #E4E4E4;
+                margin-bottom: 15px;
+                .paper-title {
+                  width: 60%;
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #333333;
+                }
+                .cover-img {
+                  width: 40%;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
