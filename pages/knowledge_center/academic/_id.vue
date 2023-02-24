@@ -106,7 +106,7 @@ export default {
           duration: '', // 播放时长
         }
       ],
-      position: 'fixed'
+      position: 'relative'
     }
   },
   methods: {
@@ -136,6 +136,7 @@ export default {
         .academic-container {
           width: 55%;
           height: 100%;
+          min-height: 635px;
           .go-back {
             display: flex;
             align-items: center;
