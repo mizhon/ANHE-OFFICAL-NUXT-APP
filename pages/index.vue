@@ -83,8 +83,8 @@
                   <img :src="productsList[0].img" alt="">
                 </div>
                 <div class="mask-cover"></div>
-                <div class="title" @click="checkProductInfo()">{{ productsList[0].title }}</div>
-                <div class="arrow" @click="checkProductInfo()"><i class="el-icon-right"></i></div>
+                <div class="title" @click="checkProductDetail()">{{ productsList[0].title }}</div>
+                <div class="arrow" @click="checkProductDetail()"><i class="el-icon-right"></i></div>
               </div>
               <div class="products-list">
                 <div v-for="(p, i) in productsList" :key="i" class="product">
@@ -146,21 +146,21 @@ export default {
           subTitle: '新闻动态最新信息标题文字占位长度',
           summary: '新闻内容详情正文文字占位新闻内容详情正文文字 占位新闻内容详情正文文字',
           img: '/imgs/index/news-img.png',
-          path: '',
+          path: '/media_news',
         },
         {
           title: '产品动态',
           subTitle: '产品动态最新信息标题文字占位长度',
           summary: '产品内容详情正文文字占位新闻内容详情正文文字 占位产品内容详情正文文字',
           img: '/imgs/index/news-img.png',
-          path: '',
+          path: '/product_series',
         },
         {
           title: '研究动态',
           subTitle: '研究动态最新信息标题文字占位长度',
           summary: '研究内容详情正文文字占位研究内容详情正文文字 占位研究内容详情正文文字',
           img: '/imgs/index/news-img.png',
-          path: '',
+          path: '/knowledge_center',
         }
       ],
       infoBtnText: '查看详情',
@@ -198,6 +198,10 @@ export default {
     checkNewsDetail(news) {
       // eslint-disable-next-line no-console
       console.log('handle news detail path redirect ...', news)
+      this.$router.push({
+        path: news.path
+      })
+
     },
     checkProductDetail(product) {
       // eslint-disable-next-line no-console
@@ -423,7 +427,8 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            // background: yellow;
+            background: #eee; // yellow;
+            padding: 10px;
             .main-product {
               display: flex;
               flex-direction: column;
@@ -434,7 +439,7 @@ export default {
                 img {
                   width: 100%;
                   height: 100%;
-                  object-fit: cover;
+                  // object-fit: cover;
                 }
               }
               .mask-cover {
@@ -471,16 +476,17 @@ export default {
               justify-content: space-between;
               overflow-x: hidden;
               overflow-y: auto;
-              height: 500px;
+              // height: 500px;
               max-width: 318px; // 300px;
               min-width: 240px;
-              // background: green;
+              background: #eee; // green;
               margin-left: 10px; // 12px;
               .product {
                 // margin-bottom: 20px;
+                // margin: 10px 10px 10px 0;
                 &__cover {
                   position: relative;
-                  margin: 0 10px;
+                  // margin: 0 10px;
                   .p-cover-mask {
                     position: absolute;
                     height: 30px;
