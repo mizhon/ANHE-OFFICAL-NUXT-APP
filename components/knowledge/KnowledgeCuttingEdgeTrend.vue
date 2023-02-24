@@ -7,7 +7,7 @@
           <div class="trend-card">
             <div class="main-title">{{ item.mainHeaderTitle }}</div>
             <div class="paper-list">
-              <div v-for="(trend, idx) in item.trends" :key="idx" class="paper-container">
+              <div v-for="(trend, idx) in item.trends" :key="idx" class="paper-container" @click="handleClick(trend)">
                 <div class="cover-img">
                   <img :src="trend.coverImg" alt="">
                 </div>
@@ -26,23 +26,8 @@
               <span><i class="el-icon-arrow-down"></i></span>
             </div>
           </div>
-
         </div>
       </div>
-      <!-- <div class="knowledge-trend-container">
-        <div class="header">
-          {{ trendInfo.mainHeaderTitle }}
-        </div>
-        <div class="trend-list">
-          <div v-for="(trend, index) in trendInfo" :key="index" class="trend-card">
-            {{ trend }}
-          </div>
-        </div>
-        <div class="show-more">
-          <span>{{ showMoreText }}</span>
-          <span><i class="el-icon-arrow-down"></i></span>
-        </div>
-      </div> -->
     </div>
     <div class="mobile-only">
       <div class="knowledge-trend-container"></div>
@@ -64,6 +49,15 @@ export default {
     return {
       showMoreText: '查看更多'
     };
+  },
+  methods: {
+    handleClick(trend) {
+      // eslint-disable-next-line no-console
+      console.log('trend: --->', trend)
+      this.$router.push({
+        path: `/knowledge_center/trend/${trend.id}`
+      })
+    }
   }
 }
 </script>
@@ -100,11 +94,8 @@ export default {
               .paper-container {
                 margin: 0 10px 0 10px;
                 border: 1px solid #eee;
-                .cover-img {
-
-                }
+                cursor: pointer;
                 .info {
-
                   &__title {
                     padding: 20px 20px 10px 20px;
                     font-size: 18px;
@@ -127,9 +118,9 @@ export default {
               align-items: center;
               padding: 30px 0 60px 0;
               color: #0053A1;
-              cursor: pointer;
               .show-more-text {
                 padding: 0 5px;
+                cursor: pointer;
               }
             }
           }

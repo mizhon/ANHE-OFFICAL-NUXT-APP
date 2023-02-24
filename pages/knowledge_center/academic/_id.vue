@@ -33,7 +33,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <div class="mobile-only">
