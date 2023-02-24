@@ -477,7 +477,8 @@ export default {
               overflow-x: hidden;
               overflow-y: auto;
               // height: 500px;
-              max-width: 318px; // 300px;
+              // max-width: 318px; // 300px;
+              max-width: 322px; // 300px;
               min-width: 240px;
               background: #eee; // green;
               margin-left: 10px; // 12px;
