@@ -7,7 +7,6 @@
           <CommonNavTab :tabs="tabs" :active-tab="activeKnowledgeTabIndex" @get-tab-index="getActiveKnowledgeTabIndex" />
         </section>
         <section class="knowledge-center-section">
-          <!-- {{ currentProps }} -->
           <component :is="currentComp" :current-props="currentProps" />
         </section>
       </div>
@@ -104,7 +103,13 @@ export default {
                   title: '标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/trend_internal_img_03.png`,
-                }
+                },
+                // {
+                //   id: 3,
+                //   title: '标题文字',
+                //   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
+                //   coverImg: `/imgs/knowledge/trend_internal_img_03.png`,
+                // }
               ]
             },
             {

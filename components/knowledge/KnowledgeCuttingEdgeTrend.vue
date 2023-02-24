@@ -90,10 +90,13 @@ export default {
               display: flex;
               flex-direction: row;
               align-items: center;
-              justify-content: center;
+              // justify-content: center;
+              flex-wrap: wrap;
+              width: 100%;
               .paper-container {
-                margin: 0 10px 0 10px;
+                margin: 0 10px 20px 10px;
                 border: 1px solid #eee;
+                width: 30%;
                 cursor: pointer;
                 .info {
                   &__title {
