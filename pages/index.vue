@@ -177,7 +177,15 @@ export default {
         {
           title: '多功能物理特性测量系统',
           img: '/imgs/index/product_show_img_03.png',
-        }
+        },
+        {
+          title: '多功能物理特性测量系统',
+          img: '/imgs/index/product_show_img_03.png',
+        },
+        {
+          title: '多功能物理特性测量系统',
+          img: '/imgs/index/product_show_img_03.png',
+        },
       ],
       // Product区域默认显示的信息内容，根据鼠标滑动到productList中的一个而改变
       mainProduct: {
@@ -457,6 +465,7 @@ export default {
               width: 100%;
               position: relative;
               .product-img {
+                height: 500px;
                 img {
                   width: 100%;
                   height: 100%;
@@ -468,12 +477,12 @@ export default {
                 height: 60px;
                 width: 100%;
                 background-color: rgba(0, 0, 0, .6);
-                bottom: 5px;
+                bottom: 0; // 5px;
                 left: 0;
               }
               .title {
                 position: absolute;
-                bottom: 22px;
+                bottom: 18px;
                 left: 40px;
                 color: #fff;
                 font-weight: 400;
@@ -482,7 +491,7 @@ export default {
               }
               .arrow {
                 position: absolute;
-                bottom: 19px;
+                bottom: 15px;
                 right: 40px;
                 color: #fff;
                 font-weight: 500;
@@ -497,7 +506,7 @@ export default {
               justify-content: space-between;
               overflow-x: hidden;
               overflow-y: auto;
-              // height: 500px;
+              height: 500px;
               // max-width: 318px; // 300px;
               max-width: 322px; // 300px;
               min-width: 140px;
@@ -514,7 +523,7 @@ export default {
                     height: 30px;
                     width: 100%;
                     background-color: rgba(0, 0, 0, .6);
-                    bottom: 5px;
+                    bottom: 0; // 5px;
                     left: 0;
                   }
                   .p-cover-title {
