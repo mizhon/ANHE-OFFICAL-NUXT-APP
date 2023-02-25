@@ -83,8 +83,8 @@
                   <img :src="mainProduct.img" alt="">
                 </div>
                 <div class="mask-cover"></div>
-                <div class="title" @click="checkProductDetail()">{{ mainProduct.title }}</div>
-                <div class="arrow" @click="checkProductDetail()"><i class="el-icon-right"></i></div>
+                <div class="title" @click="checkProductDetail(mainProduct)">{{ mainProduct.title }}</div>
+                <div class="arrow" @click="checkProductDetail(mainProduct)"><i class="el-icon-right"></i></div>
               </div>
               <div class="products-list">
                 <div v-for="(p, i) in productsList" :key="i" class="product">
