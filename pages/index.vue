@@ -80,15 +80,15 @@
               <!-- 主产品展示区 -->
               <div class="main-product">
                 <div class="product-img">
-                  <img :src="productsList[0].img" alt="">
+                  <img :src="mainProduct.img" alt="">
                 </div>
                 <div class="mask-cover"></div>
-                <div class="title" @click="checkProductDetail()">{{ productsList[0].title }}</div>
+                <div class="title" @click="checkProductDetail()">{{ mainProduct.title }}</div>
                 <div class="arrow" @click="checkProductDetail()"><i class="el-icon-right"></i></div>
               </div>
               <div class="products-list">
                 <div v-for="(p, i) in productsList" :key="i" class="product">
-                  <div class="product__cover">
+                  <div class="product__cover" @mouseover="onMouseOver(p)">
                     <img :src="p.img" alt="">
 
                     <div class="p-cover-mask"></div>
@@ -179,18 +179,30 @@ export default {
           img: '/imgs/index/product_show_img_03.png',
         }
       ],
+      // Product区域默认显示的信息内容，根据鼠标滑动到productList中的一个而改变
+      mainProduct: {
+        title: '稀释制冷剂',
+        img: '/imgs/index/product_show_img_01.png',
+      }
     }
   },
   computed: {
     currentPageWidth() {
       return window.innerWidth;
-    }
+    },
   },
+  // watch: {
+  //   mainProduct: {
+  //     immediate: true,
+  //     handler(newVal, oldVal) {
+
+  //     }
+  //   }
+  // },
   destroyed() {
     window.onresize = null;
   },
   methods: {
-    init() {},
     pullDown() {
       // eslint-disable-next-line no-console
       console.log('pull down testing ...')
@@ -207,6 +219,15 @@ export default {
       // eslint-disable-next-line no-console
       console.log('handle product detail path redirect ...', product)
     },
+    // onMouseEnter(p) {
+    //   // eslint-disable-next-line no-console
+    //   console.log('[on mouse enter] --->', p)
+    // },
+    onMouseOver(p) {
+      // eslint-disable-next-line no-console
+      console.log('[on mouse over] --->', p)
+      this.mainProduct = Object.assign({}, p)
+    }
   }
 }
 </script>
@@ -479,7 +500,7 @@ export default {
               // height: 500px;
               // max-width: 318px; // 300px;
               max-width: 322px; // 300px;
-              min-width: 240px;
+              min-width: 140px;
               background: #eee; // green;
               margin-left: 10px; // 12px;
               .product {
