@@ -1,5 +1,5 @@
 export const state = () => ({
-  activeMenuIndex: 0
+  activeMenuIndex: 0, // 默认页面索引为0，表示默认首页激活
 })
 
 export const mutations = {
@@ -8,4 +8,10 @@ export const mutations = {
     console.log('[$store] active menu: --->', activeMenuIndex)
     state.activeMenuIndex = activeMenuIndex;
   }
+}
+
+export default {
+  namespaced: true,
+  state,
+  mutations
 }

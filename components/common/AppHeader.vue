@@ -3,7 +3,7 @@
     <header class="header-container">
       <AppLogo :path="logoPath" :width="100" :height="50" />
       <div class="menu-list">
-        <div v-for="(menu, idx) in menus" :key="idx" class="menu-item" :class="[activeTabIndex === menu.idx ? 'active' : '']" @click="handleSelectedMenu(menu)">
+        <div v-for="(menu, idx) in menus" :key="idx" class="menu-item" :class="[activeMenuIndex === menu.idx ? 'active': '']" @click="handleSelectedMenu(menu)">
           <NuxtLink :to="`${menu.route}`">{{ menu.name }}</NuxtLink>
           <!-- 下滑线标记 -->
           <span></span>
@@ -40,7 +40,7 @@ export default {
     return {
       logoPath: '/logos/anhe-topbar-logo.svg',
       toggleIcon: '/icons/m_toggle.svg',
-      activeTabIndex: 0, // 默认首页激活
+      activeMenuIndex: 0, // 默认首页激活
       menus: [
         { idx: 0, name: '首页', route: '/' },
         { idx: 1, name: '产品系列', route: '/product_series' },
@@ -55,13 +55,14 @@ export default {
   },
   created() {
     // eslint-disable-next-line no-console
-    console.log('$store: --->', this.$store.state)
-    this.activeTabIndex = this.$store.state.activeTabIndex;
+    console.log('AppHeader $store: --->', this.$store.state)
+    this.activeMenuIndex = this.$store.state.activeMenuIndex;
+
   },
   methods: {
     handleSelectedMenu(menu) {
-      this.$store.commit('SET_ACTIVE_TAB_INDEX', menu.idx)
-      this.activeTabIndex = menu.idx;
+      this.activeMenuIndex = menu.idx;
+      this.$store.commit('SET_ACTIVE_MENU_INDEX', menu.idx)
     },
     handleToggle() {
       this.isOpen = true;

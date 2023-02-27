@@ -111,7 +111,7 @@ export default {
   },
   created() {
     // eslint-disable-next-line no-console
-    console.log('academics', this.academics)
+    // console.log('academics', this.academics)
   },
   methods: {
     clickToDetail(academic) {
