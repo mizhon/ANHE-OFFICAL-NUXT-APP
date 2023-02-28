@@ -47,12 +47,11 @@ export default {
       this.sidebarOpen = !this.sidebarOpen;
     },
     handleMobileSelectedMenu(menu) {
-      // eslint-disable-next-line no-console
-      console.log('[mobile menu]', menu);
+      // 关闭菜单
+      this.foldSidebar();
       this.$router.push({
         path: menu.route
       });
-      this.foldSidebar();
     },
     langSwitch(lang) {
       // eslint-disable-next-line no-console
