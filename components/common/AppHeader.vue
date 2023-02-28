@@ -17,7 +17,7 @@
           </el-button>
         </div>
       </div>
-      <!-- 在大尺寸屏幕上不显示 -->
+      <!-- 在大尺寸 > 768px 屏幕上不显示 -->
       <div class="toggle-button" @click="handleToggle">
         <img :src="toggleIcon" alt="" width="24" height="24" />
       </div>
@@ -65,11 +65,13 @@ export default {
       this.$store.commit('SET_ACTIVE_MENU_INDEX', menu.idx)
     },
     handleToggle() {
-      this.isOpen = true;
+      this.isOpen = !this.isOpen;
       // eslint-disable-next-line no-console
-      console.log('Open status: ', this.isOpen)
+      console.log('[AppHeader] handleToggle method: -- open status: ', this.isOpen)
     },
     getToggleStatus(status) {
+      // eslint-disable-next-line no-console
+      console.log('[AppHeader] getToggleStatus method: -- sidebar toggle status: ', status)
       this.isOpen = status;
     },
     switchLanguage() {

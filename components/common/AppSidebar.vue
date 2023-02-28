@@ -6,13 +6,14 @@
       </div>
       <div class="menu-list">
         <div v-for="(menu, idx) in menus" :key="idx" class="menu-item">
-          <NuxtLink :to="`${menu.route}`">{{ menu.name }}</NuxtLink>
+          <!-- <NuxtLink :to="`${menu.route}`">{{ menu.name }}</NuxtLink> -->
+          <span @click="handleMobileSelectedMenu(menu)">{{ menu.name }}</span>
         </div>
       </div>
       <div class="lang-switch">
         <span @click="langSwitch('en')">{{ englishText }}</span>
         <span class="line"></span>
-        <span @click="langSwitch('zh')">{{ chineseText }}</span>  
+        <span @click="langSwitch('zh')">{{ chineseText }}</span>
       </div>
     </div>
   </div>
@@ -44,6 +45,14 @@ export default {
     foldSidebar() {
       this.$emit('toggle', false)
       this.sidebarOpen = !this.sidebarOpen;
+    },
+    handleMobileSelectedMenu(menu) {
+      // eslint-disable-next-line no-console
+      console.log('[mobile menu]', menu);
+      this.$router.push({
+        path: menu.route
+      });
+      this.foldSidebar();
     },
     langSwitch(lang) {
       // eslint-disable-next-line no-console
