@@ -456,8 +456,8 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #eee; // yellow;
-            padding: 10px;
+            // background: #eee;
+            // padding: 10px;
             .main-product {
               display: flex;
               flex-direction: column;
@@ -469,7 +469,7 @@ export default {
                 img {
                   width: 100%;
                   height: 100%;
-                  // object-fit: cover;
+                  object-fit: cover;
                 }
               }
               .mask-cover {
@@ -513,7 +513,7 @@ export default {
               background: #eee; // green;
               margin-left: 10px; // 12px;
               .product {
-                // margin-bottom: 20px;
+                margin-bottom: 10px;
                 // margin: 10px 10px 10px 0;
                 &__cover {
                   position: relative;
@@ -523,7 +523,7 @@ export default {
                     height: 30px;
                     width: 100%;
                     background-color: rgba(0, 0, 0, .6);
-                    bottom: 0; // 5px;
+                    bottom: 4px; // 5px;
                     left: 0;
                   }
                   .p-cover-title {
