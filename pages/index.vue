@@ -6,7 +6,7 @@
         <!-- Banner主图（走马灯效果） -->
         <el-carousel height="400px" direction="horizontal" :autoplay="true" arrow="never">
           <el-carousel-item v-for="img in banner.imgs" :key="img.id">
-            <img :src="img.src" alt="" width="100%" height="100%" />
+            <img :src="img.src" alt="" width="100%" height="100%" style="object-fit: cover" />
           </el-carousel-item>
         </el-carousel>
         <div class="banner-info-container">
