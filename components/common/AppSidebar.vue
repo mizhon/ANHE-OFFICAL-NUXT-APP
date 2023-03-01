@@ -47,6 +47,8 @@ export default {
       this.sidebarOpen = !this.sidebarOpen;
     },
     handleMobileSelectedMenu(menu) {
+      // 修改激活菜单状态
+      this.$store.commit('SET_ACTIVE_MENU_INDEX', menu.idx);
       // 关闭菜单
       this.foldSidebar();
       this.$router.push({
@@ -56,6 +58,8 @@ export default {
     langSwitch(lang) {
       // eslint-disable-next-line no-console
       console.log(lang);
+      // 关闭菜单
+      this.foldSidebar();
     }
   }
 }
