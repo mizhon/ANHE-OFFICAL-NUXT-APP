@@ -362,7 +362,7 @@ export default {
             align-items: center;
             margin-bottom: 80px;
             .card-item {
-              max-width: 400px;
+              max-width: 500px;
               min-width: 200px;
               .card {
                 display: flex;
@@ -420,6 +420,7 @@ export default {
                 img {
                   width: 100%;
                   height: 100%;
+                  object-fit: cover;
                 }
 
                 &:hover {
