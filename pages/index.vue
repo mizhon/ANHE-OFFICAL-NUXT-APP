@@ -574,8 +574,8 @@ export default {
 
       .pull-down {
         // bottom: 240px;
-        // bottom: 15rem /* 240/16 */;
-        bottom: 17.5rem /* 280/16 */;
+        bottom: 15rem /* 240/16 */;
+        // bottom: 17.5rem /* 280/16 */;
         img {
           width: 1.75rem /* 28/16 */;
           height: 1.75rem /* 28/16 */;
