@@ -581,7 +581,7 @@ export default {
           height: 1.75rem /* 28/16 */;
         }
         span {
-          font-size: .8125rem /* 13/16 */;
+          font-size: .75rem /* 12/16 */;
         }
       }
     }
