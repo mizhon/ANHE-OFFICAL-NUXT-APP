@@ -51,7 +51,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 28px;
+      font-size: 1.75rem /* 28/16 */;
       text-align: center;
     }
   }

@@ -282,7 +282,7 @@ export default {
         color: $white;
         font-weight: 300;
         line-height: 30px;
-        font-size: 20px;
+        font-size: 26px;
         padding-bottom: 24px;
 
         span {
@@ -554,12 +554,16 @@ export default {
     background: #eee;
     .main-banner {
       .banner-info-container {
-        font-size: 36px;
-        .decorator {
-          display: none !important;
+        .banner-title {
+          // font-size: 2.75rem /* 44/16 */; /* 36/16 */
+          font-size: 3rem /* 48/16 */;
+          font-weight: 600;
+          .decorator {
+            display: none !important;
+          }
         }
         .banner-desc {
-          font-size: 14px;
+          font-size: 1.625rem; /* 26/16 */ // .875rem; /* 14/16 */
           font-weight: 400;
           span {
             padding: 0 5px;
@@ -568,13 +572,15 @@ export default {
       }
 
       .pull-down {
-        bottom: 240px;
+        // bottom: 240px;
+        // bottom: 15rem /* 240/16 */;
+        bottom: 17.5rem /* 280/16 */;
         img {
           width: 28px;
           height: 28px;
         }
         span {
-          font-size: 12px;
+          font-size: 1rem /* 16/16 */;
         }
       }
     }
@@ -582,7 +588,7 @@ export default {
       .news-section, .product-section {
         top: -80px;
         span {
-          font-size: 38px;
+          font-size: 2.375rem /* 38/16 */;
         }
       }
       .news-section {
@@ -605,17 +611,17 @@ export default {
                 &__content {
                   .title {
                     padding: 40px 40px 20px 40px;
-                    font-size: 24px;
+                    font-size: 1.5rem; /* 24/16 */
                     font-weight: 500;
                   }
                   .sub-title {
                     padding: 10px 40px;
-                    font-size: 20px;
+                    font-size: 1.25rem; /* 20/16 */
                     font-weight: 400;
                   }
                   .summary {
                     padding: 10px 40px;
-                    font-size: 18px;
+                    font-size: 1.125rem; /* 18/16 */
                     font-weight: 400;
                     line-height: 24px;
                     color: $secondaryText;
@@ -627,7 +633,7 @@ export default {
                       border: none;
                       color: $menuActiveText;
                       background-color: $btnBackgroundColor;
-                      font-size: 16px;
+                      font-size: 1rem; /* 16/16 */
                       font-weight: 400;
                       &:hover {
                         cursor: pointer;
