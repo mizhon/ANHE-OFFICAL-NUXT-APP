@@ -335,7 +335,6 @@ export default {
     position: relative;
     top: -120px;
     .head-title {
-      font-size: 38px;
       color: $primaryText;
     }
   }
@@ -350,6 +349,7 @@ export default {
         top: -120px;
         width: 70%;
         .head-title {
+          font-size: 38px;
           padding-bottom: 30px;
         }
       }
@@ -656,6 +656,8 @@ export default {
 
       .product-section {
         .product-card-container {
+          // padding: 1.875rem /* 30/16 */;
+          padding: 0.875rem;
           .pc-product-info-container {
             display: none !important;
           }
