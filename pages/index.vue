@@ -564,10 +564,10 @@ export default {
           }
         }
         .banner-desc {
-          font-size: 1.625rem; /* 26/16 */ // .875rem; /* 14/16 */
+          font-size: .8125rem /* 13/16 */;
           font-weight: 400;
           span {
-            padding: 0 5px;
+            padding: 0 .3125rem /* 5/16 */;
           }
         }
       }
@@ -577,17 +577,17 @@ export default {
         // bottom: 15rem /* 240/16 */;
         bottom: 17.5rem /* 280/16 */;
         img {
-          width: 28px;
-          height: 28px;
+          width: 1.75rem /* 28/16 */;
+          height: 1.75rem /* 28/16 */;
         }
         span {
-          font-size: 1rem /* 16/16 */;
+          font-size: .8125rem /* 13/16 */;
         }
       }
     }
     .main-content {
       .news-section, .product-section {
-        top: -80px;
+        top: -5rem /* 80/16 */;
         span {
           font-size: 2.375rem /* 38/16 */;
         }
@@ -598,10 +598,10 @@ export default {
             display: none !important;
           }
           .m-news-info-container {
-            margin: 30px;
+            margin: 1.875rem /* 30/16 */;
             .m-news-card-item {
               .info-card {
-                margin-bottom: 40px;
+                margin-bottom: 2.5rem /* 40/16 */;
                 background: #fff;
                 &__image {
                   img {
@@ -611,26 +611,32 @@ export default {
                 }
                 &__content {
                   .title {
-                    padding: 40px 40px 20px 40px;
+                    // padding: 40px 40px 20px 40px;
+                    padding: 2.5rem 2.5rem 1.25rem 2.5rem;
                     font-size: 1.5rem; /* 24/16 */
                     font-weight: 500;
                   }
                   .sub-title {
-                    padding: 10px 40px;
+                    // padding: 10px 40px;
+                    padding: .625rem /* 10/16 */ 2.5rem /* 40/16 */;
                     font-size: 1.25rem; /* 20/16 */
                     font-weight: 400;
                   }
                   .summary {
-                    padding: 10px 40px;
+                    // padding: 10px 40px;
+                    padding: .625rem /* 10/16 */ 2.5rem /* 40/16 */;
                     font-size: 1.125rem; /* 18/16 */
                     font-weight: 400;
-                    line-height: 24px;
+                    // line-height: 24px;
+                    line-height: 1.5rem /* 24/16 */;
                     color: $secondaryText;
                   }
                   .detail-btn {
-                    padding: 20px 40px 40px 40px;
+                    // padding: 20px 40px 40px 40px;
+                    padding: 1.25rem /* 20/16 */2.5rem /* 40/16 */2.5rem /* 40/16 */;
                     button {
-                      padding: 12px 42px;
+                      // padding: 12px 42px;
+                      padding: .75rem /* 12/16 */2.625rem /* 42/16 */;
                       border: none;
                       color: $menuActiveText;
                       background-color: $btnBackgroundColor;
