@@ -555,6 +555,7 @@ export default {
     .main-banner {
       .banner-info-container {
         .banner-title {
+          white-space: nowrap;
           // font-size: 2.75rem /* 44/16 */; /* 36/16 */
           font-size: 3rem /* 48/16 */;
           font-weight: 600;
