@@ -98,6 +98,21 @@
             </el-tab-pane>
           </el-tabs>
         </div>
+        <div class="m-product-contact-saler" >
+          <div class="contact-saler" @click="handleContactSaler">
+            <img :src="productSalerIcon" alt="">
+          </div>
+          <div class="contact-mask" :class="[showMask ? '' : 'hidden']" @click="closeContactMask">
+            <div class="contact-card">
+              <div class="title">{{ contactInfo.title }}</div>
+              <div class="content">
+                <span class="content__phone">{{ contactInfo.phone }}</span>
+                <span class="content__mail">{{ contactInfo.mail }}</span>
+                <span class="content__address">{{ contactInfo.address }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <AppFooter />
     </div>
@@ -155,11 +170,15 @@ export default {
         mHeaderTitle: '稀释制冷机',
         mHeaderSubTitle: '突破了mK级制冷关键技术'
       },
-
+      productSalerIcon: require(`~/static/imgs/product/saler_img.png`),
+      contactInfo: {
+        title: '产品信息详情咨询',
+        phone: `咨询电话：XXXXXXXX`,
+        mail: `联系邮件：XXXXXXXX`,
+        address: `联系地址：XXXXXXXX`
+      },
+      showMask: false // 默认隐藏遮罩
     }
-  },
-  computed: {
-
   },
   methods: {
     getActiveProductSeriesTabIndex(index) {
@@ -169,12 +188,26 @@ export default {
     handleTabClick(tab) {
       // eslint-disable-next-line no-console
       console.log('[product series] click tab: --->', tab)
+    },
+    handleContactSaler() {
+      // eslint-disable-next-line no-console
+      console.log('[product_series]联系销售');
+      this.showMask = true;
+    },
+    closeContactMask() {
+      // eslint-disable-next-line no-console
+      console.log('[product_series]关闭销售卡片')
+      this.showMask = false;
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .product-series-page {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
   ::v-deep .el-tabs__item {
     height: 48px;
     font-size: 16px;
@@ -355,6 +388,66 @@ export default {
               }
             }
           }
+        }
+      }
+      .m-product-contact-saler {
+        position: fixed;
+        bottom: 3rem /* 48/16 */;
+        right: 1.875rem /* 30/16 */;
+        background: #333333;
+        width: 3.25rem /* 52/16 */;
+        height: 3.25rem /* 52/16 */;
+        border-radius: 1.625rem /* 26/16 */;
+        z-index: 1001;
+        .contact-saler {
+          // padding: .3125rem /* 5/16 */;
+          position: absolute;
+          color: $white;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer;
+          img {
+            width: 3rem /* 48/16 */;
+          }
+        }
+        .contact-mask {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(0,0,0,.8);
+          .contact-card {
+            position: fixed;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            .title {
+              color: #fff;
+              text-align: center;
+              font-size: 1.25rem /* 20/16 */;
+              font-weight: 500;
+              background-color: rgba(0,0,0,.8);
+              padding: 1.25rem /* 20/16 */0;
+              border-top-left-radius: 1.25rem;
+              border-top-right-radius: 1.25rem;
+            }
+            .content {
+              background-color: #fff;
+              padding: 1rem/* 16/16 */1.875rem/* 30/16 */2.5rem/* 40/16 */1.875rem/* 30/16 */;
+              span {
+                display: block;
+                font-size: 1rem /* 16/16 */;
+                font-weight: 400;
+                color: #333333;
+                line-height: 2rem /* 32/16 */;
+              }
+            }
+          }
+        }
+        .contact-mask.hidden {
+          display: none;
         }
       }
     }
