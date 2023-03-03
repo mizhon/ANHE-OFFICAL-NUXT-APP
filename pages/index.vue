@@ -336,6 +336,7 @@ export default {
     top: -120px;
     .head-title {
       color: $primaryText;
+      font-weight: 500;
     }
   }
 }
@@ -349,7 +350,7 @@ export default {
         top: -120px;
         width: 70%;
         .head-title {
-          font-size: 38px;
+          font-size: 26px;
           padding-bottom: 30px;
         }
       }
@@ -552,6 +553,14 @@ export default {
 @media only screen and (max-width: 768px) {
   .index-page {
     background: #eee;
+    .main-content {
+      .news-section, .product-section {
+        .head-title {
+          font-size: 1.625rem /* 26/16 */;
+          // padding-bottom: .75rem /* 12/16 */;
+        }
+      }
+    }
     .main-banner {
       .banner-info-container {
         .banner-title {
@@ -598,7 +607,7 @@ export default {
             display: none !important;
           }
           .m-news-info-container {
-            margin: 1.875rem /* 30/16 */;
+            margin: 1.25rem /* 20/16 */;
             .m-news-card-item {
               .info-card {
                 margin-bottom: 2.5rem /* 40/16 */;
@@ -611,21 +620,20 @@ export default {
                 }
                 &__content {
                   .title {
-                    // padding: 40px 40px 20px 40px;
-                    padding: 2.5rem 2.5rem 1.25rem 2.5rem;
-                    font-size: 1.5rem; /* 24/16 */
+                    padding: 2.375rem 1.5625rem 1.25rem 1.5625rem;
+                    font-size: 1.25rem /* 20/16 */;
                     font-weight: 500;
                   }
                   .sub-title {
                     // padding: 10px 40px;
-                    padding: .625rem /* 10/16 */ 2.5rem /* 40/16 */;
-                    font-size: 1.25rem; /* 20/16 */
+                    padding: .625rem /* 10/16 */ 1.5625rem /* 25/16 */;
+                    font-size: 1.125rem /* 18/16 */;
                     font-weight: 400;
                   }
                   .summary {
                     // padding: 10px 40px;
-                    padding: .625rem /* 10/16 */ 2.5rem /* 40/16 */;
-                    font-size: 1.125rem; /* 18/16 */
+                    padding: .625rem /* 10/16 */ 1.5625rem /* 25/16 */;
+                    font-size: 1rem;
                     font-weight: 400;
                     // line-height: 24px;
                     line-height: 1.5rem /* 24/16 */;
@@ -633,7 +641,7 @@ export default {
                   }
                   .detail-btn {
                     // padding: 20px 40px 40px 40px;
-                    padding: 1.25rem /* 20/16 */2.5rem /* 40/16 */2.5rem /* 40/16 */;
+                    padding: 1.25rem 1.5625rem 1.5625rem 1.5625rem;
                     button {
                       // padding: 12px 42px;
                       padding: .75rem /* 12/16 */2.625rem /* 42/16 */;
@@ -656,14 +664,16 @@ export default {
 
       .product-section {
         .product-card-container {
-          // padding: 1.875rem /* 30/16 */;
-          padding: 0.875rem;
+          // padding: 0.875rem;
           .pc-product-info-container {
             display: none !important;
           }
           .m-product-info-container {
             .m-product-card-item {
               background: #eee;
+              .product-card-container {
+                padding: 1.375rem /* 22/16 */1.25rem /* 20/16 */ 0 1.25rem;;
+              }
             }
           }
         }

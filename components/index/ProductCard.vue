@@ -37,7 +37,7 @@ export default {
 @media only screen and (max-width: 768px) {
   .product-card-container {
     position: relative;
-    padding: 30px;
+    padding: 1.875rem /* 30/16 */;
     // margin-bottom: 30px;
     // background: $white;
     img {
@@ -51,7 +51,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.75rem /* 28/16 */;
+      font-size: 1.375rem /* 22/16 */;
       text-align: center;
     }
   }
