@@ -84,13 +84,13 @@ export default {
     box-shadow:0 0 5px 1px #ccc;
 
     .menu-container {
-      padding-top: 60px;
+      padding-top: 3.75rem /* 60/16 */;
       .fold-button {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        height: 60px;
-        margin: 0 30px;
+        height: 3.75rem /* 60/16 */;
+        margin: 0 1.875rem /* 30/16 */;
       }
 
       .menu-list {
@@ -98,10 +98,10 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 30px;
+        padding-top: 1.875rem /* 30/16 */;
         .menu-item {
-          padding: 20px;
-          font-size: 18px;
+          padding: 1.25rem /* 20/16 */;
+          font-size: 1.125rem /* 18/16 */;
           a {
             text-decoration: none;
             color: $primaryText;
@@ -112,11 +112,11 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 50px 0;
+        padding: 3.125rem /* 50/16 */ 0;
         .line {
           border-right: 1px solid $primaryText;
-          height: 12px;
-          margin: 0 10px;
+          height: .75rem /* 12/16 */;
+          margin: 0 .625rem /* 10/16 */;
         }
       }
     }
