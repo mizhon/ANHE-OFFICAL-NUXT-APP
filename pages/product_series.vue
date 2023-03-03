@@ -91,7 +91,7 @@
                 <!-- 底部图片 -->
                 <div class="img-footer">
                   <div v-for="(imgItem, idx) in productInfo.footerImgs" :key="idx" class="imgs-container">
-                    <img :src="imgItem.path" alt="" width="100%" />
+                    <img :src="imgItem.path" alt="" />
                   </div>
                 </div>
               </div>
@@ -143,8 +143,8 @@ export default {
         bannerImg: `/imgs/product/banner_img.png`,
         intro: `第二次量子革命意味着人们可以直接对量子波函数进行操作。为了保证波函数的相干性，操作往往需要在极低温环境下进行。4K（-269℃）以下温区的极低温仪器设备对于前沿科学研究、技术应用、国家安全具有重要意义。随着第二次量子革命的都来，极低温仪器设备的市场面临爆发式增长。\n\n在可以预见的未来稀释制冷机是实现超导量子计算低温环境的唯一选择。可以达到10mK温度的稀释制冷机是现代量子科学研究与量子技术发展的核心设备，广泛应用于量子材料的物性研究、量子计算的探索、量子传感器的应用等领域。国内对稀释制冷机的需求正在迅速增长，大约占到了全球份额的30%，每年销售额约2亿元。美国的Form Factor、英国的Oxford Instruments、芬兰的Bluefors占据了稀释制冷机的绝大部份市场份额，并对中国的核心单位禁运。`,
         highLightIntro:`经过团队多年努力，安禾仪器已经陈工研发了代表极底温技术最高水平的稀释制冷机，突破了mK级制冷关键技术，打破国外垄断。`,
-        paramDesc: `制冷功率：在20mK时已经达到10µW以上\n\n制冷功率：在20mK时已经达到10µW以上\n\n制冷功率：在20mK时已经达到10µW以上`,
-        componentDesc: `制冷功率：在20mK时已经达到10µW以上\n\n制冷功率：在20mK时已经达到10µW以上\n\n制冷功率：在20mK时已经达到10µW以上`,
+        paramDesc: `制冷功率：在20mK时已经达到10µW以上\n制冷功率：在20mK时已经达到10µW以上\n制冷功率：在20mK时已经达到10µW以上`,
+        componentDesc: `制冷功率：在20mK时已经达到10µW以上\n制冷功率：在20mK时已经达到10µW以上\n制冷功率：在20mK时已经达到10µW以上`,
         footerImgs: [
           { id: 0, path: `/imgs/product/bottom_img_1.png` },
           { id: 1, path: `/imgs/product/bottom_img_2.png` },
@@ -175,12 +175,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .product-series-page {
-  padding-top: 60px;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
   ::v-deep .el-tabs__item {
     height: 48px;
     font-size: 16px;
@@ -210,6 +204,12 @@ export default {
   }
 
   .product-series-page {
+    padding-top: 60px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
     .pc-only {
       display: flex;
       justify-content: center;
@@ -306,7 +306,7 @@ export default {
       }
       .m-product-series-tab-container {
         .tab-content-container {
-          padding-bottom: 80px;
+          padding-bottom: 5rem /* 80/16 */;
           .overview-container {
             display: flex;
             flex-direction: column;
@@ -316,7 +316,8 @@ export default {
               font-size: 1.625rem /* 26/16 */;
               font-weight: 500;
               color: #333333;
-              padding: 60px 0 20px 0;
+              // padding: 60px 0 20px 0;
+              padding: 2.5rem /* 40/16 */ 0 1.25rem /* 20/16 */0;
             }
             .content, .hightlight {
               font-size: 1rem;
@@ -328,25 +329,29 @@ export default {
               text-align: justify; // 文字两端对齐
             }
             .desc {
-              padding: .625rem /* 10/16 */1.75rem /* 28/16 */;
-              // line-height: 1.5rem /* 24/16 */;
+              padding: 0 /* 10/16 */1.75rem /* 28/16 */;
+              line-height: 1.5rem /* 24/16 */;
               text-align: justify; // 文字两端对齐
               color: $primaryText;
               white-space: pre-line;
               font-size: 1rem;
             }
             .illustration {
-              padding: 30px 40px 10px 40px;
+              // padding: 30px 40px 10px 40px;
+              padding: 1.875rem /* 30/16 */ 1.75rem /* 28/16 */ .625rem /* 10/16 */ 1.75rem /* 28/16 */;
             }
           }
           .img-footer {
             display: flex;
-            padding: 30px;
+            padding: 1.75rem /* 28/16 */;
+            overflow-x: auto;
             .imgs-container {
-              padding: 40px 10px 60px 10px;
+              flex-shrink: 0;
+              padding: 2.5rem /* 40/16 */.625rem /* 10/16 */ 1rem /* 60/16 */.3125rem /* 5/16 */;
               img {
-                width: 100%;
-                height: 100%;
+                // width: 100%;
+                // height: 100%;
+                width: 17.5rem /* 280/16 */;
               }
             }
           }
