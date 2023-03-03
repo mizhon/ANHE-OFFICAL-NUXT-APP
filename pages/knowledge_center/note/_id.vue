@@ -229,27 +229,28 @@ export default {
       .m-article-container {
         .m-article-header {
           .title {
-            padding: 60px 40px 20px 40px;
-            font-size: 40px;
+            // padding: 60px 40px 20px 40px;
+            padding: 3.75rem /* 60/16 */ 2.5rem /* 40/16 */ 1.25rem /* 20/16 */ 2.5rem /* 40/16 */;
+            font-size: 1.25rem /* 20/16 */;
             font-weight: 500;
             color: #333333;
-            line-height: 60px;
+            line-height: 1.875rem /* 30/16 */;
           }
           .timestamp {
-            padding-bottom: 40px;
-            margin: 20px 40px;
-            font-size: 28px;
+            padding-bottom: 1.25rem /* 20/16 */;
+            margin: 1.25rem /* 20/16 */ 2.5rem /* 40/16 */;
+            font-size: .875rem /* 14/16 */;
             color: #999999;
             border-bottom: 1px solid #e4e4e4;
           }
         }
 
         .m-article-content {
-          padding: 40px;
-          font-size: 32px;
+          padding: 1.25rem /* 20/16 */2.5rem /* 40/16 */2.5rem /* 40/16 */2.5rem /* 40/16 */;
+          font-size: 1rem /* 16/16 */;
           color: #333333;
           font-weight: 400;
-          line-height: 48px;
+          line-height: 1.5rem /* 24/16 */;
         }
       }
     }

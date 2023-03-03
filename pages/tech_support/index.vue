@@ -264,7 +264,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem /* 20/16 */;
       }
       .banner-container {
         position: absolute;
@@ -272,7 +272,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         color: #333333;
-        padding: 10px;
+        padding: .625rem /* 10/16 */;
         width: 80%;
         .title {
           font-size: 1.6875rem /* 27/16 */;
@@ -281,7 +281,7 @@ export default {
         .sub-title {
           font-size: .9375rem /* 15/16 */;
           font-weight: 400;
-          padding: 20px 0;
+          padding: 1.25rem /* 20/16 */ 0;
         }
       }
     }

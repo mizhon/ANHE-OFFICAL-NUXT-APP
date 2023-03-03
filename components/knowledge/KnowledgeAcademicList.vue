@@ -251,7 +251,8 @@ export default {
     .mobile-only {
       .m-knowledge-academic-list {
         .academic-card {
-          margin: 20px 20px 40px 20px;
+          // margin: 20px 20px 40px 20px;
+          margin: 1.25rem /* 20/16 */ 1.25rem /* 20/16 */ 2.5rem /* 40/16 */ 1.25rem /* 20/16 */;
           .video-container {
             width: 100%;
             .cover {
@@ -272,19 +273,20 @@ export default {
             }
           }
           .info-container {
-            padding: 10px 20px 20px 20px;
+            // padding: 10px 20px 20px 20px;
+            padding: .625rem /* 10/16 */1.25rem /* 20/16 */1.25rem 1.25rem;
             background: #fff;
             .title {
-              font-size: 22px;
+              font-size: 1.0625rem /* 17/16 */;
               font-weight: 400;
               color: #333333;
-              line-height: 40px;
+              line-height: 1.5rem /* 24/16 */;
             }
             .timestamp {
-              font-size: 16px;
+              font-size: .75rem /* 12/16 */;
               font-weight: 400;
               color: #999999;
-              line-height: 24px;
+              line-height: 1.5rem /* 24/16 */;
             }
           }
         }
@@ -294,10 +296,10 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 20px;
+        font-size: .9375rem /* 15/16 */;
         font-weight: 400;
         color: #666666;
-        padding: 30px 0 60px 0
+        padding: .625rem /* 10/16 */ 0 3.75rem /* 60/16 */ 0;
       }
     }
   }

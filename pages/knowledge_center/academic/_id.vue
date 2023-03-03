@@ -232,16 +232,17 @@ export default {
               display: flex;
               align-items: center;
               color: #fff;
-              margin: 20px 10px 0 10px;
+              // margin: 20px 10px 0 10px;
+              margin: 1.25rem /* 20/16 */.625rem /* 10/16 */0 .625rem /* 10/16 */;
               .back-icon {
-                font-size: 24px;
-                padding: 0 10px;
+                font-size: 1.5rem /* 24/16 */;
+                padding: 0 .625rem /* 10/16 */;
               }
               .title {
-                font-size: 24px;
+                font-size: 1.0625rem /* 17/16 */;
                 font-weight: 400;
                 color: #fff;
-                line-height: 24px;
+                line-height: 1.5rem /* 24/16 */;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
@@ -250,12 +251,12 @@ export default {
               }
             }
             .timestamp {
-              font-size: 18px;
+              font-size: .75rem /* 12/16 */;
               font-weight: 400;
               color: #999999;
-              line-height: 48px;
-              margin: 0 10px 10px 10px;
-              padding: 0 40px;
+              line-height: 1.5rem /* 24/16 */;
+              margin: 0 .625rem /* 10/16 */ .625rem /* 10/16 */ .625rem /* 10/16 */;
+              padding: 0 2.5rem /* 40/16 */;
             }
           }
         }

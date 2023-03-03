@@ -169,20 +169,20 @@ export default {
         .note-card-container {
           background: #fff;
           .note-card {
-            margin: 20px;
-            padding: 20px 0;
+            margin: 1.25rem;
+            padding: 1.25rem 0;
             .header-container {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              padding: 0 0 20px 0;
+              padding: 0 0 1.25rem 0;
               .main-title {
-                font-size: 20px;
+                font-size: 1.25rem /* 20/16 */;
                 font-weight: 500;
                 color: #333333;
               }
               .show-more-icon {
-                font-size: 16px;
+                font-size: .875rem /* 14/16 */;
                 font-weight: 400;
                 color: #666666;
               }
@@ -192,14 +192,20 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0 0 15px 0;
+                padding: 0 0 .9375rem /* 15/16 */ 0;
                 border-bottom: 1px solid #E4E4E4;
-                margin-bottom: 15px;
+                margin-bottom: .9375rem;
                 .note-title {
                   width: 60%;
-                  font-size: 16px;
+                  font-size: 1rem;
                   font-weight: 400;
                   color: #333333;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  padding-right: 1rem /* 16/16 */;
                 }
                 .cover-img {
                   width: 40%;

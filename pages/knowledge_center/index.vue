@@ -82,7 +82,7 @@ export default {
               notes: [
                 {
                   id: 0,
-                  title: '标题文字',
+                  title: '标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/note_img_01.png`,
                 },
@@ -112,7 +112,7 @@ export default {
                 },
                 {
                   id: 1,
-                  title: '标题文字',
+                  title: '标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/trend_foreign_img_02.png`,
                 },
@@ -142,7 +142,7 @@ export default {
                 },
                 {
                   id: 2,
-                  title: '标题文字',
+                  title: '标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/note_img_03.png`,
                 },
@@ -165,7 +165,7 @@ export default {
                 },
                 {
                   id: 1,
-                  title: '标题文字',
+                  title: '标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/trend_internal_img_02.png`,
                 },
@@ -202,7 +202,7 @@ export default {
                 },
                 {
                   id: 2,
-                  title: '标题文字',
+                  title: '标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
                   summary: '此处添加说明性文字此处添加说明性文字此处添加说明性文字',
                   coverImg: `/imgs/knowledge/trend_foreign_img_03.png`,
                 }
@@ -304,13 +304,34 @@ export default {
 
   .knowledge-center-page {
     background: #fafafa;
+    ::v-deep .el-tabs__item {
+      height: 3rem /* 48/16 */;
+      font-size: 1rem /* 16/16 */;
+      font-weight: 400;
+      color: #666666;
+    }
+    ::v-deep .el-tabs__item.is-active {
+      color: #0053A1;
+      font-weight: 500;
+    }
+    ::v-deep .el-tabs__active-bar {
+      background-color: #0053A1;
+      width: 68px;
+      transform: translateX(216px);
+    }
+    ::v-deep .el-tabs__nav-scroll {
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      margin-left: 20px;
+    }
     .mobile-only {
       .m-knowledge-center-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem /* 20/16 */;
       }
       .banner-container {
         position: absolute;
@@ -318,16 +339,17 @@ export default {
         flex-direction: column;
         justify-content: center;
         color: #333333;
-        padding: 10px;
+        // padding: 10px;
+        padding: .625rem /* 10/16 */;
         width: 80%;
         .title {
-          font-size: 48px;
+          font-size: 1.6875rem /* 27/16 */;
           font-weight: 500;
         }
         .sub-title {
-          font-size: 24px;
+          font-size: .9375rem /* 15/16 */;
           font-weight: 400;
-          padding: 20px 0;
+          padding: 1.25rem /* 20/16 */ 0;
         }
       }
     }
