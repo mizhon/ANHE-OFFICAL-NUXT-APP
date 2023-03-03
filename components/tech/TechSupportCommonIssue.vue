@@ -68,17 +68,14 @@ export default {
 <style lang="scss" scoped>
 .component-container {
   .issue-list {
-    padding: 20px 0 40px 0;
     background: #f3f5f7;
     .issue {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      margin: 10px 30px;
       border-bottom: 1px solid #e2e5e8;
       .title {
-        font-size: 16px;
+        // font-size: 16px;
         font-weight: 400;
         color: #333333;
         // margin: 0 0 0 10px;
@@ -91,7 +88,10 @@ export default {
 @media only screen and (min-width: 769px) {
   .component-container {
     .issue-list {
+      padding: 20px 0 40px 0;
       .issue {
+        padding: 20px 0;
+        margin: 10px 30px;
         .title {
           font-size: 16px;
           line-height: 42px;
@@ -125,12 +125,14 @@ export default {
 @media only screen and (max-width: 768px) {
   .component-container {
     .issue-list {
-      padding: 0 0 40px 0;
+      padding: 0 0 1.75rem /* 28/16 */ 0;
       background: #fff;
       .issue {
+        padding: 1.25rem /* 20/16 */ 0;
+        margin: .625rem /* 10/16 */1.875rem /* 30/16 */;
         .title {
-          font-size: 18px;
-          padding: 0 20px 0 0;
+          font-size: 1rem /* 16/16 */;
+          padding: 0 1.25rem /* 20/16 */ 0 0;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -148,8 +150,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 0 60px 0;
-    font-size: 22px;
+    padding: 0 0 3.75rem /* 60/16 */0;
+    font-size: .9375rem /* 15/16 */;
     font-weight: 400;
     color: #666666;
     cursor: pointer;

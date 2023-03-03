@@ -4,7 +4,8 @@
       <div v-for="(s, id) in sotfwares" :key="id" class="software">
         <div class="title">{{ s.title }}</div>
         <div class="download-btn" @click="handleDownload(software)">
-          <span class="on-show">
+          <span class="download-btn__text">
+            <span>{{ btnText }}</span>
             <i class="el-icon-download"></i>
           </span>
         </div>
@@ -75,8 +76,8 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      margin: 10px 30px;
+      // padding: 20px 0;
+      // margin: 10px 30px;
       border-bottom: 1px solid #e2e5e8;
       .title {
         font-size: 16px;
@@ -90,12 +91,36 @@ export default {
         border: 1px solid transparent;
         background-color: #dee5f3;
         cursor: pointer;
-        span {
-          display: inline-block;
+        &__text {
           width: 100px;
           line-height: 40px;
           text-align: center;
           color: #0053a1;
+          span {
+            display: none;
+          }
+        }
+        &__text:hover {
+          width: 100px;
+          line-height: 40px;
+          text-align: center;
+          color: #0053a1;
+          span {
+            display: inline-block;
+          }
+          i {
+            display: none;
+          }
+        }
+      }
+      .download-btn:hover {
+        border: 1px solid #0053a1;
+        background-color: #0053a1;
+        span {
+          color: #fff;
+        }
+        .on-hover-txt {
+          color: #fff;
         }
       }
     }
@@ -114,6 +139,8 @@ export default {
     .software-list {
       padding: 20px 0 40px 0;
       .software {
+        padding: 20px 0;
+        margin: 10px 30px;
         .title {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -151,11 +178,13 @@ export default {
 @media only screen and (max-width: 768px) {
   .component-container {
     .software-list {
-      padding: 0 0 40px 0;
+      padding: 0 0 1.75rem /* 28/16 */ 0;
       background: #fff;
       .software {
+        padding: 1.25rem /* 20/16 */ 0;
+        margin: .625rem /* 10/16 */1.75rem /* 28/16 */;
         .title {
-          font-size: 18px;
+          font-size: 1rem /* 16/16 */;
           padding: 0 20px 0 0;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -168,13 +197,6 @@ export default {
           justify-content: center;
           align-items: center;
           border: 1px solid transparent;
-          span {
-            display: inline-block;
-            width: 100px;
-            line-height: 40px;
-            text-align: center;
-            color: #0053a1;
-          }
         }
       }
     }
@@ -185,8 +207,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0 60px 0;
-      font-size: 22px;
+      padding: 0 0 3.75rem /* 60/16 */0;
+      font-size: .9375rem /* 15/16 */;
       font-weight: 400;
       color: #666666;
       cursor: pointer;

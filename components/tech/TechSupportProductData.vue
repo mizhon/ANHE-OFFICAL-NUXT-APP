@@ -4,9 +4,10 @@
       <div v-for="(product, id) in products" :key="id" class="product">
         <div class="title">{{ product.title }}</div>
         <div class="download-btn" @click="handleDownload(product)">
-          <span class="on-show">
+          <div class="download-btn__text">
+            <span>{{ btnText }}</span>
             <i class="el-icon-download"></i>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -75,8 +76,6 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      margin: 10px 30px;
       border-bottom: 1px solid #e2e5e8;
       .title {
         font-size: 16px;
@@ -90,12 +89,26 @@ export default {
         border: 1px solid transparent;
         background-color: #dee5f3;
         cursor: pointer;
-        span {
-          display: inline-block;
+        &__text {
           width: 100px;
           line-height: 40px;
           text-align: center;
           color: #0053a1;
+          span {
+            display: none;
+          }
+        }
+        &__text:hover {
+          width: 100px;
+          line-height: 40px;
+          text-align: center;
+          color: #0053a1;
+          span {
+            display: inline-block;
+          }
+          i {
+            display: none;
+          }
         }
       }
     }
@@ -114,6 +127,8 @@ export default {
     .product-data-list {
       padding: 20px 0 40px 0;
       .product {
+        padding: 20px 0;
+        margin: 10px 30px;
         .title {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -130,6 +145,16 @@ export default {
           cursor: pointer;
           span {
             color: #0053a1;
+          }
+        }
+        .download-btn:hover {
+          border: 1px solid #0053a1;
+          background-color: #0053a1;
+          span {
+            color: #fff;
+          }
+          .on-hover-txt {
+            color: #fff;
           }
         }
       }
@@ -152,12 +177,16 @@ export default {
 @media only screen and (max-width: 768px) {
   .component-container {
     .product-data-list {
-      padding: 0 0 40px 0;
+      // padding: 0 0 40px 0;
+      padding: 0 0 1.75rem /* 28/16 */ 0;
       background: #fff;
       .product {
+        padding: 1.25rem /* 20/16 */0;
+        margin: .625rem /* 10/16 */1.75rem /* 28/16 */;
         .title {
-          font-size: 18px;
-          padding: 0 20px 0 0;
+          font-size: 1rem /* 16/16 */;
+          // padding: 0 20px 0 0;
+          padding: 0 1.25rem /* 20/16 */0 0;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -169,13 +198,13 @@ export default {
           justify-content: center;
           align-items: center;
           border: 1px solid transparent;
-          span {
-            display: inline-block;
-            width: 100px;
-            line-height: 40px;
-            text-align: center;
-            color: #0053a1;
-          }
+          // span {
+          //   display: inline-block;
+          //   width: 6.25rem /* 100/16 */;
+          //   line-height: 2.5rem /* 40/16 */;
+          //   text-align: center;
+          //   color: #0053a1;
+          // }
         }
       }
     }
@@ -186,8 +215,9 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0 60px 0;
-      font-size: 22px;
+      // padding: 30px 0 60px 0;
+      padding: 0 0 3.75rem /* 60/16 */0;
+      font-size: .9375rem /* 15/16 */;
       font-weight: 400;
       color: #666666;
       cursor: pointer;

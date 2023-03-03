@@ -183,7 +183,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tech-support-page {
-  padding-top: 60px;
   img {
     max-width: 100%;
     max-height: 100%;
@@ -214,6 +213,7 @@ export default {
     display: none !important;
   }
   .tech-support-page {
+    padding-top: 60px;
     .pc-only {
       display: flex;
       justify-content: center;
@@ -237,6 +237,27 @@ export default {
   }
 
   .tech-support-page {
+    ::v-deep .el-tabs__item {
+      height: 3rem /* 48/16 */;
+      font-size: 1rem /* 16/16 */;
+      font-weight: 400;
+      color: #666666;
+    }
+    ::v-deep .el-tabs__item.is-active {
+      color: #0053A1;
+      font-weight: 500;
+    }
+    ::v-deep .el-tabs__active-bar {
+      background-color: #0053A1;
+      width: 68px;
+      transform: translateX(216px);
+    }
+    ::v-deep .el-tabs__nav-scroll {
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      margin-left: 20px;
+    }
     .mobile-only {
       .m-tech-support-container {
         display: flex;
@@ -254,11 +275,11 @@ export default {
         padding: 10px;
         width: 80%;
         .title {
-          font-size: 48px;
+          font-size: 1.6875rem /* 27/16 */;
           font-weight: 500;
         }
         .sub-title {
-          font-size: 24px;
+          font-size: .9375rem /* 15/16 */;
           font-weight: 400;
           padding: 20px 0;
         }
