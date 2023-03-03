@@ -183,10 +183,13 @@ export default {
 
   ::v-deep .el-tabs__item {
     height: 48px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
   }
   ::v-deep .el-tabs__item.is-active {
     color: #0053A1;
+    font-weight: 500;
   }
   ::v-deep .el-tabs__active-bar {
     background-color: #0053A1;
@@ -281,21 +284,21 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem /* 20/16 */;
         .banner-container {
           position: absolute;
           display: flex;
           flex-direction: column;
           justify-content: center;
           color: #333333;
-          padding: 10px;
+          padding: .625rem /* 10/16 */;
           width: 80%;
           .title {
-            font-size: 48px;
+            font-size: 1.6875rem /* 27/16 */;
             font-weight: 500;
           }
           .sub-title {
-            font-size: 24px;
+            font-size: .9375rem /* 15/16 */;
             font-weight: 400;
             padding: 20px 0;
           }
@@ -310,26 +313,27 @@ export default {
             justify-content: center;
             align-items: center;
             .title {
-              font-size: 42px;
+              font-size: 1.625rem /* 26/16 */;
               font-weight: 500;
               color: #333333;
               padding: 60px 0 20px 0;
             }
             .content, .hightlight {
-              font-size: 24px;
+              font-size: 1rem;
               font-weight: 400;
               color: #333333;
-              line-height: 48px;
-              padding: 20px 40px;
+              line-height: 1.5rem /* 24/16 */;
+              // padding: 20px 40px;
+              padding: 1.25rem /* 20/16 */1.75rem /* 28/16 */;
               text-align: justify; // 文字两端对齐
             }
             .desc {
-              padding: 10px;
-              line-height: 24px;
+              padding: .625rem /* 10/16 */1.75rem /* 28/16 */;
+              // line-height: 1.5rem /* 24/16 */;
               text-align: justify; // 文字两端对齐
               color: $primaryText;
               white-space: pre-line;
-              font-size: 24px;
+              font-size: 1rem;
             }
             .illustration {
               padding: 30px 40px 10px 40px;
