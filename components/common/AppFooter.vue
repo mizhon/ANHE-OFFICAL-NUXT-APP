@@ -194,9 +194,12 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      .desc {
-        color: #737373;
+      span {
+        display: block;
+        text-align: center;
+        line-height: 1.0625rem /* 17/16 */;
         font-size: .6875rem /* 11/16 */;
+        color: #737373;
         padding: .3125rem /* 5/16 */;
       }
     }
