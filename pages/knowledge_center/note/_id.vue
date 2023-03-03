@@ -251,6 +251,7 @@ export default {
           color: #333333;
           font-weight: 400;
           line-height: 1.5rem /* 24/16 */;
+          text-align: justify;
         }
       }
     }

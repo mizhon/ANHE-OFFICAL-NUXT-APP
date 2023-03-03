@@ -189,20 +189,6 @@ export default {
     getActiveTechSupportTabIndex(idx) {
       // eslint-disable-next-line no-console
       console.log('[tech support detail page]: --->', idx)
-      // this.headerText = this.tabHeadersText[idx];
-      // switch(idx) {
-      //   case 0:
-      //     this.comp = 'TechSupportProductData';
-      //     break;
-      //   case 1:
-      //     this.comp = 'TechSupportSoftware';
-      //     break;
-      //   case 2:
-      //     this.comp = 'TechSupportCommonIssue';
-      //     break;
-      //   default:
-      //     break;
-      // }
     },
     goBack() {
       this.$router.push({
@@ -311,35 +297,38 @@ export default {
 
   .tech-support-detail-page {
     .mobile-only {
-      .m-tech-support-detail-container {}
+      // .m-tech-support-detail-container {}
       .m-tech-support-detail-content {
         .header {
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem /* 20/16 */;
           border-bottom: 1px solid #d6d6d6;
           .title {
-            padding: 40px;
+            padding: 2.5rem /* 40/16 */2.5rem /* 40/16 */1.875rem /* 30/16 */2.5rem;
             text-align: justify;
             color: #333;
-            font-size: 38px;
+            font-size: 1.5rem /* 24/16 */;
             font-weight: 500;
           }
 
           .breadcrumb {
-            padding: 0 40px 40px 40px;
+            padding: 0 2.5rem /* 40/16 */ 2.5rem /* 40/16 */ 2.5rem /* 40/16 */;
+            .el-breadcrumb {
+              font-size: .9375rem /* 15/16 */;
+            }
           }
         }
         .content {
           .detail-text {
-            padding: 40px;
-            font-size: 32px;
-            line-height: 48px;
+            padding: 1.875rem /* 30/16 */ 2.5rem /* 40/16 */;
+            font-size: 1rem /* 16/16 */;
+            line-height: 1.5rem /* 24/16 */;
             color: #666;
 
             .detail-img {
               display: flex;
               justify-content: center;
               align-items: center;
-              margin: 40px 0;
+              margin: 2.5rem /* 40/16 */ 0;
             }
           }
         }

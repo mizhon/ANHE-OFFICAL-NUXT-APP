@@ -51,7 +51,7 @@ export default {
       },
       wechatOfficalText: '安和公众号',
       footerDesc: `网站所有数据及文档均受《著作权法》及相关法律法规保护，任何组织及个人不得侵权，违者本公司将依法追究侵权责任，特此申明。优设网法律顾问：XX律师`,
-      copyright: `Copyright©️ 2023 XX XX - 安禾官方微信号: XXXXXX - 鄂ICP备1XXXXX号-1 鄂公安备案 XXXXXX号`,     
+      copyright: `Copyright©️ 2023 XX XX - 安禾官方微信号: XXXXXX - 鄂ICP备1XXXXX号-1 鄂公安备案 XXXXXX号`,
     }
   },
   watch: {
@@ -109,8 +109,6 @@ export default {
 
       .desc {
         color: $footMainTextColor;
-        font-size: 14px;
-        padding: 5px;
       }
     }
   }
@@ -144,6 +142,10 @@ export default {
       span {
         line-height: 18px;
       }
+      .desc {
+        font-size: 14px;
+        padding: 5px;
+      }
     }
   }
 
@@ -154,12 +156,18 @@ export default {
     position: relative;
     .main-content {
       flex-direction: column;
-      padding: 30px 20px 10px 20px;
+      // padding: 30px 20px 10px 20px;
+      padding: 1.875rem /* 30/16 */1.25rem /* 20/16 */.625rem /* 10/16 */1.25rem /* 20/16 */;
       .contact-info {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        .title {
+          font-size: 1.0625rem /* 17/16 */;
+          margin-bottom: .625rem /* 10/16 */;
+          color: $footMainTextColor;
+        }
         .info-details {
           display: flex;
           flex-direction: column;
@@ -171,14 +179,27 @@ export default {
         border: .5px solid $footDividingLineColor;
         height: 1px;
         width: 80%;
-        margin: 30px 0;
+        // margin: 30px 0;
+        margin: 1.875rem /* 30/16 */0;
+      }
+      .wechat-offical-info {
+        .desc {
+          color: #737373;
+          font-size: .75rem /* 12/16 */;
+          padding: .3125rem /* 5/16 */;
+        }
       }
     }
     .sub-content {
       display: flex;
       justify-content: center;
       align-items: center;
-    } 
+      .desc {
+        color: #737373;
+        font-size: .6875rem /* 11/16 */;
+        padding: .3125rem /* 5/16 */;
+      }
+    }
   }
 }
 </style>

@@ -2,7 +2,12 @@
   <div class="component-container">
     <div class="issue-list">
       <div v-for="(s, id) in issues" :key="id" class="issue">
-        <span class="title" @click="getIssueDetail(s)">{{ s.title }}</span>
+        <span class="issue__icon">
+          <i class="el-icon-caret-right"></i>
+        </span>
+        <span class="title" @click="getIssueDetail(s)">
+          {{ s.title }}
+        </span>
       </div>
     </div>
     <div class="pagination">
@@ -130,13 +135,17 @@ export default {
       .issue {
         padding: 1.25rem /* 20/16 */ 0;
         margin: .625rem /* 10/16 */1.875rem /* 30/16 */;
+        &__icon {
+          font-size: 1.5rem /* 24/16 */;
+          padding-right: .625rem /* 10/16 */;
+        }
         .title {
           font-size: 1rem /* 16/16 */;
           padding: 0 1.25rem /* 20/16 */ 0 0;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
         }
       }

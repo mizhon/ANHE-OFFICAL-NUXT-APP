@@ -49,7 +49,16 @@
               <!-- tab.list > 3 显示 -->
             </el-tab-pane>
           </el-tabs>
-
+          <div class="check-details">
+            <div class="detail-btn">
+              <span>
+                {{ checkDetailsText }}
+              </span>
+              <span>
+                <i class="el-icon-arrow-down"></i>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -205,10 +214,13 @@ export default {
   padding-top: 60px;
   ::v-deep .el-tabs__item {
     height: 48px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
   }
   ::v-deep .el-tabs__item.is-active {
     color: #0053A1;
+    font-weight: 500;
   }
   ::v-deep .el-tabs__active-bar {
     background-color: #0053A1;
@@ -280,23 +292,23 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem /* 20/16 */;
         .banner-container {
           position: absolute;
           display: flex;
           flex-direction: column;
           justify-content: center;
           color: #333333;
-          padding: 10px;
+          padding: .625rem /* 10/16 */;
           width: 80%;
           .title {
-            font-size: 48px;
+            font-size: 1.6875rem /* 27/16 */;
             font-weight: 500;
           }
           .sub-title {
-            font-size: 24px;
+            font-size: .9375rem /* 15/16 */;
             font-weight: 400;
-            padding: 20px 0;
+            padding: 1.25rem /* 20/16 */ 0;
           }
         }
       }
@@ -306,11 +318,11 @@ export default {
           .tab-item {
             display: flex;
             align-items: flex-start;
-            padding-bottom: 20px;
-            margin: 5px 20px 20px 20px;
+            padding-bottom: 1.25rem /* 20/16 */;
+            margin: .3125rem /* 5/16 */ 1.25rem 1.25rem 1.25rem;
             border-bottom: 1px solid #eee;
             .picture {
-              margin: 5px 0;
+              margin: .3125rem 0;
               width: 40%;
               img {
                 width: 100%;
@@ -318,8 +330,26 @@ export default {
               }
             }
             .title {
+              font-size: 1rem /* 16/16 */;
+              color: #333333;
               width: 60%;
-              padding: 10px 10px 10px 20px;
+              padding: .625rem /* 10/16 */ .625rem /* 10/16 */ .625rem /* 10/16 */ 1.25rem /* 20/16 */;
+            }
+          }
+        }
+
+        .check-details {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .detail-btn {
+            // margin: 60px 5px 40px 5px;
+            margin: 1.25rem /* 20/16 */ .3125rem /* 5/16 */2.5rem /* 40/16 */.3125rem /* 5/16 */;
+            span {
+              padding: .3125rem /* 5/16 */;
+              color: #0053a1;
+              cursor: pointer;
+              font-weight: 500;
             }
           }
         }

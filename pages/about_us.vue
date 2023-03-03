@@ -400,14 +400,14 @@ export default {
         padding: 10px;
         justify-content: center;
         .title {
-          font-size: 38px;
+          font-size: 1.5rem /* 24/16 */;
           font-weight: bold;
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem /* 20/16 */;
         }
         .sub-title {
-          font-size: 18px;
+          font-size: .75rem /* 12/16 */;
           font-weight: 400;
-          line-height: 40px;
+          line-height: 1.5rem /* 24/16 */;
         }
       }
     }
@@ -418,10 +418,10 @@ export default {
         justify-content: center;
         align-items: center;
         .title {
-          font-size: 42px;
+          font-size: 1.625rem /* 26/16 */;
           font-weight: 500;
           color: $primaryText;
-          padding: 50px 0 0 0;
+          padding: 3.125rem /* 50/16 */ 0 0 0;
         }
       }
       .introduce {
@@ -430,50 +430,52 @@ export default {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 20px 20px 40px 20px;
+          // padding: 20px 20px 40px 20px;
+          padding: 1.25rem /* 20/16 */ 1.25rem /* 20/16 */ 2.5rem /* 40/16 */ 1.25rem /* 20/16 */;
           span {
             display: block;
-            font-size: 18px;
+            font-size: 1rem /* 16/16 */;
             color: $primaryText;
             text-align: center;
-            line-height: 40px;
+            line-height: 2.125rem /* 34/16 */;
           }
         }
       }
       .vision {
         background: #eee;
         .desc {
-          padding: 20px;
-          font-size: 18px;
+          padding: 1.25rem /* 20/16 */;
+          font-size: 1rem /* 16/16 */;
           color: $primaryText;
-          line-height: 40px;
+          line-height: 1.8125rem /* 29/16 */;
         }
         .img-container {
           display: flex;
-          padding: 20px 20px 50px 20px;
+          // padding: 20px 20px 50px 20px;
+          padding: 1.25rem /* 20/16 */ 1.25rem /* 20/16 */ 3.125rem /* 50/16 */ 1.25rem /* 20/16 */;
         }
       }
       .contact-us {
-        margin-bottom: 50px;
+        margin-bottom: 3.125rem /* 50/16 */;
         .card-list {
           width: 100%;
           .card {
             display: flex;
             flex-direction: column;
-            margin: 20px;
-            padding: 20px;
+            margin: 1.25rem /* 20/16 */;
+            padding: 1.25rem /* 20/16 */;
             background: #f6f7f8;
             .head {
-              font-size: 20px;
-              padding: 10px;
+              font-size: 1.125rem /* 18/16 */;
+              padding: .625rem /* 10/16 */;
             }
             .info {
               display: flex;
               flex-direction: column;
-              font-size: 14px;
-              margin: 10px;
+              font-size: 1rem /* 16/16 */;
+              margin: .625rem /* 10/16 */;
               span {
-                line-height: 30px;
+                line-height: 1.875rem /* 30/16 */;
               }
             }
           }
