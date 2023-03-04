@@ -122,10 +122,16 @@ export default {
                 cursor: pointer;
                 .info {
                   &__title {
-                    padding: 20px 20px 10px 20px;
+                    // padding: 20px 20px 10px 20px;
+                    margin: 20px 20px 10px 20px;
                     font-size: 18px;
                     font-weight: 400;
                     color: #333333;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
                   }
                   &__summary {
                     padding: 0 20px 20px 20px;
