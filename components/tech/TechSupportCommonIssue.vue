@@ -76,7 +76,7 @@ export default {
     background: #f3f5f7;
     .issue {
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e2e5e8;
       .title {
@@ -95,8 +95,9 @@ export default {
     .issue-list {
       padding: 20px 0 40px 0;
       .issue {
-        padding: 20px 0;
+        padding: 20px 10px 20px 0;
         margin: 10px 30px;
+        // justify-content: flex-start;
         .title {
           font-size: 16px;
           line-height: 42px;
