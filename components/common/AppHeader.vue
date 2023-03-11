@@ -88,7 +88,7 @@ export default {
   height: 60px;
   z-index: 1000;
   box-shadow: 4px 2px 9px -3px rgba(0, 0, 0, 0.2);
-  background: $black;
+  background: #21201f;
   .header-container {
     .menu-list {
       .lang-switcher{

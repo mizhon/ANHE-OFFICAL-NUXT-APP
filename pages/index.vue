@@ -18,9 +18,7 @@
             <div class="sub">{{ banner.subText }}</div>
           </div>
           <div class="banner-desc">
-            <span>{{ banner.desc1 }}</span>
-            <span>{{ banner.desc2 }}</span>
-            <span>{{ banner.desc3 }}</span>
+            <span>{{ banner.desc }}</span>
           </div>
         </div>
         <div class="pull-down">
@@ -134,9 +132,7 @@ export default {
         pulldownText: `向下滑动`,
         mainText: `安禾`,
         subText: `科学仪器`,
-        desc1: `稀释制冷剂`,
-        desc2: `扫描探针显微镜`,
-        desc3: `多功能物理特性测量系统`,
+        desc: `让前沿基础科学成果真正成为科学生产的巨大推动力`
 
       },
       headInfoTitle: '信息动态',
@@ -199,14 +195,6 @@ export default {
       return window.innerWidth;
     },
   },
-  // watch: {
-  //   mainProduct: {
-  //     immediate: true,
-  //     handler(newVal, oldVal) {
-
-  //     }
-  //   }
-  // },
   destroyed() {
     window.onresize = null;
   },
@@ -227,10 +215,6 @@ export default {
       // eslint-disable-next-line no-console
       console.log('handle product detail path redirect ...', product)
     },
-    // onMouseEnter(p) {
-    //   // eslint-disable-next-line no-console
-    //   console.log('[on mouse enter] --->', p)
-    // },
     onMouseOver(p) {
       // eslint-disable-next-line no-console
       console.log('[on mouse over] --->', p)
@@ -378,9 +362,15 @@ export default {
                     font-weight: 500;
                   }
                   .subtitle {
-                    padding: 10px 20px;
+                    margin: 10px 20px;
                     font-size: 18px;
                     font-weight: 400;
+                    line-height: 24px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
                   }
                   .summary {
                     padding: 5px 20px;

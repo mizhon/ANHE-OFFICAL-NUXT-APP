@@ -22,7 +22,7 @@
                 {{ productInfo.highLightIntro }}
               </div>
             </div>
-            <ConsultCard />
+            <!-- <ConsultCard /> -->
           </div>
           <!-- 技术参数 -->
           <div class="overview-container">
@@ -120,13 +120,13 @@
 </template>
 <script>
 import AppFooter from '@/components/common/AppFooter.vue';
-import ConsultCard from '@/components/product/ConsultCard.vue';
+// import ConsultCard from '@/components/product/ConsultCard.vue';
 
 export default {
   name: 'ProductSeriesPage',
   components: {
     AppFooter,
-    ConsultCard
+    // ConsultCard
   },
   layout: 'normal',
   data() {

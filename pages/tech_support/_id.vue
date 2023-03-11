@@ -18,7 +18,7 @@
               <el-breadcrumb separator-class="el-icon-arrow-right">
                 <!-- <el-breadcrumb-item v-for="(b, i) in breadcrumbs" :key="i" :to="{ path: b.path}"> -->
                 <el-breadcrumb-item v-for="(b, i) in breadcrumbs" :key="i">
-                  {{ b.label }}
+                  {{ b.label | titleLengthTruncate }}
                 </el-breadcrumb-item>
               </el-breadcrumb>
             </div>
@@ -49,7 +49,7 @@
             <div class="breadcrumb">
               <el-breadcrumb separator="-">
                   <el-breadcrumb-item v-for="(b, i) in breadcrumbs" :key="i">
-                    {{ b.label }}
+                    {{ b.label | titleLengthTruncate }}
                   </el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
@@ -76,6 +76,15 @@ export default {
   name: 'TechSupportDetailPage',
   components: {
     AppFooter
+  },
+  filters: {
+    titleLengthTruncate(str) {
+      if (str.length > 8) {
+        return str.slice(0, 8) + ' ...'
+      } else {
+        return str;
+      }
+    }
   },
   layout: 'normal',
   data() {
@@ -173,10 +182,10 @@ export default {
       breadcrumbs: [
         { id: 0, label: '当前位置', path: '' },
         { id: 1, label: '常见问题', path: '' },
-        { id: 2, label: '01. 问题', path: '' }
+        { id: 2, label: '如何获得有关北京安禾科学仪器北京有限公司的职位空缺咨询？', path: '' }
       ],
       issue: {
-        title: '01.问题的标题文字占位区域问题的标题文字占位区域',
+        title: '如何获得有关北京安禾科学仪器北京有限公司的职位空缺咨询？',
         text1: '问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回',
         image: '/imgs/tech/img-01.png',
         text2: '问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域问题的回答内容文字占位区域'

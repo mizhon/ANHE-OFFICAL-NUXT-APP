@@ -76,7 +76,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: $black;
+  background: #21201f;
   z-index: 999;
   .main-content {
     display: flex;
