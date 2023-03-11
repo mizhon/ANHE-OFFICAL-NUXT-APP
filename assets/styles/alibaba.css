@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'AlibabaPuHuiTi';
+  src: url('../fonts/AlibabaPuHuiTi-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+font-family: AlibabaPuHuiTi;
+}

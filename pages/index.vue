@@ -558,8 +558,10 @@ export default {
           // font-size: 2.75rem /* 44/16 */; /* 36/16 */
           font-size: 3rem /* 48/16 */;
           font-weight: 600;
+
+          // TODO: 需要修改，不是之前的隐藏了
           .decorator {
-            display: none !important;
+            // display: none !important;
           }
         }
         .banner-desc {
