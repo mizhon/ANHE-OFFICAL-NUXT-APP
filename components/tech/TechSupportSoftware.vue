@@ -91,27 +91,6 @@ export default {
         border: 1px solid transparent;
         background-color: #dee5f3;
         cursor: pointer;
-        &__text {
-          width: 100px;
-          line-height: 40px;
-          text-align: center;
-          color: #0053a1;
-          span {
-            display: none;
-          }
-        }
-        &__text:hover {
-          width: 100px;
-          line-height: 40px;
-          text-align: center;
-          color: #0053a1;
-          span {
-            display: inline-block;
-          }
-          i {
-            display: none;
-          }
-        }
       }
       .download-btn:hover {
         border: 1px solid #0053a1;
@@ -155,6 +134,27 @@ export default {
           border: 1px solid transparent;
           background-color: #dee5f3;
           cursor: pointer;
+          &__text {
+            width: 107px;
+            line-height: 35px;
+            text-align: center;
+            color: #0053a1;
+            span {
+              display: none;
+            }
+          }
+          &__text:hover {
+            width: 107px;
+            line-height: 35px;
+            text-align: center;
+            color: #0053a1;
+            span {
+              display: inline-block;
+            }
+            i {
+              display: none;
+            }
+          }
           span {
             color: #0053a1;
           }
@@ -185,7 +185,7 @@ export default {
         margin: .625rem /* 10/16 */1.75rem /* 28/16 */;
         .title {
           font-size: 1rem /* 16/16 */;
-          padding: 0 20px 0 0;
+          padding: 0 1.25rem /* 20/16 */ 0 0;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -197,6 +197,31 @@ export default {
           justify-content: center;
           align-items: center;
           border: 1px solid transparent;
+          &__text {
+            width: 6.6875rem /* 107/16 */;
+            line-height: 2.1875rem /* 35/16 */;
+            text-align: center;
+            color: #0053a1;
+            span {
+              display: none;
+            }
+            i {
+              font-size: 18px;
+            }
+          }
+          &__text:hover {
+            width: 6.6875rem /* 107/16 */;
+            line-height: 2.1875rem /* 35/16 */;
+            text-align: center;
+            color: #fff;// #0053a1;
+            background-color: #0053a1;
+            span {
+              display: inline-block;
+            }
+            i {
+              display: none;
+            }
+          }
         }
       }
     }

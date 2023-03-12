@@ -89,27 +89,6 @@ export default {
         border: 1px solid transparent;
         background-color: #dee5f3;
         cursor: pointer;
-        &__text {
-          width: 100px;
-          line-height: 40px;
-          text-align: center;
-          color: #0053a1;
-          span {
-            display: none;
-          }
-        }
-        &__text:hover {
-          width: 100px;
-          line-height: 40px;
-          text-align: center;
-          color: #0053a1;
-          span {
-            display: inline-block;
-          }
-          i {
-            display: none;
-          }
-        }
       }
     }
   }
@@ -143,18 +122,32 @@ export default {
           border: 1px solid transparent;
           background-color: #dee5f3;
           cursor: pointer;
-          span {
+          &__text {
+            width: 107px;
+            line-height: 35px;
+            text-align: center;
             color: #0053a1;
+            font-size: 16px;
+            span {
+              display: none;
+            }
+            i {
+              font-size: 18px;
+            }
           }
-        }
-        .download-btn:hover {
-          border: 1px solid #0053a1;
-          background-color: #0053a1;
-          span {
-            color: #fff;
-          }
-          .on-hover-txt {
-            color: #fff;
+          &__text:hover {
+            width: 107px;
+            line-height: 35px;
+            text-align: center;
+            color: #fff;// #0053a1;
+            background-color: #0053a1;
+            font-size: 16px;
+            span {
+              display: inline-block;
+            }
+            i {
+              display: none;
+            }
           }
         }
       }
@@ -198,13 +191,28 @@ export default {
           justify-content: center;
           align-items: center;
           border: 1px solid transparent;
-          // span {
-          //   display: inline-block;
-          //   width: 6.25rem /* 100/16 */;
-          //   line-height: 2.5rem /* 40/16 */;
-          //   text-align: center;
-          //   color: #0053a1;
-          // }
+          &__text {
+            width: 6.6875rem /* 107/16 */;
+            line-height: 2.1875rem /* 35/16 */;
+            text-align: center;
+            color: #0053a1;
+            span {
+              display: none;
+            }
+          }
+          &__text:hover {
+            width: 6.6875rem /* 107/16 */;
+            line-height: 2.1875rem /* 35/16 */;
+            text-align: center;
+            color: #fff;// #0053a1;
+            background-color: #0053a1;
+            span {
+              display: inline-block;
+            }
+            i {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -215,7 +223,6 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      // padding: 30px 0 60px 0;
       padding: 0 0 3.75rem /* 60/16 */0;
       font-size: .9375rem /* 15/16 */;
       font-weight: 400;

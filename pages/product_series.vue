@@ -203,6 +203,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.page-content-wrapper {
+  padding-top: 60px;
+}
 .product-series-page {
   img {
     max-width: 100%;
