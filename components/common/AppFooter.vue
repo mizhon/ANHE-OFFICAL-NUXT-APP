@@ -133,7 +133,7 @@ export default {
   .app-footer {
     .main-content {
       .dividing-line {
-        border: .5px solid $footDividingLineColor;
+        border: 1px solid $footDividingLineColor;
         height: 120px;
         margin: 5px 40px;
       }
@@ -176,8 +176,8 @@ export default {
         }
       }
       .dividing-line  {
-        border: .5px solid $footDividingLineColor;
-        height: 1px;
+        border: 0.03125rem /* 0.5/16 */ solid $footDividingLineColor;
+        // height: 1px;
         width: 80%;
         // margin: 30px 0;
         margin: 1.875rem /* 30/16 */0;

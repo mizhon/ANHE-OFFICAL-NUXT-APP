@@ -11,11 +11,18 @@
         </el-carousel>
         <div class="banner-info-container">
           <div class="banner-title">
-            <div class="main">{{ banner.mainText }}</div>
-            <div class="decorator">
+            <!-- 仅在移动端展示 -->
+            <div class="m-decorator">
               <img :src="banner.tranglePath" alt="" />
             </div>
-            <div class="sub">{{ banner.subText }}</div>
+            <div class="banner-title__wrapper">
+              <div class="main">{{ banner.mainText }}</div>
+              <!-- 仅在PC端展示 -->
+              <div class="pc-decorator">
+                <img :src="banner.tranglePath" alt="" />
+              </div>
+              <div class="sub">{{ banner.subText }}</div>
+            </div>
           </div>
           <div class="banner-desc">
             <span>{{ banner.desc }}</span>
@@ -255,11 +262,8 @@ export default {
         align-items: center;
         padding: 20px 40px;
 
-        .decorator {
+        &__wrapper {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0 15px;
         }
       }
       .banner-desc {
@@ -537,6 +541,23 @@ export default {
         }
       }
     }
+    .main-banner {
+      .banner-info-container {
+        .banner-title {
+          .m-decorator {
+            display: none !important;
+          }
+          &__wrapper {
+            .pc-decorator {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 // 移动端样式
@@ -554,14 +575,17 @@ export default {
     .main-banner {
       .banner-info-container {
         .banner-title {
+          display: flex;
+          flex-direction: column;
           white-space: nowrap;
           // font-size: 2.75rem /* 44/16 */; /* 36/16 */
           font-size: 3rem /* 48/16 */;
           font-weight: 600;
-
-          // TODO: 需要修改，不是之前的隐藏了
-          .decorator {
-            // display: none !important;
+          .m-decorator {
+            padding: 0 .9375rem 1rem .9375rem /* 15/16 */;
+          }
+          .pc-decorator {
+            display: none !important;
           }
         }
         .banner-desc {
@@ -574,9 +598,7 @@ export default {
       }
 
       .pull-down {
-        // bottom: 240px;
-        bottom: 15rem /* 240/16 */;
-        // bottom: 17.5rem /* 280/16 */;
+        bottom: 20rem;
         img {
           width: 1.75rem /* 28/16 */;
           height: 1.75rem /* 28/16 */;
