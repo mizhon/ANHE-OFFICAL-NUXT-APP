@@ -20,7 +20,7 @@
         <section class="about-content-container">
           <div class="pc-info-content" :style="{backgroundImage: `url(${intro.bgImg})`, backgroundRepeat: `no-repeat`, backgroundPosition: `right`, backgroundSize: `60% 100%` }">
             <!-- 介绍 -->
-            <div class="introduce">
+            <div id="anhe_introduce" class="introduce">
               <div class="title" :style="{backgroundImage: `url(${intro.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPositionY: `center` }">
                 {{ intro.title }}
               </div>
@@ -37,7 +37,7 @@
               </div>
             </div>
             <!-- 愿景 -->
-            <div class="vision">
+            <div id="anhe_vision" class="vision">
               <div class="title" :style="{backgroundImage: `url(${vision.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPositionY: `center` }">
                 {{ vision.title }}
               </div>
@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <div class="contact-us-container">
+          <div id="anhe_contactus" class="contact-us-container">
             <div class="title" :style="{backgroundImage: `url(${contact.titleBgImg})`, backgroundRepeat: `no-repeat`, backgroundPosition: `center` }">
               {{ contact.title }}
             </div>
@@ -71,11 +71,13 @@
                   <span>{{ card.address }}</span>
                   <span>{{ card.phone }}</span>
                   <span>{{ card.mail }}</span>
+                  <span>{{ card.saler }}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <AboutUsFooter @located="onAncherClicked" />
       </div>
       <!-- NOTE: 移动端显示 -->
       <div class="mobile-only">
@@ -126,23 +128,27 @@
                   <span>{{ card.address }}</span>
                   <span>{{ card.phone }}</span>
                   <span>{{ card.mail }}</span>
+                  <span>{{ card.saler }}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <AppFooter />
       </div>
     </div>
-    <AppFooter />
+
   </div>
 </template>
 <script>
 import AppFooter from '@/components/common/AppFooter.vue';
+import AboutUsFooter from '@/components/about/AboutUsFooter.vue';
 
 export default {
   name: 'AboutUSPage',
   components: {
-    AppFooter
+    AppFooter,
+    AboutUsFooter
   },
   layout: 'normal',
   data() {
@@ -188,14 +194,16 @@ export default {
             location: '北京地区联系信息：',
             address: '地址：北京市顺义区田家营村幸福南街117号',
             phone: '电话：13141300582',
-            mail: '邮件：contact.us@anhe.com.cn'
+            mail: '邮件：contact.us@anhe.com.cn',
+            saler: '销售：李XX 13141300582'
           },
           {
             id: 1,
             location: '嘉兴地区联系信息：',
             address: '地址：浙江省嘉兴市秀城区秀州路慈光公寓',
             phone: '电话：13141300582',
-            mail: '邮件：contact.us@anhe.com.cn'
+            mail: '邮件：contact.us@anhe.com.cn',
+            saler: '销售：李XX 13141300582'
           }
         ],
       }
@@ -203,6 +211,11 @@ export default {
   },
   created() {
     this.banner.style = `background-image: url(${this.banner.bgImg}); background-repeat: no-repeat; background-position: center; background-size: 100% 100%;`
+  },
+  methods: {
+    onAncherClicked(p) {
+      document.querySelector('#' + p.ancher).scrollIntoView({behavior: 'smooth'});
+    }
   },
 }
 </script>

@@ -34,6 +34,7 @@
           </div>
         </div>
       </div>
+      <AppFooter :position="position" />
     </div>
     <div class="mobile-only">
       <div class="academic-detail-page">
@@ -53,7 +54,7 @@
         </div>
       </div>
     </div>
-    <AppFooter :position="position" />
+    <!-- <AppFooter :position="position" /> -->
   </div>
 </template>
 <script>
@@ -170,7 +171,8 @@ export default {
                 font-size: 16px;
                 font-weight: 500;
                 color: #fff;
-                padding: 0 15px 20px 15px;
+                // padding: 0 15px 20px 15px;
+                padding: 20px 15px;
               }
             }
 
@@ -183,7 +185,7 @@ export default {
               background: #333;
               height: 500px;
               .header {
-                padding: 30px 15px 15px 15px;
+                padding: 25px 15px 20px 15px;
                 font-size: 16px;
                 font-weight: 500;
                 color: #fff;

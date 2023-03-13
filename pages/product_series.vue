@@ -240,7 +240,6 @@ export default {
   }
 
   .product-series-page {
-    padding-top: 60px;
     img {
       max-width: 100%;
       max-height: 100%;

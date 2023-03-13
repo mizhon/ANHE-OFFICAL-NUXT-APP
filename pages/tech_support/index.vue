@@ -216,7 +216,6 @@ export default {
     display: none !important;
   }
   .tech-support-page {
-    padding-top: 60px;
     .pc-only {
       display: flex;
       justify-content: center;

@@ -573,6 +573,7 @@ export default {
       }
     }
     .main-banner {
+      height: 37rem;
       .banner-info-container {
         .banner-title {
           display: flex;

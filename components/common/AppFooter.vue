@@ -1,26 +1,93 @@
 <template>
   <div class="app-footer" :style="{position: `${position}`}">
-    <div class="main-content">
-      <AppLogo :path="footerLogo" :width="100" :height="60" />
-      <div class="dividing-line"></div>
-      <!-- 联系信息 -->
-      <div class="contact-info">
-        <div class="title">{{ contactInfo.title }}</div>
-        <div class="info-details">
-          <span>{{ contactInfo.phone }}</span>
-          <span>{{ contactInfo.mail }}</span>
-          <span>{{ contactInfo.address }}</span>
+    <!-- PC端展示 -->
+    <div class="pc-only">
+      <div class="main-content">
+        <AppLogo :path="pcFooterLogo" :width="100" :height="60" />
+        <div class="dividing-line">
+          <svg width="1" height="100%">
+            <line
+              x1="0"
+              y1="0"
+              x2=""
+              y2="100%"
+              fill="transparent"
+              stroke-width="1"
+              stroke="#85827F"
+            />
+          </svg>
+        </div>
+        <!-- 联系信息 -->
+        <div class="contact-info">
+          <div class="title">{{ contactInfo.title }}</div>
+          <div class="info-details">
+            <span>{{ contactInfo.phone }}</span>
+            <span>{{ contactInfo.mail }}</span>
+            <span>{{ contactInfo.address }}</span>
+          </div>
+        </div>
+        <div class="dividing-line">
+          <svg width="1" height="100%">
+            <line
+              x1="0"
+              y1="0"
+              x2=""
+              y2="100%"
+              fill="transparent"
+              stroke-width="1"
+              stroke="#85827F"
+            />
+          </svg>
+        </div>
+        <div class="wechat-offical-info">
+          <AppLogo :path="wechatLogo" :width="40" :height="40" style="background: gray; border-radius: 6px;" />
+          <p class="desc">{{ wechatOfficalText }}</p>
         </div>
       </div>
-      <div class="dividing-line"></div>
-      <div class="wechat-offical-info">
-        <AppLogo :path="wechatLogo" :width="40" :height="40" style="background: gray; border-radius: 6px;" />
-        <p class="desc">{{ wechatOfficalText }}</p>
+      <div class="sub-content">
+        <span>{{ footerDesc }}</span>
+        <span>{{ copyright }}</span>
       </div>
     </div>
-    <div class="sub-content">
-      <span>{{ footerDesc }}</span>
-      <span>{{ copyright }}</span>
+    <!-- 移动端展示 -->
+    <div class="mobile-only">
+      <div class="main-content">
+        <div class="logo-info">
+          <AppLogo :path="mobileFooterLogo" :width="125" :height="32" />
+        </div>
+        <!-- 联系信息 -->
+        <div class="contact-info">
+          <div class="title">{{ contactInfo.title }}</div>
+          <div class="info-details">
+            <span>{{ contactInfo.phone }}</span>
+            <span>{{ contactInfo.mail }}</span>
+            <span>{{ contactInfo.address }}</span>
+          </div>
+          <div class="wechat-offical-info">
+            <div class="logo-container">
+              <AppLogo :path="wechatLogo" :width="40" :height="40" />
+            </div>
+            <p class="desc">{{ wechatOfficalText }}</p>
+          </div>
+        </div>
+        <div class="dividing-line">
+          <svg width="100%" height="1">
+            <line
+              x1="0"
+              y1="0"
+              x2="100%"
+              y2="0"
+              fill="transparent"
+              stroke-width="1"
+              stroke="#737373"
+            />
+          </svg>
+        </div>
+        <div class="sub-content">
+          <span>{{ footerDesc }}</span>
+          <span>{{ copyright }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +108,8 @@ export default {
   data() {
     return {
       layout: 'relative',
-      footerLogo: '/logos/anhe-footer-logo.svg',
+      pcFooterLogo: '/logos/anhe-footer-logo.svg',
+      mobileFooterLogo: '/logos/anhe-topbar-logo.svg',
       wechatLogo: '/logos/wechat-logo.svg',
       contactInfo: {
         title: `联系我们`,
@@ -78,129 +146,153 @@ export default {
   bottom: 0;
   background: #21201f;
   z-index: 999;
-  .main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
-    .contact-info {
-      padding: 0 40px;
-      .title {
-        font-size: 18px;
-        margin-bottom: 10px;
-        color: $footMainTextColor;
-      }
-
-      .info-details {
-        font-size: 12px;
-        color: $footMainTextColor;
-        span {
-          display: block;
-          margin: 5px 0;
-        }
-      }
-    }
-    .wechat-offical-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .desc {
-        color: $footMainTextColor;
-      }
-    }
-  }
-
-  .sub-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    color: $info;
-    padding: 20px;
-    span {
-      display: block;
-      text-align: center;
-      line-height: 18px;
-    }
-  }
 }
 // PC端样式
 @media only screen and (min-width: 769px) {
   .app-footer {
-    .main-content {
-      .dividing-line {
-        border: 1px solid $footDividingLineColor;
-        height: 120px;
-        margin: 5px 40px;
-      }
+    .mobile-only {
+      display: none !important;
     }
-    .sub-content {
-      span {
-        line-height: 18px;
+
+    .pc-only {
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        .contact-info {
+          padding: 0 40px;
+          .title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: $footMainTextColor;
+          }
+          .info-details {
+            font-size: 14px;
+            color: #C5C9D4;
+            span {
+              display: block;
+              margin: 10px 0;
+            }
+          }
+        }
+        .wechat-offical-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .desc {
+            color: $footMainTextColor;
+          }
+        }
+        .dividing-line {
+          height: 120px;
+          margin: 5px 40px;
+        }
       }
-      .desc {
-        font-size: 14px;
-        padding: 5px;
+      .sub-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        color: $info;
+        padding: 20px;
+        span {
+          display: block;
+          text-align: center;
+          line-height: 18px;
+        }
+        .desc {
+          font-size: 14px;
+          padding: 5px;
+        }
       }
     }
   }
-
 }
 // 移动端样式
 @media only screen and (max-width: 768px) {
   .app-footer {
     position: relative;
-    .main-content {
-      flex-direction: column;
-      // padding: 30px 20px 10px 20px;
-      padding: 1.875rem /* 30/16 */1.25rem /* 20/16 */.625rem /* 10/16 */1.25rem /* 20/16 */;
-      .contact-info {
-        display: flex;
+    .pc-only {
+      display: none !important;
+    }
+
+    .mobile-only {
+      .main-content {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .title {
-          font-size: 1.0625rem /* 17/16 */;
-          margin-bottom: .625rem /* 10/16 */;
-          color: $footMainTextColor;
+        // padding: 30px 20px 10px 20px;
+        padding: .625rem /* 10/16 */1.25rem;
+        .logo-info {
+          margin: 2rem /* 32/16 */ 0 2.5rem /* 40/16 */0;
         }
-        .info-details {
+        .contact-info {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+
+          .title {
+            font-size: 1.0625rem /* 17/16 */;
+            font-weight: 500;
+            margin-bottom: .625rem /* 10/16 */;
+            color: #737373;
+          }
+          .info-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            span {
+              color: #737373;
+              font-size: .75rem /* 12/16 */;
+              line-height: 1.25rem /* 20/16 */;
+            }
+          }
+          .wechat-offical-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 2.125rem /* 34/16 */0 0 0;
+            .logo-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #585857;
+              width: 3.25rem /* 52/16 */ /* 54/16 */;
+              height: 3.25rem /* 52/16 */;
+              border-radius: .375rem /* 6/16 */;
+            }
+            .desc {
+              color: #737373;
+              font-size: .75rem /* 12/16 */;
+              padding: .3125rem /* 5/16 */0 0 0;
+              margin-bottom: 1.875rem /* 30/16 */;
+            }
+          }
         }
-      }
-      .dividing-line  {
-        border: 0.03125rem /* 0.5/16 */ solid $footDividingLineColor;
-        // height: 1px;
-        width: 80%;
-        // margin: 30px 0;
-        margin: 1.875rem /* 30/16 */0;
-      }
-      .wechat-offical-info {
-        .desc {
-          color: #737373;
-          font-size: .75rem /* 12/16 */;
-          padding: .3125rem /* 5/16 */;
+        .dividing-line {
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
-      }
-    }
-    .sub-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      span {
-        display: block;
-        text-align: center;
-        line-height: 1.0625rem /* 17/16 */;
-        font-size: .6875rem /* 11/16 */;
-        color: #737373;
-        padding: .3125rem /* 5/16 */;
+        .sub-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 1.5625rem /* 25/16 */ 0;
+          span {
+            display: block;
+            text-align: center;
+            line-height: 1.0625rem /* 17/16 */;
+            font-size: .6875rem /* 11/16 */;
+            color: #737373;
+            padding: .3125rem /* 5/16 */;
+          }
+        }
       }
     }
   }
