@@ -1,5 +1,5 @@
 <template>
-  <div class="app-header">
+  <div ref="appHeaderRef" class="app-header">
     <header class="header-container">
       <AppLogo :path="logoPath" :width="100" :height="50" />
       <div class="menu-list">
@@ -9,12 +9,11 @@
           <span></span>
         </div>
         <div class="lang-switcher">
-          <el-button
-            type="text"
+          <div
             style="font-size: 16px; color: #fff;"
             @click="switchLanguage">
             {{ currentLangText }}
-          </el-button>
+        </div>
         </div>
       </div>
       <!-- 在大尺寸 > 768px 屏幕上不显示 -->
@@ -53,11 +52,20 @@ export default {
       isOpen: false, // 默认小尺寸菜单收起
     }
   },
+  watch: {
+    '$store.state.activeMenuIndex': {
+      immediate: true,
+      handler(newVal, oldVal) {
+        // eslint-disable-next-line no-console
+        // console.log('监听activeMenuIndex: --->', newVal)
+        this.activeMenuIndex = newVal;
+      }
+    }
+  },
   created() {
     // eslint-disable-next-line no-console
-    console.log('AppHeader $store: --->', this.$store.state)
+    // console.log('AppHeader $store: --->', this.$store.state)
     this.activeMenuIndex = this.$store.state.activeMenuIndex;
-
   },
   methods: {
     handleSelectedMenu(menu) {
@@ -81,6 +89,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+::v-deep .el-button:hover {
+  background-color: none;
+}
+
 .app-header {
   position: fixed;
   // padding: 0 40px;
@@ -95,6 +107,7 @@ export default {
         display: flex;
         justify-content: center;
         width: 100px;
+        cursor: pointer;
       }
     }
   }

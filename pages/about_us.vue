@@ -77,7 +77,7 @@
             </div>
           </div>
         </section>
-        <AboutUsFooter @located="onAncherClicked" />
+        <AboutUsFooter @located="onAncherClicked" @redirect="onPageRedirectTo" />
       </div>
       <!-- NOTE: 移动端显示 -->
       <div class="mobile-only">
@@ -137,7 +137,6 @@
         <AppFooter />
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -215,6 +214,14 @@ export default {
   methods: {
     onAncherClicked(p) {
       document.querySelector('#' + p.ancher).scrollIntoView({behavior: 'smooth'});
+    },
+    onPageRedirectTo(page) {
+      // eslint-disable-next-line no-console
+      // console.log('on page redirect to: --->', page);
+      this.$store.commit('SET_ACTIVE_MENU_INDEX', page.menuIndex)
+      this.$router.push({
+        path: page.path
+      });
     }
   },
 }

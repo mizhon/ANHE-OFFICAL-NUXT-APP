@@ -133,21 +133,6 @@ export default {
 }
 // PC端样式
 @media only screen and (min-width: 769px) {
-  ::v-deep .el-button {
-    border-radius: 0;
-  }
-
-  ::v-deep .el-button:hover {
-    background-color: #0053A1;
-    color: #fff;
-  }
-
-  ::v-deep .el-button--primary {
-    background-color: #fff;
-    border-color: #0053A1;
-    color: #0053A1;
-  }
-
   .mobile-only {
     display: none !important;
   }

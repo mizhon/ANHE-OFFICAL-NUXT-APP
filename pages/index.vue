@@ -83,19 +83,18 @@
             <!-- PC端展示 -->
             <div class="pc-product-info-container">
               <!-- 主产品展示区 -->
-              <div class="main-product">
+              <div class="main-product" @mouseover="onMouseOverMainImage" @mouseout="onMouseOutMainImage">
                 <div class="product-img">
                   <img :src="mainProduct.img" alt="">
                 </div>
-                <div class="mask-cover"></div>
-                <div class="title" @click="checkProductDetail(mainProduct)">{{ mainProduct.title }}</div>
-                <div class="arrow" @click="checkProductDetail(mainProduct)"><i class="el-icon-right"></i></div>
+                <div class="mask-cover" :class="[showMaskCover ? '' : 'hidden']"></div>
+                <div class="title" :class="[showMaskCover ? '' : 'hidden']" @click="checkProductDetail(mainProduct)">{{ mainProduct.title }}</div>
+                <div class="arrow" :class="[showMaskCover ? '' : 'hidden']" @click="checkProductDetail(mainProduct)"><i class="el-icon-right"></i></div>
               </div>
               <div class="products-list">
                 <div v-for="(p, i) in productsList" :key="i" class="product">
-                  <div class="product__cover" @mouseover="onMouseOver(p)">
+                  <div class="product__cover" @mouseover="onMouseOver(p)" @mouseout="onMouseOut(p)">
                     <img :src="p.img" alt="">
-
                     <div class="p-cover-mask"></div>
                     <div class="p-cover-title">{{ p.title }}</div>
                   </div>
@@ -172,29 +171,34 @@ export default {
         {
           title: '稀释制冷剂',
           img: '/imgs/index/product_show_img_01.png',
+          path: '/product_series',
+          menuIndex: 1,
+          tab: 0
         },
         {
           title: '扫描探针显微镜',
           img: '/imgs/index/product_show_img_02.png',
+          path: '/product_series',
+          menuIndex: 1,
+          tab: 1
         },
         {
           title: '多功能物理特性测量系统',
           img: '/imgs/index/product_show_img_03.png',
-        },
-        {
-          title: '多功能物理特性测量系统',
-          img: '/imgs/index/product_show_img_03.png',
-        },
-        {
-          title: '多功能物理特性测量系统',
-          img: '/imgs/index/product_show_img_03.png',
+          path: '/product_series',
+          menuIndex: 1,
+          tab: 2
         },
       ],
       // Product区域默认显示的信息内容，根据鼠标滑动到productList中的一个而改变
       mainProduct: {
         title: '稀释制冷剂',
         img: '/imgs/index/product_show_img_01.png',
-      }
+        path: '/product_series',
+        menuIndex: 1,
+        tab: 0
+      },
+      showMaskCover: false // 默认不显示主图的mask信息
     }
   },
   computed: {
@@ -220,12 +224,26 @@ export default {
     },
     checkProductDetail(product) {
       // eslint-disable-next-line no-console
-      console.log('handle product detail path redirect ...', product)
+      console.log('product detail path redirect ...', product)
+      this.$store.commit('SET_ACTIVE_MENU_INDEX', product.menuIndex)
+      this.$router.push({
+        path: product.path
+      })
+    },
+    onMouseOverMainImage() {
+      this.showMaskCover = true
+    },
+    onMouseOutMainImage() {
+      this.showMaskCover = false
     },
     onMouseOver(p) {
       // eslint-disable-next-line no-console
       console.log('[on mouse over] --->', p)
       this.mainProduct = Object.assign({}, p)
+    },
+    onMouseOut(p) {
+      // eslint-disable-next-line no-console
+      console.log('[on mouse out] --->', p)
     }
   }
 }
@@ -494,6 +512,10 @@ export default {
                 font-size: 28px;
                 cursor: pointer;
               }
+
+              .hidden {
+                display: none;
+              }
             }
             .products-list {
               display: flex;
@@ -532,6 +554,9 @@ export default {
                     cursor: pointer;
                   }
                 }
+              }
+              .product:last-child {
+                margin-bottom: 0;
               }
             }
           }

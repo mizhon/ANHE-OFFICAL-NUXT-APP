@@ -9,7 +9,7 @@
             <line
               x1="0"
               y1="0"
-              x2=""
+              x2="0"
               y2="100%"
               fill="transparent"
               stroke-width="1"
@@ -31,7 +31,7 @@
             <line
               x1="0"
               y1="0"
-              x2=""
+              x2="0"
               y2="100%"
               fill="transparent"
               stroke-width="1"

@@ -29,7 +29,13 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui',
+    '@/plugins/route.client.js', // https://nuxtjs.org/docs/directory-structure/plugins#client-or-server-side-only
+    {
+      src: '@/plugins/store.js', ssr: false
+    }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

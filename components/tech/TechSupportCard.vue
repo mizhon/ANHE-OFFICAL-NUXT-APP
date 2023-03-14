@@ -37,10 +37,12 @@ export default {
   .tech-support__header {
     position: relative;
     text-align: center;
+    background: #f3f5f7;
     .header-img {
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
     .header-desc {

@@ -1,0 +1,20 @@
+
+// 更改element-ui分页组件颜色
+::v-deep .el-pager li.active {
+  color: #0053a1;
+}
+
+::v-deep .el-button {
+  border-radius: 0;
+}
+
+::v-deep .el-button:hover {
+  background-color: #0053A1;
+  color: #fff;
+}
+
+::v-deep .el-button--primary {
+  background-color: #fff;
+  border-color: #0053A1;
+  color: #0053A1;
+}

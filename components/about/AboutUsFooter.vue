@@ -8,7 +8,7 @@
             <line
               x1="0"
               y1="0"
-              x2=""
+              x2="0"
               y2="100%"
               fill="transparent"
               stroke-width="1"
@@ -33,7 +33,7 @@
             </div>
             <div class="main-pages__content">
               <div v-for="(p, idx) in pages.contents" :key="idx" class="page-item">
-                <span>{{ p.label }}</span>
+                <span @click="handlePageRedirect(p)">{{ p.label }}</span>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
             <line
               x1="0"
               y1="0"
-              x2=""
+              x2="0"
               y2="100%"
               fill="transparent"
               stroke-width="1"
@@ -97,21 +97,25 @@ export default {
           {
             id: 0,
             label: '产品系列',
+            menuIndex: 1, // 顶部导航栏的菜单编号，需对应
             path: '/product_series'
           },
           {
             id: 1,
             label: '知识中心',
+            menuIndex: 3, // 顶部导航栏的菜单编号，需对应
             path: '/knowledge_center'
           },
           {
             id: 2,
             label: '技术支持',
+            menuIndex: 2, // 顶部导航栏的菜单编号，需对应
             path: '/tech_support'
           },
           {
             id: 3,
             label: '新闻动态',
+            menuIndex: 4, // 顶部导航栏的菜单编号，需对应
             path: '/media_news'
           }
         ]
@@ -123,9 +127,10 @@ export default {
   },
   methods: {
     handleLocated(ancher) {
-      // eslint-disable-next-line no-console
-      console.log('about us footer: --->>', ancher)
       this.$emit('located', ancher)
+    },
+    handlePageRedirect(page) {
+      this.$emit('redirect', page)
     }
   }
 }
