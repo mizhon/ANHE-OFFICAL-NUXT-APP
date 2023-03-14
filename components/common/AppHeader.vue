@@ -89,10 +89,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-::v-deep .el-button:hover {
-  background-color: none;
-}
-
 .app-header {
   position: fixed;
   // padding: 0 40px;
